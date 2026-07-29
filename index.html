@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DropTheWish — Win your Olive Young wishlist</title>
+  <meta name="description" content="Drop your Olive Young wishlist and tell us your story for a chance to win up to $100 in products." />
+  <meta name="theme-color" content="#fbfaf7" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DropTheWish — Win your wishlist" />
+  <meta property="og:description" content="Drop your Olive Young wishlist. Tell us your story. Win up to $100." />
+  <meta property="og:url" content="https://dropthewish.com/" />
+  <meta property="og:image" content="https://dropthewish.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DropTheWish — Win your wishlist" />
+  <meta name="twitter:description" content="Drop your Olive Young wishlist. Tell us your story. Win up to $100." />
+  <meta name="twitter:image" content="https://dropthewish.com/og-image.jpg" />
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --surface: rgba(255,255,255,.76);
+      --ink: #141414;
+      --muted: #6f6c66;
+      --line: rgba(20,20,20,.10);
+      --accent: #ff5b35;
+      --accent-2: #ff9a6c;
+      --accent-3: #ffd4be;
+      --green: #e9f7dd;
+      --shadow: 0 24px 80px rgba(38, 25, 14, .12);
+      --radius: 28px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 2%, rgba(255, 190, 154, .38), transparent 27%),
+        radial-gradient(circle at 92% 15%, rgba(255, 223, 146, .24), transparent 23%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .shell { width: min(calc(100% - 36px), var(--max)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(18px);
+      background: rgba(251, 250, 247, .76);
+      border-bottom: 1px solid rgba(20,20,20,.06);
+    }
+
+    .nav-inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 850;
+      letter-spacing: -.04em;
+      font-size: 20px;
+    }
+
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--ink);
+      color: #fff;
+      transform: rotate(-7deg);
+      font-size: 15px;
+      box-shadow: 0 8px 18px rgba(20,20,20,.18);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 26px; color: var(--muted); font-size: 14px; }
+    .nav-links a:hover { color: var(--ink); }
+
+    .btn {
+      border: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      min-height: 50px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 800;
+      letter-spacing: -.01em;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: #fff;
+      background: var(--ink);
+      box-shadow: 0 12px 28px rgba(20,20,20,.20);
+    }
+    .btn-primary:hover { box-shadow: 0 16px 36px rgba(20,20,20,.24); }
+
+    .hero {
+      padding: 72px 0 42px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap: 56px;
+      align-items: center;
+      min-height: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.65);
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .eyebrow b { color: var(--ink); }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(56px, 7.3vw, 104px);
+      line-height: .91;
+      letter-spacing: -.075em;
+      max-width: 760px;
+    }
+
+    .hero-accent {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-accent::after {
+      content: "";
+      position: absolute;
+      height: .12em;
+      left: 3%;
+      right: 0;
+      bottom: -.07em;
+      background: var(--accent-3);
+      border-radius: 999px;
+      transform: rotate(-1.5deg);
+      z-index: -1;
+    }
+
+    .hero-copy {
+      font-size: 20px;
+      line-height: 1.55;
+      color: var(--muted);
+      max-width: 590px;
+      margin: 30px 0 28px;
+      letter-spacing: -.02em;
+    }
+
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .microcopy { color: var(--muted); font-size: 13px; }
+
+    .trust-row {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: rgba(255,255,255,.68);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 13px;
+      color: #4f4d49;
+      font-size: 13px;
+    }
+
+    .wish-stack {
+      position: relative;
+      min-height: 570px;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(1px);
+      pointer-events: none;
+    }
+    .orb.one { width: 170px; height: 170px; background: #ffd6c2; top: 0; right: 18px; }
+    .orb.two { width: 110px; height: 110px; background: #f1ef9f; left: 8px; bottom: 62px; }
+
+    .stack-card {
+      position: absolute;
+      border: 1px solid rgba(20,20,20,.08);
+      background: rgba(255,255,255,.87);
+      backdrop-filter: blur(18px);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .stack-card.back {
+      width: 75%;
+      height: 410px;
+      top: 74px;
+      right: 0;
+      transform: rotate(7deg);
+      background: linear-gradient(150deg, #ffe6da, #fff7e8);
+    }
+
+    .stack-card.mid {
+      width: 78%;
+      height: 430px;
+      top: 58px;
+      left: 16px;
+      transform: rotate(-6deg);
+      background: linear-gradient(160deg, #eef7e4, #fff);
+    }
+
+    .stack-card.front {
+      width: 86%;
+      min-height: 470px;
+      top: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 24px;
+    }
+
+    .card-kicker { color: var(--muted); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .13em; }
+    .card-total { font-size: 46px; font-weight: 900; letter-spacing: -.06em; margin-top: 6px; }
+    .card-sub { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+
+    .product-list { display: grid; gap: 11px; }
+    .product {
+      display: grid;
+      grid-template-columns: 56px 1fr auto;
+      gap: 13px;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 11px;
+      background: rgba(255,255,255,.72);
+    }
+
+    .product-art {
+      width: 56px;
+      height: 56px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 11px;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .anua { background: #edf1dd; }
+    .torriden { background: #e0f4f4; }
+    .boj { background: #f7eee2; }
+
+    .product b { display: block; font-size: 14px; }
+    .product span { color: var(--muted); font-size: 12px; }
+    .price { font-weight: 800; font-size: 13px; }
+
+    .winner-note {
+      margin-top: 16px;
+      padding: 15px 16px;
+      border-radius: 18px;
+      background: var(--ink);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .winner-note strong { font-size: 14px; }
+    .winner-note span { color: rgba(255,255,255,.68); font-size: 12px; }
+
+    .section { padding: 110px 0; }
+    .section-head { max-width: 720px; margin-bottom: 42px; }
+    .section-kicker { color: var(--accent); font-weight: 850; font-size: 13px; text-transform: uppercase; letter-spacing: .12em; }
+    h2 {
+      margin: 10px 0 0;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: .98;
+      letter-spacing: -.06em;
+    }
+    .section-copy { color: var(--muted); font-size: 18px; line-height: 1.6; margin-top: 18px; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      padding: 26px;
+      min-height: 260px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.66);
+      position: relative;
+      overflow: hidden;
+    }
+    .step::after {
+      content: "";
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      position: absolute;
+      right: -34px;
+      bottom: -44px;
+      background: var(--accent-3);
+      opacity: .7;
+    }
+
+    .step-no { font-size: 12px; color: var(--muted); font-weight: 800; letter-spacing: .12em; }
+    .step h3 { font-size: 28px; letter-spacing: -.045em; margin: 34px 0 12px; }
+    .step p { color: var(--muted); line-height: 1.55; margin: 0; max-width: 280px; }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: .86fr 1.14fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .form-intro {
+      border-radius: 34px;
+      padding: 38px;
+      background:
+        radial-gradient(circle at 90% 8%, rgba(255,255,255,.22), transparent 28%),
+        var(--ink);
+      color: #fff;
+      min-height: 680px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .form-intro h2 { max-width: 520px; }
+    .form-intro p { color: rgba(255,255,255,.65); font-size: 17px; line-height: 1.6; }
+    .form-bullets { display: grid; gap: 13px; margin-top: 32px; }
+    .form-bullet {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: rgba(255,255,255,.78);
+      font-size: 14px;
+    }
+    .check {
+      width: 22px; height: 22px; border-radius: 50%;
+      display: grid; place-items: center;
+      background: rgba(255,255,255,.12);
+      flex: 0 0 auto;
+    }
+
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: rgba(255,255,255,.84);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .field { margin-bottom: 18px; }
+    label { display: block; font-size: 13px; font-weight: 800; margin-bottom: 8px; }
+    .required { color: var(--accent); }
+
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid rgba(20,20,20,.12);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 15px;
+      padding: 14px 15px;
+      outline: none;
+      transition: box-shadow .2s ease, border .2s ease;
+    }
+    textarea { min-height: 140px; resize: vertical; line-height: 1.5; }
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(255,91,53,.55);
+      box-shadow: 0 0 0 4px rgba(255,91,53,.10);
+    }
+
+    .hint { color: var(--muted); font-size: 12px; margin-top: 7px; line-height: 1.45; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    .submit {
+      width: 100%;
+      min-height: 56px;
+      border-radius: 17px;
+      margin-top: 4px;
+      font-size: 15px;
+    }
+
+    .consent { display: flex; gap: 9px; margin-top: 14px; color: var(--muted); font-size: 11px; line-height: 1.45; }
+    .consent input { width: 16px; height: 16px; margin-top: 1px; flex: 0 0 auto; }
+
+    .faq { display: grid; gap: 12px; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255,255,255,.72);
+      padding: 0 20px;
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      font-weight: 800;
+      padding: 21px 0;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; color: var(--muted); font-size: 22px; font-weight: 400; }
+    details[open] summary::after { content: "–"; }
+    details p { color: var(--muted); line-height: 1.6; margin: 0 0 22px; max-width: 860px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 42px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 24px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 60;
+      background: var(--ink);
+      color: #fff;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 800;
+      box-shadow: 0 16px 40px rgba(0,0,0,.25);
+      transition: .25s ease;
+    }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; padding-top: 48px; min-height: auto; }
+      .wish-stack { min-height: 530px; }
+      .steps { grid-template-columns: 1fr; }
+      .form-wrap { grid-template-columns: 1fr; }
+      .form-intro { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); }
+      .nav-inner { height: 64px; }
+      .nav-cta { min-height: 42px; padding: 0 16px; }
+      h1 { font-size: 58px; }
+      .hero-copy { font-size: 17px; }
+      .hero-actions .btn { width: 100%; }
+      .wish-stack { min-height: 440px; }
+      .stack-card.front { width: 94%; padding: 18px; min-height: 420px; }
+      .stack-card.mid, .stack-card.back { height: 365px; }
+      .card-total { font-size: 38px; }
+      .product { grid-template-columns: 48px 1fr auto; }
+      .product-art { width: 48px; height: 48px; }
+      .section { padding: 82px 0; }
+      .form-card, .form-intro { padding: 24px; border-radius: 26px; }
+      .form-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a href="#" class="brand" aria-label="DropTheWish home">
+        <span class="brand-mark">W</span>
+        <span>DropTheWish</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#drop" class="btn btn-primary nav-cta">Drop my wish</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow reveal"><b>Worldwide giveaway</b> · Up to $100</div>
+        <h1 class="reveal">Drop your wish.<br><span class="hero-accent">Win your wishlist.</span></h1>
+        <p class="hero-copy reveal">
+          Paste your Olive Young product links, tell us why they matter, and enter for a chance to have your wishlist sent straight to your door.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#drop" class="btn btn-primary">Drop my wish <span aria-hidden="true">↘</span></a>
+          <span class="microcopy">Free to enter · No purchase required</span>
+        </div>
+        <div class="trust-row reveal">
+          <span class="pill">🌎 Worldwide</span>
+          <span class="pill">🎁 Up to $100</span>
+          <span class="pill">✨ One thoughtful winner</span>
+          <span class="pill">🔒 Your email stays private</span>
+        </div>
+      </div>
+
+      <div class="wish-stack reveal" aria-label="Example wishlist">
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+        <div class="stack-card back"></div>
+        <div class="stack-card mid"></div>
+        <div class="stack-card front">
+          <div class="card-kicker">My Olive Young wishlist</div>
+          <div class="card-total">$94.70</div>
+          <div class="card-sub">Three products. One wish.</div>
+
+          <div class="product-list">
+            <div class="product">
+              <div class="product-art anua">ANUA</div>
+              <div><b>Heartleaf Toner</b><span>Calming skincare</span></div>
+              <div class="price">$24.00</div>
+            </div>
+            <div class="product">
+              <div class="product-art torriden">TOR<br>RIDEN</div>
+              <div><b>Dive-In Serum</b><span>Hydration boost</span></div>
+              <div class="price">$25.70</div>
+            </div>
+            <div class="product">
+              <div class="product-art boj">BEAUTY<br>OF JOSEON</div>
+              <div><b>Relief Sun</b><span>Daily sunscreen</span></div>
+              <div class="price">$45.00</div>
+            </div>
+          </div>
+
+          <div class="winner-note">
+            <div>
+              <strong>Your story could be next.</strong><br>
+              <span>Drop the links. Tell us why.</span>
+            </div>
+            <span aria-hidden="true">→</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-kicker">How it works</div>
+          <h2>Three steps.<br>One very good surprise.</h2>
+          <p class="section-copy">No account, checkout, or complicated points system. Just a wishlist and a real story.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step reveal">
+            <div class="step-no">STEP 01</div>
+            <h3>Choose your products</h3>
+            <p>Open Olive Young and choose up to three products you genuinely want.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-no">STEP 02</div>
+            <h3>Paste the links</h3>
+            <p>Add the product URLs so we can identify exactly what is on your wishlist.</p>
+          </article>
+          <article class="step reveal">
+            <div class="step-no">STEP 03</div>
+            <h3>Tell us your story</h3>
+            <p>Explain why this wishlist matters to you. Thoughtful, honest stories stand out.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="drop" class="section">
+      <div class="shell form-wrap">
+        <aside class="form-intro reveal">
+          <div>
+            <div class="section-kicker" style="color:#ff9a6c;">Drop your wish</div>
+            <h2>What would make your week?</h2>
+            <p>Give us the links and the story behind them. We will review entries and contact the selected winner by email.</p>
+
+            <div class="form-bullets">
+              <div class="form-bullet"><span class="check">✓</span><span>Up to three Olive Young product links</span></div>
+              <div class="form-bullet"><span class="check">✓</span><span>Total wishlist value should be $100 or less</span></div>
+              <div class="form-bullet"><span class="check">✓</span><span>Worldwide entries are welcome</span></div>
+            </div>
+          </div>
+          <p style="font-size:12px;margin:28px 0 0;">DropTheWish is an independent giveaway project and is not affiliated with Olive Young or the brands shown.</p>
+        </aside>
+
+        <form
+          class="form-card reveal"
+          name="wishlist-entry"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="/?submitted=true#drop"
+        >
+          <input type="hidden" name="form-name" value="wishlist-entry" />
+          <p hidden>
+            <label>Do not fill this out: <input name="bot-field" /></label>
+          </p>
+
+          <div class="field">
+            <label for="product_url_1">Olive Young product URL 1 <span class="required">*</span></label>
+            <input id="product_url_1" name="product_url_1" type="url" required placeholder="https://global.oliveyoung.com/..." />
+          </div>
+
+          <div class="field">
+            <label for="product_url_2">Product URL 2</label>
+            <input id="product_url_2" name="product_url_2" type="url" placeholder="Optional" />
+          </div>
+
+          <div class="field">
+            <label for="product_url_3">Product URL 3</label>
+            <input id="product_url_3" name="product_url_3" type="url" placeholder="Optional" />
+            <div class="hint">Please keep the combined value at or below $100 before shipping.</div>
+          </div>
+
+          <div class="field">
+            <label for="story">Why do you want this wishlist? <span class="required">*</span></label>
+            <textarea id="story" name="story" required minlength="30" maxlength="800" placeholder="Tell us the real story behind your wish..."></textarea>
+            <div class="hint"><span id="storyCount">0</span>/800 characters</div>
+          </div>
+
+          <div class="form-grid">
+            <div class="field">
+              <label for="email">Email <span class="required">*</span></label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com" />
+            </div>
+            <div class="field">
+              <label for="country">Country <span class="required">*</span></label>
+              <input id="country" name="country" type="text" required placeholder="e.g. United States" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="name">First name or nickname</label>
+            <input id="name" name="name" type="text" placeholder="How should we address you?" />
+          </div>
+
+          <button type="submit" class="btn btn-primary submit">Submit my wish</button>
+
+          <label class="consent">
+            <input type="checkbox" required name="consent" value="yes" />
+            <span>I confirm that I am eligible to enter and agree that DropTheWish may contact me about this entry. No purchase is required.</span>
+          </label>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="section-kicker">FAQ</div>
+          <h2>The useful details.</h2>
+        </div>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary>Who can enter?</summary>
+            <p>Adults who can legally participate in a promotional giveaway in their country may enter. Entries are currently accepted worldwide, subject to local laws and shipping availability.</p>
+          </details>
+          <details class="reveal">
+            <summary>What can I add to my wishlist?</summary>
+            <p>Add up to three product URLs from Olive Young. The combined product value should be no more than $100 before shipping, taxes, or duties.</p>
+          </details>
+          <details class="reveal">
+            <summary>How is the winner selected?</summary>
+            <p>Entries are reviewed based on authenticity, clarity, and the story behind the wishlist. This is not a points competition, and submitting more links does not improve your chances.</p>
+          </details>
+          <details class="reveal">
+            <summary>How will the winner be contacted?</summary>
+            <p>The selected entrant will be contacted using the email submitted in the form. Never send payment or banking information in response to a winner notification.</p>
+          </details>
+          <details class="reveal">
+            <summary>Is DropTheWish affiliated with Olive Young?</summary>
+            <p>No. DropTheWish is an independent project and is not sponsored, endorsed, or administered by Olive Young or any brand displayed on this page.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>© <span id="year"></span> DropTheWish · A Late Checkout project</div>
+      <div class="footer-links">
+        <a href="mailto:hello@dropthewish.com">Contact</a>
+        <a href="#faq">Rules</a>
+        <a href="#faq">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status">🎉 Your wish has been received.</div>
+
+  <script>
+    const story = document.getElementById('story');
+    const storyCount = document.getElementById('storyCount');
+    if (story && storyCount) {
+      story.addEventListener('input', () => storyCount.textContent = story.value.length);
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: .12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      const toast = document.getElementById('toast');
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 5000);
+      history.replaceState({}, '', window.location.pathname + '#drop');
+    }
+  </script>
+</body>
+</html>
