@@ -1,10 +1,16 @@
-DropTheWish deployment package
+DropTheWish V1
 
-Domain: https://dropthewish.com
-Contact: hello@dropthewish.com
-Company: Late Checkout
+UPLOAD THESE FILES TO THE ROOT OF YOUR GITHUB REPOSITORY:
+- index.html
+- favicon.svg
+- og-image.svg
 
-Deploy all files in this folder together to Netlify.
-Netlify Forms included:
-- dropthewish-entry-en
-- dropthewish-entry-jp
+Netlify will redeploy automatically after the GitHub commit.
+
+Netlify Forms:
+The form name is "wishlist-entry".
+After deployment, submit one test entry and check:
+Netlify > Forms > wishlist-entry
+
+Contact:
+hello@dropthewish.com

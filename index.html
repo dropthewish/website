@@ -1,187 +1,699 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Drop your Olive Young wish. One selected wishlist will receive up to US $100 in products." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DropTheWish — Win Your Olive Young Wishlist</title>
+  <meta name="description" content="Drop your Olive Young wishlist, tell us your story, and get a chance to win up to $100 in K-beauty products." />
+  <meta name="theme-color" content="#fffaf4" />
+  <meta property="og:title" content="DropTheWish — Win Your Wishlist" />
+  <meta property="og:description" content="Drop your Olive Young wishlist and get a chance to win up to $100 in K-beauty products." />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="DropTheWish — Drop your wish. Win your wishlist." />
-  <meta property="og:description" content="Drop your Olive Young wishlist, tell us the story behind it, and your wish could be next." />
-  <meta property="og:image" content="https://dropthewish.com/og-image.jpg" />
-  <meta property="og:url" content="https://dropthewish.com/" />
-  <meta property="og:site_name" content="DropTheWish" />
-  <meta name="twitter:title" content="DropTheWish — Drop your wish. Win your wishlist." />
-  <meta name="twitter:description" content="Drop your Olive Young wishlist and tell us why it matters." />
-  <meta name="twitter:image" content="https://dropthewish.com/og-image.jpg" />
-  <link rel="canonical" href="https://dropthewish.com/" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <meta property="og:url" content="https://dropthewish.com" />
+  <meta property="og:image" content="https://dropthewish.com/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="theme-color" content="#c7ff4a" />
-  <title>DropTheWish | Drop your wish. Win your wishlist.</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <style>
-    :root{--bg:#f4f5ef;--surface:#fff;--text:#111;--muted:#6d6d65;--line:#deded5;--accent:#c7ff4a;--accent2:#8bd700;--soft:#efffd7;--shadow:0 24px 80px rgba(17,17,17,.10);--xl:32px;--lg:22px;--md:14px}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,"Noto Sans JP",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}.container{width:min(1180px,calc(100% - 40px));margin:auto}
-    .page{display:none}.page.active{display:block}.nav{display:flex;justify-content:space-between;align-items:center;padding:24px 0}.logo{font-size:22px;font-weight:950;letter-spacing:-.05em}.nav-right{display:flex;align-items:center;gap:14px}.campaign-tag{color:var(--muted);font-size:13px}.lang-switch{display:flex;gap:4px;background:rgba(255,255,255,.65);border:1px solid var(--line);border-radius:999px;padding:4px}.lang-btn{border:0;background:transparent;border-radius:999px;padding:8px 13px;font-size:12px;font-weight:900;color:var(--muted)}.lang-btn.active{background:var(--text);color:#fff}.btn{border:0;border-radius:999px;padding:14px 22px;font-weight:900;transition:.2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--accent);color:var(--text)}.btn-primary:hover{background:var(--accent2)}.btn-secondary{border:1px solid var(--line);background:transparent}.btn-dark{background:var(--text);color:#fff}
-    .hero{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(420px,.96fr);gap:58px;align-items:center;padding:64px 0 104px}.eyebrow{display:inline-flex;gap:10px;align-items:center;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.7);padding:8px 13px;color:var(--muted);font-size:13px;font-weight:800}.dot{width:8px;height:8px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 5px rgba(139,215,0,.12)}h1{margin:24px 0 22px;font-size:clamp(54px,7vw,92px);line-height:.94;letter-spacing:-.072em}.jp h1{font-size:clamp(48px,6.2vw,82px);line-height:1.02;letter-spacing:-.055em}.highlight{position:relative;display:inline;z-index:1}.highlight:after{content:"";position:absolute;left:-3px;right:-3px;bottom:4px;height:24%;background:var(--accent);z-index:-1}.hero-copy{max-width:650px;color:var(--muted);font-size:20px}.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}.hero-points{display:flex;flex-wrap:wrap;gap:18px;margin-top:28px;color:var(--muted);font-size:14px}
-    .visual-wrap{display:grid;gap:14px}.cart-card{border:1px solid var(--line);border-radius:var(--xl);background:var(--surface);padding:18px;box-shadow:var(--shadow)}.cart-inner{border-radius:25px;background:linear-gradient(145deg,#edffd0,#f8ffe9 54%,#fff);padding:28px}.jp .cart-inner{background:linear-gradient(145deg,#fff0f1,#fff8ee 56%,#fff)}.cart-top,.cart-total{display:flex;justify-content:space-between;align-items:center}.cart-top{margin-bottom:28px}.cart-title{font-size:13px;font-weight:950;letter-spacing:.08em}.badge{background:var(--text);color:#fff;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900}.cart-list{display:grid;gap:12px}.cart-item{display:grid;grid-template-columns:58px 1fr auto;gap:14px;align-items:center;background:#fff;border-radius:18px;padding:13px}.icon{display:grid;place-items:center;width:58px;height:58px;border-radius:16px;background:#f4f4ee;font-size:27px}.pname{font-weight:900}.psub{color:var(--muted);font-size:13px}.price{font-weight:950}.cart-total{border-top:1px solid rgba(17,17,17,.12);margin-top:22px;padding-top:20px}.total-label{color:var(--muted);font-size:13px}.total-value{font-size:30px;font-weight:950;letter-spacing:-.04em}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.metric{border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.65);padding:14px}.metric span{display:block;color:var(--muted);font-size:11px}.metric strong{display:block;margin-top:4px;font-size:14px}
-    section{padding:92px 0}.label{color:var(--muted);font-size:13px;font-weight:950;letter-spacing:.12em;text-transform:uppercase}.section-title{margin:12px 0 0;max-width:790px;font-size:clamp(38px,5vw,62px);line-height:1;letter-spacing:-.055em}.jp .section-title{line-height:1.12;letter-spacing:-.045em}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:42px}.step{min-height:260px;border:1px solid var(--line);border-radius:var(--lg);background:rgba(255,255,255,.58);padding:26px}.num{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--accent);font-size:13px;font-weight:950}.jp .num{background:#ffd9df}.step h3{margin:50px 0 12px;font-size:25px;letter-spacing:-.03em}.step p{margin:0;color:var(--muted)}
-    .story-block{display:grid;grid-template-columns:.85fr 1.15fr;gap:28px;border-radius:var(--xl);background:var(--text);color:#fff;padding:46px}.jp .story-block{background:#3b3134}.story-block .label{color:rgba(255,255,255,.55)}.story-copy{max-width:430px;color:rgba(255,255,255,.68)}blockquote{margin:0;border-radius:24px;background:rgba(255,255,255,.08);padding:32px;font-size:clamp(26px,3vw,40px);font-weight:850;line-height:1.25;letter-spacing:-.035em}
-    .entry{display:grid;grid-template-columns:.8fr 1.2fr;gap:60px;align-items:start}.entry-note{position:sticky;top:30px}.entry-note p{max-width:440px;color:var(--muted);font-size:17px}.rules{display:grid;gap:10px;margin-top:28px;color:var(--muted);font-size:14px}.form{border:1px solid var(--line);border-radius:var(--xl);background:#fff;padding:30px;box-shadow:var(--shadow)}.field{margin-bottom:18px}.field label{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;font-size:14px;font-weight:850}.count{color:var(--muted);font-size:12px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:var(--md);background:#fbfbf8;padding:14px 15px;outline:none}input:focus,select:focus,textarea:focus{border-color:var(--accent2);box-shadow:0 0 0 4px rgba(139,215,0,.12)}textarea{min-height:155px;resize:vertical}.check{display:flex;gap:10px;align-items:flex-start;margin:20px 0;color:var(--muted);font-size:13px}.check input{width:auto;margin-top:3px}.submit{width:100%;border:0;border-radius:999px;background:var(--accent);padding:16px 20px;font-weight:950}.jp .submit{background:#ffd4db}.message{min-height:22px;margin:12px 0 0;text-align:center;font-size:13px;color:var(--muted)}.message.error{color:#bd2222}
-    .info-card{border:1px solid var(--line);border-radius:var(--xl);background:#fff;padding:38px}.info-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}.info-card h3{font-size:26px;margin:0 0 10px}.info-card p{margin:0;color:var(--muted)}.final{display:flex;justify-content:space-between;align-items:center;gap:30px;border-radius:var(--xl);background:var(--accent);padding:38px}.jp .final{background:#ffe0e5}.final h2{margin:0;max-width:680px;font-size:clamp(32px,4vw,54px);line-height:1;letter-spacing:-.05em}footer{display:flex;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px}.footer-links{display:flex;gap:18px}
-    .success{display:none;min-height:100vh;padding:24px 0 70px}.success.active{display:block}.success-box{max-width:760px;margin:70px auto;border:1px solid var(--line);border-radius:var(--xl);background:#fff;padding:48px;box-shadow:var(--shadow)}.success h2{font-size:clamp(42px,6vw,72px);line-height:1;margin:18px 0}.success p{color:var(--muted);font-size:18px}.preview{margin:28px 0;background:#f6f6f1;border-radius:20px;padding:22px}.preview strong{display:block;margin-bottom:8px;font-size:12px;color:var(--muted);letter-spacing:.08em}.success-actions{display:flex;gap:10px;flex-wrap:wrap}
+    :root {
+      --bg: #fffaf4;
+      --paper: rgba(255,255,255,.72);
+      --text: #151515;
+      --muted: #69645f;
+      --line: rgba(21,21,21,.10);
+      --accent: #ff5a36;
+      --accent-2: #ff8f6a;
+      --accent-soft: #ffe9df;
+      --dark: #111111;
+      --success: #137a4c;
+      --shadow: 0 24px 80px rgba(61, 38, 24, .12);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --max: 1180px;
+    }
 
-    .hidden{display:none!important}.bot-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}.submit[disabled]{opacity:.6;cursor:wait;transform:none}.message.success{color:#3c7900}.legal-note{margin-top:14px;color:var(--muted);font-size:12px;text-align:center}.legal-note button{border:0;background:transparent;padding:0;text-decoration:underline;color:inherit}.modal{position:fixed;inset:0;z-index:1000;display:none;place-items:center;background:rgba(17,17,17,.62);padding:20px}.modal.active{display:grid}.modal-card{position:relative;width:min(760px,100%);max-height:min(82vh,850px);overflow:auto;border-radius:26px;background:#fff;padding:34px;box-shadow:var(--shadow)}.modal-card h2{margin:0 0 16px;font-size:38px;letter-spacing:-.04em}.modal-card h3{margin:28px 0 8px}.modal-card p,.modal-card li{color:var(--muted)}.modal-close{position:sticky;float:right;top:0;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;font-weight:900}.status-pill{display:inline-flex;align-items:center;gap:8px;margin-top:16px;border-radius:999px;background:#fff;padding:8px 12px;border:1px solid var(--line);font-size:13px;font-weight:800}.status-pill:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--accent2)}
-    @media(max-width:900px){.hero,.story-block,.entry,.info-grid{grid-template-columns:1fr}.hero{gap:44px}.steps{grid-template-columns:1fr}.step{min-height:auto}.entry-note{position:static}.final{align-items:flex-start;flex-direction:column}}
-    @media(max-width:620px){.container{width:min(100% - 24px,1180px)}.campaign-tag{display:none}.nav-right{gap:8px}.hero{padding-top:36px}.hero-actions{flex-direction:column}.hero-actions .btn{width:100%}.metrics{grid-template-columns:1fr}.story-block,.form,.final,.info-card{padding:24px}section{padding:66px 0}footer{flex-direction:column}}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 8%, rgba(255, 197, 153, .42), transparent 30%),
+        radial-gradient(circle at 88% 2%, rgba(255, 108, 76, .18), transparent 26%),
+        linear-gradient(180deg, #fffaf4 0%, #fff 56%, #fff8f3 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; }
+    button, input, textarea, select { font: inherit; }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .035;
+      z-index: 30;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    .container { width: min(calc(100% - 40px), var(--max)); margin: 0 auto; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(255, 250, 244, .72);
+      border-bottom: 1px solid rgba(21,21,21,.06);
+    }
+
+    .nav-inner {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      text-decoration: none;
+      font-size: 1.05rem;
+    }
+
+    .brand-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--accent), #ff7d58);
+      box-shadow: 0 8px 24px rgba(255, 90, 54, .24);
+      transform: rotate(-5deg);
+    }
+
+    .nav-links { display: flex; align-items: center; gap: 28px; }
+    .nav-links a { text-decoration: none; color: var(--muted); font-size: .92rem; font-weight: 700; }
+    .nav-links a:hover { color: var(--text); }
+
+    .button {
+      border: 0;
+      border-radius: 999px;
+      min-height: 50px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      text-decoration: none;
+      font-weight: 850;
+      cursor: pointer;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button-dark { color: #fff; background: var(--dark); box-shadow: 0 14px 32px rgba(17,17,17,.16); }
+    .button-accent { color: #fff; background: linear-gradient(135deg, var(--accent), #ff7952); box-shadow: 0 15px 34px rgba(255, 90, 54, .26); }
+    .button-ghost { background: rgba(255,255,255,.65); border: 1px solid var(--line); }
+
+    .hero {
+      padding: 86px 0 76px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      gap: 70px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      border: 1px solid rgba(255,90,54,.18);
+      background: rgba(255,255,255,.62);
+      color: #aa3c22;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: .82rem;
+      font-weight: 850;
+      box-shadow: 0 8px 26px rgba(80,40,20,.05);
+    }
+
+    .pulse {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(255,90,54,.13);
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 7vw, 6.85rem);
+      line-height: .91;
+      letter-spacing: -.075em;
+      margin: 26px 0 24px;
+      max-width: 780px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ff4f29 0%, #ff7c55 46%, #ff3f78 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      font-size: clamp(1.05rem, 1.5vw, 1.28rem);
+      line-height: 1.65;
+      color: var(--muted);
+      margin: 0 0 30px;
+    }
+
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .hero-note { margin-top: 16px; color: var(--muted); font-size: .86rem; }
+
+    .trust-row {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .trust-item {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.6);
+      border-radius: 16px;
+      padding: 13px 12px;
+      text-align: center;
+      font-size: .8rem;
+      font-weight: 800;
+      color: #4c4844;
+    }
+
+    .showcase {
+      position: relative;
+      min-height: 560px;
+      display: grid;
+      place-items: center;
+    }
+
+    .orb {
+      position: absolute;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #fff 0%, #ffd4c2 25%, #ff9977 58%, #ff5a36 100%);
+      filter: blur(.1px);
+      box-shadow: inset 0 0 50px rgba(255,255,255,.38), 0 40px 100px rgba(255,90,54,.2);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    .stack {
+      position: relative;
+      width: min(100%, 500px);
+      height: 520px;
+    }
+
+    .product-card {
+      position: absolute;
+      width: 245px;
+      border-radius: 28px;
+      padding: 18px;
+      background: rgba(255,255,255,.84);
+      border: 1px solid rgba(255,255,255,.78);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      transition: transform .3s ease;
+    }
+
+    .product-card:hover { transform: translateY(-7px) rotate(0deg) !important; }
+    .product-card.one { left: 8px; top: 76px; transform: rotate(-8deg); z-index: 2; }
+    .product-card.two { right: 2px; top: 10px; transform: rotate(7deg); z-index: 3; }
+    .product-card.three { right: 46px; bottom: 12px; transform: rotate(-3deg); z-index: 4; }
+
+    .product-visual {
+      height: 170px;
+      border-radius: 20px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .tone-green { background: linear-gradient(145deg, #dce8cc, #f4f8ed); }
+    .tone-blue { background: linear-gradient(145deg, #d9eef4, #f5fbfd); }
+    .tone-pink { background: linear-gradient(145deg, #f7ddd9, #fff7f5); }
+
+    .bottle {
+      width: 76px;
+      height: 126px;
+      border-radius: 16px 16px 22px 22px;
+      background: linear-gradient(90deg, rgba(255,255,255,.96), rgba(240,240,240,.8));
+      border: 1px solid rgba(0,0,0,.07);
+      box-shadow: 0 20px 30px rgba(0,0,0,.12);
+      position: relative;
+    }
+
+    .bottle::before {
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 20px;
+      border-radius: 6px 6px 2px 2px;
+      background: #efefef;
+      top: -17px;
+      left: 22px;
+      border: 1px solid rgba(0,0,0,.06);
+    }
+
+    .bottle::after {
+      content: "";
+      position: absolute;
+      inset: 46px 12px auto;
+      height: 35px;
+      background: rgba(255,255,255,.8);
+      border: 1px solid rgba(0,0,0,.08);
+      border-radius: 6px;
+    }
+
+    .product-brand { font-size: .72rem; letter-spacing: .14em; font-weight: 900; color: #716c67; }
+    .product-name { font-weight: 900; font-size: 1rem; margin: 5px 0 6px; letter-spacing: -.02em; }
+    .product-price { color: var(--accent); font-weight: 900; }
+
+    .mini-badge {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      border-radius: 999px;
+      padding: 7px 10px;
+      font-size: .68rem;
+      font-weight: 900;
+      background: rgba(255,255,255,.84);
+    }
+
+    .section { padding: 92px 0; }
+    .section-head { max-width: 760px; margin-bottom: 42px; }
+    .kicker { color: var(--accent); font-weight: 900; letter-spacing: .12em; font-size: .75rem; text-transform: uppercase; }
+    h2 { font-size: clamp(2.3rem, 4.8vw, 4.8rem); line-height: .98; letter-spacing: -.06em; margin: 12px 0 18px; }
+    .section-copy { color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      padding: 30px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 16px 55px rgba(48,32,22,.06);
+    }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-weight: 900;
+      margin-bottom: 44px;
+    }
+
+    .step h3 { font-size: 1.45rem; margin: 0 0 10px; letter-spacing: -.035em; }
+    .step p { color: var(--muted); line-height: 1.65; margin: 0; }
+
+    .form-wrap {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.07);
+      background: #fff;
+    }
+
+    .form-aside {
+      background: linear-gradient(160deg, #151515 0%, #242424 100%);
+      color: #fff;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-aside::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), #ff9e7d);
+      right: -110px;
+      bottom: -100px;
+      filter: blur(2px);
+      opacity: .9;
+    }
+
+    .form-aside h3 { font-size: clamp(2.2rem, 4vw, 4rem); line-height: .96; letter-spacing: -.06em; margin: 15px 0 20px; }
+    .form-aside p { color: rgba(255,255,255,.68); line-height: 1.7; max-width: 390px; }
+
+    .aside-list { margin-top: 44px; display: grid; gap: 16px; position: relative; z-index: 2; }
+    .aside-item { display: flex; gap: 12px; align-items: flex-start; font-weight: 750; }
+    .check { width: 24px; height: 24px; border-radius: 50%; background: rgba(255,255,255,.12); display: grid; place-items: center; flex: 0 0 auto; }
+
+    form { padding: 48px; }
+    .field { margin-bottom: 20px; }
+    .field-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: block; font-size: .85rem; font-weight: 850; margin-bottom: 8px; }
+    .required { color: var(--accent); }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid #dedbd7;
+      border-radius: 15px;
+      padding: 15px 16px;
+      background: #fffdfb;
+      color: var(--text);
+      outline: none;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+    textarea { min-height: 160px; resize: vertical; line-height: 1.55; }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 4px rgba(255,90,54,.1); }
+    .helper { color: #8a8580; font-size: .78rem; margin-top: 7px; line-height: 1.5; }
+    .submit-row { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-top: 26px; }
+    .legal-note { color: #89847f; font-size: .75rem; line-height: 1.5; max-width: 300px; }
+
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.72);
+      padding: 0 20px;
+    }
+    summary { cursor: pointer; list-style: none; font-weight: 850; padding: 21px 34px 21px 0; position: relative; }
+    summary::-webkit-details-marker { display: none; }
+    summary::after { content: "+"; position: absolute; right: 0; top: 17px; font-size: 1.5rem; color: var(--accent); }
+    details[open] summary::after { content: "–"; }
+    details p { margin: 0; padding: 0 0 20px; color: var(--muted); line-height: 1.65; }
+
+    footer { padding: 34px 0 48px; border-top: 1px solid var(--line); }
+    .footer-grid { display: flex; justify-content: space-between; align-items: center; gap: 18px; color: var(--muted); font-size: .84rem; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { text-decoration: none; }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 48px;
+    }
+    .success.show { display: block; }
+    .success-icon { width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 24px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; font-size: 2rem; }
+
+    @keyframes float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-14px) scale(1.02); } }
+
+    @media (max-width: 980px) {
+      .hero-grid, .form-wrap { grid-template-columns: 1fr; }
+      .hero { padding-top: 58px; }
+      .showcase { min-height: 490px; margin-top: 20px; }
+      .steps { grid-template-columns: 1fr; }
+      .step-number { margin-bottom: 24px; }
+      .form-aside { min-height: 430px; }
+    }
+
+    @media (max-width: 700px) {
+      .container { width: min(calc(100% - 24px), var(--max)); }
+      .nav-inner { height: 66px; }
+      .nav-links a:not(.button) { display: none; }
+      .nav-links { gap: 0; }
+      .nav-links .button { min-height: 42px; padding: 0 16px; font-size: .84rem; }
+      h1 { font-size: clamp(3.25rem, 16vw, 5.1rem); }
+      .hero-copy { font-size: 1rem; }
+      .hero-actions { align-items: stretch; }
+      .hero-actions .button { width: 100%; }
+      .trust-row { grid-template-columns: 1fr 1fr; }
+      .showcase { min-height: 430px; transform: scale(.87); margin-inline: -36px; }
+      .stack { height: 440px; }
+      .product-card { width: 205px; padding: 14px; }
+      .product-visual { height: 140px; }
+      .product-card.one { left: 6px; top: 80px; }
+      .product-card.two { right: 8px; }
+      .product-card.three { right: 54px; bottom: -4px; }
+      .section { padding: 70px 0; }
+      .field-grid, .faq-grid { grid-template-columns: 1fr; }
+      form, .form-aside { padding: 30px 22px; }
+      .submit-row { flex-direction: column; align-items: stretch; }
+      .submit-row .button { width: 100%; }
+      .legal-note { max-width: none; }
+      .footer-grid { flex-direction: column; align-items: flex-start; }
+    }
   </style>
 </head>
 <body>
-  <div id="site">
-    <header class="container"><nav class="nav"><a class="logo" href="#" data-home>DropTheWish</a><div class="nav-right"><span class="campaign-tag" id="campaignTag">Challenge #001</span><div class="lang-switch" aria-label="Language"><button class="lang-btn active" data-lang="en" type="button" aria-label="English">ENG</button><button class="lang-btn" data-lang="jp" type="button" aria-label="日本語">JPN</button></div></div></nav></header>
+  <div class="noise"></div>
 
-    <main id="enPage" class="page active en" data-market="global">
-      <section class="container hero"><div><div class="eyebrow"><span class="dot"></span>Open worldwide · One cart selected</div><h1>Drop your wish.<br><span class="highlight">Win your wishlist.</span></h1><p class="hero-copy">Build the Olive Young wishlist you really want and tell us why it matters. One memorable wish will receive up to $100 in products.</p><div class="hero-actions"><button class="btn btn-primary" data-scroll="enForm">Drop My Wish</button><a class="btn btn-secondary" href="#enHow">How it works</a></div><div class="hero-points"><span>✓ No purchase required</span><span>✓ Up to $100</span><span>✓ One story selected</span></div></div>
-        <div class="visual-wrap"><div class="cart-card"><div class="cart-inner"><div class="cart-top"><span class="cart-title">YOUR DREAM CART</span><span class="badge">UP TO $100</span></div><div class="cart-list"><div class="cart-item"><div class="icon">🧴</div><div><div class="pname">Barrier Cream</div><div class="psub">Daily hydration pick</div></div><div class="price">$28</div></div><div class="cart-item"><div class="icon">✨</div><div><div class="pname">Glow Serum</div><div class="psub">Trending K-beauty</div></div><div class="price">$24</div></div><div class="cart-item"><div class="icon">💄</div><div><div class="pname">Juicy Lip Tint</div><div class="psub">Your perfect shade</div></div><div class="price">$16</div></div></div><div class="cart-total"><span class="total-label">Cart total</span><span class="total-value">$68</span></div></div></div><div class="metrics"><div class="metric"><span>PRODUCT SUPPORT</span><strong>Up to $100</strong></div><div class="metric"><span>ENTRY LIMIT</span><strong>Once per person</strong></div><div class="metric"><span>SELECTION</span><strong>Story review</strong></div></div></div></section>
-      <section id="enHow" class="container"><div class="label">How it works</div><h2 class="section-title">Three simple steps. One wish becomes real.</h2><div class="steps"><article class="step"><span class="num">01</span><h3>Build your cart</h3><p>Add the Olive Young products you genuinely want. Keep the product total at or below $100.</p></article><article class="step"><span class="num">02</span><h3>Tell us the story</h3><p>Explain why you chose them. Honest, funny or emotional — make the story yours.</p></article><article class="step"><span class="num">03</span><h3>Get selected</h3><p>We choose one memorable entry and purchase up to $100 of the submitted products.</p></article></div></section>
-      <section class="container"><div class="story-block"><div><div class="label">One question</div><h2 class="section-title">Why does this wish matter to you?</h2><p class="story-copy">There is no perfect answer. We are looking for a real story we will remember.</p></div><blockquote>“After a difficult year, this is the first cart I built only for myself.”</blockquote></div></section>
-      <section id="enForm" class="container entry"><div class="entry-note"><div class="label">Enter now</div><h2 class="section-title">Your wish could be next.</h2><p>Drop your Olive Young wishlist and tell us the story behind it. The selected participant will be contacted by email.</p><div class="rules"><span>Product value: up to US $100</span><span>International shipping and local taxes: recipient pays</span><span>One entry per person</span></div></div>
-        <form class="form" name="dropthewish-entry-en" method="POST" action="/" data-netlify="true" netlify-honeypot="company" data-form="en" novalidate>
-          <input type="hidden" name="form-name" value="dropthewish-entry-en">
-          <input type="hidden" name="campaign" value="olive-young-001">
-          <input type="hidden" name="language" value="en">
-          <p class="bot-field"><label>Leave this empty: <input name="company" autocomplete="off"></label></p><div class="field"><label>Public name or nickname</label><input name="name" placeholder="Mia or skincare_mia" required></div><div class="field"><label>Email</label><input name="email" type="email" placeholder="you@example.com" required></div><div class="field"><label>Country of residence</label><select name="country" required><option value="">Select your country</option><option>United States</option><option>Canada</option><option>United Kingdom</option><option>Australia</option><option>Singapore</option><option>Philippines</option><option>Other</option></select></div><div class="field"><label>Olive Young cart or wishlist link</label><input name="cart" type="url" placeholder="https://..." required></div><div class="field"><label><span>Why does this wish matter to you?</span><span class="count">0 / 500</span></label><textarea name="story" maxlength="500" placeholder="Tell us the story behind your cart..." required></textarea></div><label class="check"><input name="agree" type="checkbox" value="yes" required><span>I agree to the campaign rules and privacy notice. DropTheWish may use my email to manage this entry and contact me if selected. My email will not be displayed publicly.</span></label><button class="submit" type="submit">Drop My Wish</button><p class="message" aria-live="polite"></p><p class="legal-note"><button type="button" data-modal="rulesModal">Rules</button> · <button type="button" data-modal="privacyModal">Privacy</button></p></form>
-      </section>
-      <section class="container"><div class="info-card"><div class="info-grid"><div><div class="label">Important</div><h3>Products are covered. Shipping is not.</h3><p>DropTheWish covers eligible products up to $100. The selected participant pays international shipping, customs duties and local taxes, if any.</p></div><div><div class="label">Before shipping</div><h3>You approve the final cost first.</h3><p>We confirm stock, destination and shipping cost before purchasing. We only proceed after the selected participant agrees.</p></div></div></div></section>
-      <section class="container"><div class="final"><h2>Drop the wishlist you would build for yourself.</h2><button class="btn btn-dark" data-scroll="enForm">Drop My Wish</button></div></section>
-    </main>
-
-    <main id="jpPage" class="page jp" data-market="japan">
-      <section class="container hero"><div><div class="eyebrow"><span class="dot"></span>韓国コスメ プレゼントキャンペーン</div><h1>その願いを送って。<br><span class="highlight">ウィッシュリストが叶うかも。</span></h1><p class="hero-copy">オリーブヤングで気になるアイテムを選び、その理由を教えてください。選ばれた1名様に、最大100ドル分の商品をプレゼントします。</p><div class="hero-actions"><button class="btn btn-primary" data-scroll="jpForm">願いを送る</button><a class="btn btn-secondary" href="#jpHow">参加方法を見る</a></div><div class="hero-points"><span>✓ 購入不要</span><span>✓ 最大100ドル相当</span><span>✓ 1名様を選定</span></div></div>
-        <div class="visual-wrap"><div class="cart-card"><div class="cart-inner"><div class="cart-top"><span class="cart-title">MY K-BEAUTY WISHLIST</span><span class="badge">MAX $100</span></div><div class="cart-list"><div class="cart-item"><div class="icon">🫧</div><div><div class="pname">保湿クリーム</div><div class="psub">毎日使いたいアイテム</div></div><div class="price">$28</div></div><div class="cart-item"><div class="icon">🌿</div><div><div class="pname">鎮静セラム</div><div class="psub">気になる韓国コスメ</div></div><div class="price">$24</div></div><div class="cart-item"><div class="icon">💗</div><div><div class="pname">ツヤリップ</div><div class="psub">試してみたいカラー</div></div><div class="price">$16</div></div></div><div class="cart-total"><span class="total-label">選んだアイテム</span><span class="total-value">$68</span></div></div></div><div class="metrics"><div class="metric"><span>プレゼント</span><strong>最大100ドル</strong></div><div class="metric"><span>応募回数</span><strong>お一人様1回</strong></div><div class="metric"><span>選定方法</span><strong>内容を確認</strong></div></div></div></section>
-      <section id="jpHow" class="container"><div class="label">参加方法</div><h2 class="section-title">欲しいものを選んで、その願いの理由を聞かせてください。</h2><div class="steps"><article class="step"><span class="num">01</span><h3>アイテムを選ぶ</h3><p>オリーブヤングで本当に欲しい韓国コスメを選びます。商品合計は100ドル以内にしてください。</p></article><article class="step"><span class="num">02</span><h3>選んだ理由を書く</h3><p>なぜ使ってみたいのか、どんなきっかけがあったのかを自由に教えてください。</p></article><article class="step"><span class="num">03</span><h3>選ばれたらお届け</h3><p>心に残った応募の中から1名様を選び、最大100ドル分の商品を購入してお届けします。</p></article></div></section>
-      <section class="container"><div class="story-block"><div><div class="label">あなたのストーリー</div><h2 class="section-title">このアイテムを選んだ理由は？</h2><p class="story-copy">上手な文章でなくても大丈夫です。あなたらしい素直な理由を聞かせてください。</p></div><blockquote>「忙しい毎日の中で、久しぶりに自分のために選んだスキンケアです。」</blockquote></div></section>
-      <section id="jpForm" class="container entry"><div class="entry-note"><div class="label">応募する</div><h2 class="section-title">次に叶うのは、あなたの願いかもしれません。</h2><p>欲しいアイテムと選んだ理由を送ってください。選ばれた方にはメールでご連絡します。</p><div class="rules"><span>商品金額：最大100米ドル相当</span><span>国際送料・関税等：当選者負担</span><span>お一人様1回まで</span></div></div>
-        <form class="form" name="dropthewish-entry-jp" method="POST" action="/" data-netlify="true" netlify-honeypot="company" data-form="jp" novalidate>
-          <input type="hidden" name="form-name" value="dropthewish-entry-jp">
-          <input type="hidden" name="campaign" value="olive-young-001">
-          <input type="hidden" name="language" value="jp">
-          <p class="bot-field"><label>Leave this empty: <input name="company" autocomplete="off"></label></p><div class="field"><label>公開する名前・ニックネーム</label><input name="name" placeholder="例：Yuki / yuki_beauty" required></div><div class="field"><label>メールアドレス</label><input name="email" type="email" placeholder="you@example.com" required></div><div class="field"><label>お住まいの地域</label><select name="country" required><option value="">選択してください</option><option>日本</option><option>その他</option></select></div><div class="field"><label>オリーブヤングのカート・商品リンク</label><input name="cart" type="url" placeholder="https://..." required></div><div class="field"><label><span>選んだ理由を教えてください</span><span class="count">0 / 500</span></label><textarea name="story" maxlength="500" placeholder="このアイテムを使ってみたい理由や、選んだきっかけを書いてください..." required></textarea></div><label class="check"><input name="agree" type="checkbox" value="yes" required><span>応募規約とプライバシー通知に同意します。DropTheWishは応募管理および選出時の連絡にメールアドレスを使用します。メールアドレスは公開されません。</span></label><button class="submit" type="submit">願いを送る</button><p class="message" aria-live="polite"></p><p class="legal-note"><button type="button" data-modal="rulesModal">Rules</button> · <button type="button" data-modal="privacyModal">Privacy</button></p></form>
-      </section>
-      <section class="container"><div class="info-card"><div class="info-grid"><div><div class="label">ご確認ください</div><h3>商品代金はDropTheWishが負担します。</h3><p>対象商品の代金は最大100ドルまでDropTheWishが負担します。国際送料、関税、消費税などは受取人のご負担となります。</p></div><div><div class="label">発送前の確認</div><h3>送料を確認してから進めます。</h3><p>在庫と配送先を確認し、最終送料をご案内します。ご了承いただいた場合のみ購入・発送します。</p></div></div></div></section>
-      <section class="container"><div class="final"><h2>あなたが今、本当に欲しい韓国コスメを教えてください。</h2><button class="btn btn-dark" data-scroll="jpForm">願いを送る</button></div></section>
-    </main>
-
-    <footer class="container"><span>© 2026 DropTheWish · A Late Checkout project.</span><div class="footer-links"><a href="#" data-modal="rulesModal">Rules</a><a href="#" data-modal="privacyModal">Privacy</a><a id="contactLink" href="mailto:hello@dropthewish.com">Contact</a></div></footer>
-  </div>
-
-
-  <section class="modal" id="rulesModal" role="dialog" aria-modal="true" aria-labelledby="rulesTitle">
-    <div class="modal-card"><button class="modal-close" type="button" data-close-modal>Close</button>
-      <h2 id="rulesTitle">Campaign Rules / 応募規約</h2>
-      <h3>1. Eligibility / 応募資格</h3><p>No purchase is required. Entrants must be at least 18 years old and able to receive an international shipment in their country or region. One entry per person. / 購入は不要です。応募者は18歳以上で、居住国・地域で国際配送を受け取れる方に限ります。応募はお一人様1回です。</p>
-      <h3>2. Prize / プレゼント内容</h3><p>DropTheWish will purchase eligible Olive Young products from one selected entry, up to a total product value of US $100. Cash alternatives are not available. Product availability and destination restrictions may require substitutions or removal. / 選ばれた1名様の対象商品を、商品代金合計100米ドルまでDropTheWishが購入します。現金への変更はできません。在庫や配送制限により、商品の変更・除外をお願いする場合があります。</p>
-      <h3>3. Shipping and taxes / 送料・税金</h3><p>The selected participant is responsible for international shipping, customs duties, import taxes and local fees. DropTheWish will confirm the estimated amount before purchase and proceed only after approval. / 国際送料、関税、輸入税、その他の現地費用は当選者の負担です。購入前に概算費用をご案内し、同意を得た場合のみ手続きを進めます。</p>
-      <h3>4. Selection / 選考</h3><p>This is a story-based campaign, not a random drawing. DropTheWish will review eligible submissions and select one memorable entry at its discretion. The selected participant will be contacted by email and must reply within 7 days. / 本キャンペーンは抽選ではなく、応募内容をもとに選考します。DropTheWishが有効な応募を確認し、印象に残った1名を選びます。選ばれた方にはメールで連絡し、7日以内の返信が必要です。</p>
-      <h3>5. Public content / 公開内容</h3><p>DropTheWish may display the entrant’s nickname, country or region, submitted product link and story for campaign reporting and promotion. Email addresses will remain private. / キャンペーンの報告・紹介のため、ニックネーム、国・地域、商品リンク、応募内容を公開する場合があります。メールアドレスは公開しません。</p>
-      <h3>6. Changes / 変更・中止</h3><p>DropTheWish may modify, pause or cancel the campaign when fraud, technical issues, shipping restrictions or other circumstances make fair operation impractical. / 不正、技術的問題、配送制限などにより公正な運営が難しい場合、内容の変更・一時停止・中止を行うことがあります。</p>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="DropTheWish home">
+        <span class="brand-mark">✦</span>
+        <span>DropTheWish</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a class="button button-dark" href="#wish-form">Drop my wish</a>
+      </nav>
     </div>
-  </section>
-  <section class="modal" id="privacyModal" role="dialog" aria-modal="true" aria-labelledby="privacyTitle">
-    <div class="modal-card"><button class="modal-close" type="button" data-close-modal>Close</button>
-      <h2 id="privacyTitle">Privacy Notice / プライバシー通知</h2>
-      <h3>Information collected / 収集する情報</h3><p>Nickname, email address, country or region, product or cart link, submitted story, language and submission time. / ニックネーム、メールアドレス、国・地域、商品・カートリンク、応募内容、言語、送信日時。</p>
-      <h3>How it is used / 利用目的</h3><p>To process the entry, prevent duplicate or fraudulent submissions, contact the selected participant, arrange purchase and shipping, and report campaign results. / 応募受付、重複・不正防止、選出者への連絡、購入・発送手続き、キャンペーン結果の報告に使用します。</p>
-      <h3>Storage and service providers / 保存・外部サービス</h3><p>Submission data may be processed and stored by the website hosting and form service provider used by DropTheWish. Access is limited to people operating the campaign. / 応募データは、DropTheWishが利用するウェブホスティングおよびフォームサービス事業者により処理・保存される場合があります。アクセスはキャンペーン運営者に限定されます。</p>
-      <h3>Retention / 保存期間</h3><p>Entry data will be retained only as long as reasonably needed to operate the campaign, resolve disputes and meet applicable obligations, then deleted or anonymized. / 応募データは、キャンペーン運営、問い合わせ対応、必要な義務の履行に合理的に必要な期間のみ保存し、その後削除または匿名化します。</p>
-      <h3>Your request / お問い合わせ</h3><p>You may request access, correction or deletion of your personal information by contacting DropTheWish at the email address shown in the footer. / フッターに記載のメールアドレスから、個人情報の確認・訂正・削除を依頼できます。</p>
-    </div>
-  </section>
+  </header>
 
-  <section id="success" class="success"><div class="container"><div class="success-box"><div class="label" id="successKicker">ENTRY COMPLETE</div><h2 id="successTitle">Your wish has been dropped.</h2><p id="successLead"></p><div class="preview"><strong id="previewLabel">YOUR STORY</strong><span id="previewStory"></span></div><div class="success-actions"><button class="btn btn-primary" id="shareBtn">Share</button><button class="btn btn-secondary" id="backBtn">Back to my entry</button></div></div></div></section>
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Olive Young wishlist giveaway</div>
+          <h1>Drop your wish.<br><span class="gradient-text">Win your wishlist.</span></h1>
+          <p class="hero-copy">Paste your favorite Olive Young products, tell us why they matter to you, and get a chance to win up to <strong>$100</strong> in K-beauty picks.</p>
+          <div class="hero-actions">
+            <a class="button button-accent" href="#wish-form">Drop my wish <span>→</span></a>
+            <a class="button button-ghost" href="#how">See how it works</a>
+          </div>
+          <div class="hero-note">No purchase required. One thoughtful entry is better than ten random ones.</div>
+          <div class="trust-row" aria-label="Giveaway highlights">
+            <div class="trust-item">Free to join</div>
+            <div class="trust-item">Worldwide</div>
+            <div class="trust-item">Up to $100</div>
+            <div class="trust-item">Story-based</div>
+          </div>
+        </div>
+
+        <div class="showcase" aria-label="Example Olive Young wishlist products">
+          <div class="orb"></div>
+          <div class="stack">
+            <article class="product-card one">
+              <div class="product-visual tone-green"><span class="mini-badge">Trending</span><div class="bottle"></div></div>
+              <div class="product-brand">ANUA</div>
+              <div class="product-name">Heartleaf Toner</div>
+              <div class="product-price">$21.00</div>
+            </article>
+            <article class="product-card two">
+              <div class="product-visual tone-blue"><span class="mini-badge">Hydration</span><div class="bottle"></div></div>
+              <div class="product-brand">TORRIDEN</div>
+              <div class="product-name">Dive-In Serum</div>
+              <div class="product-price">$24.00</div>
+            </article>
+            <article class="product-card three">
+              <div class="product-visual tone-pink"><span class="mini-badge">Editor pick</span><div class="bottle"></div></div>
+              <div class="product-brand">BEAUTY OF JOSEON</div>
+              <div class="product-name">Glow Serum</div>
+              <div class="product-price">$19.00</div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">How it works</div>
+          <h2>Three steps.<br>One very good wish.</h2>
+          <p class="section-copy">We keep the process deliberately simple. Choose what you genuinely want, tell us the story behind it, and we will select an entry that feels real.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">01</div>
+            <h3>Choose your picks</h3>
+            <p>Find up to three products on Olive Young Global that you would genuinely love to receive.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">02</div>
+            <h3>Tell us why</h3>
+            <p>Share the story behind your wishlist. Honest, specific, and human beats polished.</p>
+          </article>
+          <article class="step">
+            <div class="step-number">03</div>
+            <h3>Watch your inbox</h3>
+            <p>We will contact selected entrants by email and arrange shipping for the winning wishlist.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="wish-form">
+      <div class="container">
+        <div class="form-wrap">
+          <aside class="form-aside">
+            <div class="kicker">Your entry</div>
+            <h3>Make us remember your wish.</h3>
+            <p>This is not a fastest-finger contest. The product links matter, but the reason behind them matters more.</p>
+            <div class="aside-list">
+              <div class="aside-item"><span class="check">✓</span><span>Use Olive Young Global product links.</span></div>
+              <div class="aside-item"><span class="check">✓</span><span>Add up to three products, with a combined value of up to $100.</span></div>
+              <div class="aside-item"><span class="check">✓</span><span>Write in English, Japanese, or Korean.</span></div>
+            </div>
+          </aside>
+
+          <div id="form-panel">
+            <form name="wishlist-entry" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?submitted=true#wish-form">
+              <input type="hidden" name="form-name" value="wishlist-entry" />
+              <p hidden><label>Do not fill this out: <input name="bot-field" /></label></p>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="name">Name <span class="required">*</span></label>
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required />
+                </div>
+                <div class="field">
+                  <label for="email">Email <span class="required">*</span></label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required />
+                </div>
+              </div>
+
+              <div class="field-grid">
+                <div class="field">
+                  <label for="country">Country <span class="required">*</span></label>
+                  <input id="country" name="country" type="text" autocomplete="country-name" placeholder="e.g. Japan" required />
+                </div>
+                <div class="field">
+                  <label for="language">Preferred language</label>
+                  <select id="language" name="preferred_language">
+                    <option>English</option>
+                    <option>Japanese</option>
+                    <option>Korean</option>
+                    <option>Other</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="url1">Olive Young product URL #1 <span class="required">*</span></label>
+                <input id="url1" name="product_url_1" type="url" placeholder="https://global.oliveyoung.com/..." required />
+              </div>
+              <div class="field-grid">
+                <div class="field">
+                  <label for="url2">Product URL #2</label>
+                  <input id="url2" name="product_url_2" type="url" placeholder="Optional" />
+                </div>
+                <div class="field">
+                  <label for="url3">Product URL #3</label>
+                  <input id="url3" name="product_url_3" type="url" placeholder="Optional" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="story">Why do you want this wishlist? <span class="required">*</span></label>
+                <textarea id="story" name="story" minlength="80" maxlength="1200" placeholder="Tell us the real story behind your picks..." required></textarea>
+                <div class="helper">Aim for 80–1,200 characters. Honest and specific is best.</div>
+              </div>
+
+              <div class="field">
+                <label><input type="checkbox" name="consent" value="yes" required style="width:auto; margin-right:8px;" /> I agree to the giveaway rules and privacy notice. <span class="required">*</span></label>
+              </div>
+
+              <div class="submit-row">
+                <div class="legal-note">By submitting, you confirm that the information is accurate and that DropTheWish may contact you about this entry.</div>
+                <button class="button button-accent" type="submit">Submit my wish <span>→</span></button>
+              </div>
+            </form>
+          </div>
+
+          <div class="success" id="success-panel" aria-live="polite">
+            <div class="success-icon">✦</div>
+            <h3 style="font-size:2rem; margin:0 0 10px;">Your wish has landed.</h3>
+            <p style="color:var(--muted); line-height:1.7;">Thanks for sharing it with us. We will contact selected entrants by email.</p>
+            <a class="button button-dark" href="/" style="margin-top:16px;">Back to home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">FAQ</div>
+          <h2>The small print,<br>without the headache.</h2>
+        </div>
+        <div class="faq-grid">
+          <details>
+            <summary>Who can enter?</summary>
+            <p>Anyone in a country where Olive Young Global can reasonably ship may enter, subject to the final giveaway rules.</p>
+          </details>
+          <details>
+            <summary>How is the winner selected?</summary>
+            <p>Entries are reviewed based on authenticity, clarity, and the story behind the wishlist. It is not random unless the published rules say otherwise.</p>
+          </details>
+          <details>
+            <summary>Can I submit more than one product?</summary>
+            <p>Yes. You may submit up to three product links, provided the final selected wishlist stays within the stated prize limit.</p>
+          </details>
+          <details>
+            <summary>Do I need to buy anything?</summary>
+            <p>No purchase is required to submit an entry.</p>
+          </details>
+          <details>
+            <summary>How will I know if I am selected?</summary>
+            <p>We will contact selected entrants using the email address provided in the form.</p>
+          </details>
+          <details>
+            <summary>Is DropTheWish affiliated with Olive Young?</summary>
+            <p>No. DropTheWish is an independent project and is not sponsored by, endorsed by, or affiliated with Olive Young.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>© 2026 DropTheWish by Late Checkout.</div>
+      <div class="footer-links">
+        <a href="mailto:hello@dropthewish.com">Contact</a>
+        <a href="#faq">Rules</a>
+        <a href="#faq">Privacy</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </div>
+  </footer>
 
   <script>
-    /* OWNER SETTINGS */
-    const SETTINGS = {
-      contactEmail: 'hello@dropthewish.com',
-      campaignOpen: true
-    };
-
-    let currentLang = 'en';
-    let lastForm = null;
-    const copy = {
-      en: {tag:'Challenge #001', title:n=>`${n}, your wish has been dropped.`, lead:'Your wishlist and story have been received. Good luck — we’ll contact the selected participant by email.', preview:'YOUR STORY', share:'Share my entry', back:'Back to my entry', required:'Please complete all required fields.', agree:'Please agree to the campaign rules and privacy notice.', sending:'Sending your entry…', failed:'We could not send your entry. Please check your connection and try again.', closed:'This campaign is currently closed.', shareText:'I dropped my Olive Young wish on DropTheWish.'},
-      jp: {tag:'プレゼントキャンペーン #001', title:n=>`${n}さん、応募が完了しました。`, lead:'アイテムと応募内容を受け付けました。選ばれた方にはメールでご連絡します。', preview:'あなたの応募内容', share:'応募をシェアする', back:'入力内容に戻る', required:'必須項目をすべて入力してください。', agree:'応募規約とプライバシー通知への同意が必要です。', sending:'応募内容を送信しています…', failed:'送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。', closed:'現在、このキャンペーンの応募受付は終了しています。', shareText:'DropTheWishでオリーブヤングの願いを送りました。'}
-    };
-
-    function setLang(lang){
-      currentLang=lang;
-      document.documentElement.lang=lang==='jp'?'ja':'en';
-      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-      document.getElementById(lang==='jp'?'jpPage':'enPage').classList.add('active');
-      document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
-      document.getElementById('campaignTag').textContent=copy[lang].tag;
-      window.scrollTo({top:0,behavior:'smooth'});
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      document.getElementById('form-panel').style.display = 'none';
+      document.getElementById('success-panel').classList.add('show');
     }
-
-    function encodeFormData(fd){ return new URLSearchParams(fd).toString(); }
-
-    function showSuccess(form, lang, fd){
-      lastForm=form;
-      currentLang=lang;
-      document.getElementById('site').style.display='none';
-      document.getElementById('success').classList.add('active');
-      document.getElementById('successKicker').textContent=lang==='jp'?'応募完了':'ENTRY COMPLETE';
-      document.getElementById('successTitle').textContent=copy[lang].title(fd.get('name'));
-      document.getElementById('successLead').textContent=copy[lang].lead;
-      document.getElementById('previewLabel').textContent=copy[lang].preview;
-      document.getElementById('previewStory').textContent=fd.get('story');
-      document.getElementById('shareBtn').textContent=copy[lang].share;
-      document.getElementById('backBtn').textContent=copy[lang].back;
-      window.scrollTo({top:0,behavior:'smooth'});
-    }
-
-    document.getElementById('contactLink').href=`mailto:${SETTINGS.contactEmail}`;
-    document.querySelectorAll('.lang-btn').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
-    document.querySelectorAll('[data-home]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})}));
-    document.querySelectorAll('[data-scroll]').forEach(b=>b.addEventListener('click',()=>document.getElementById(b.dataset.scroll).scrollIntoView({behavior:'smooth',block:'start'})));
-    document.querySelectorAll('textarea[name="story"]').forEach(t=>t.addEventListener('input',()=>t.closest('.field').querySelector('.count').textContent=`${t.value.length} / 500`));
-
-    document.querySelectorAll('[data-modal]').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();document.getElementById(el.dataset.modal).classList.add('active');document.body.style.overflow='hidden'}));
-    document.querySelectorAll('[data-close-modal]').forEach(el=>el.addEventListener('click',()=>{el.closest('.modal').classList.remove('active');document.body.style.overflow=''}));
-    document.querySelectorAll('.modal').forEach(modal=>modal.addEventListener('click',e=>{if(e.target===modal){modal.classList.remove('active');document.body.style.overflow=''}}));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){document.querySelectorAll('.modal.active').forEach(m=>m.classList.remove('active'));document.body.style.overflow=''}});
-
-    document.querySelectorAll('form[data-form]').forEach(form=>form.addEventListener('submit',async e=>{
-      e.preventDefault();
-      const lang=form.dataset.form;
-      const msg=form.querySelector('.message');
-      const submit=form.querySelector('.submit');
-      const fd=new FormData(form);
-      msg.className='message';
-      if(!SETTINGS.campaignOpen){msg.textContent=copy[lang].closed;msg.classList.add('error');return}
-      if(!form.checkValidity()||!fd.get('name')||!fd.get('email')||!fd.get('country')||!fd.get('cart')||!fd.get('story')){msg.textContent=copy[lang].required;msg.classList.add('error');form.reportValidity();return}
-      if(!fd.get('agree')){msg.textContent=copy[lang].agree;msg.classList.add('error');return}
-      submit.disabled=true;msg.textContent=copy[lang].sending;
-      try{
-        const response=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:encodeFormData(fd)});
-        if(!response.ok) throw new Error('Submission failed');
-        showSuccess(form,lang,fd);
-        form.reset();
-        form.querySelector('.count').textContent='0 / 500';
-      }catch(err){
-        msg.textContent=copy[lang].failed;msg.classList.add('error');
-      }finally{submit.disabled=false}
-    }));
-
-    document.getElementById('backBtn').addEventListener('click',()=>{
-      document.getElementById('success').classList.remove('active');
-      document.getElementById('site').style.display='block';
-      setTimeout(()=>document.getElementById(currentLang==='jp'?'jpForm':'enForm').scrollIntoView({behavior:'smooth'}),50)
-    });
-    document.getElementById('shareBtn').addEventListener('click',async()=>{
-      const d={title:'DropTheWish — Drop your wish.',text:copy[currentLang].shareText,url:location.href};
-      try{if(navigator.share)await navigator.share(d);else{await navigator.clipboard.writeText(`${d.text} ${d.url}`);alert(currentLang==='jp'?'リンクをコピーしました。':'Link copied.')}}catch(e){}
-    });
   </script>
 </body>
 </html>
