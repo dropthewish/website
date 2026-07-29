@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DropTheWish — Win up to $100 from your Olive Young wishlist</title>
+  <title>DropTheWish — Your wishlist, delivered</title>
   <meta name="description" content="Build your Olive Young wishlist, tell us why it matters, and enter for a chance to receive up to $100 in products." />
   <meta name="theme-color" content="#fff8f2" />
 
@@ -849,6 +849,165 @@
       50%{transform:translateX(-50%) translateY(-8px)}
     }
 
+
+    .round-dot{
+      width:9px;
+      height:9px;
+      border-radius:50%;
+      background:var(--orange);
+      box-shadow:0 0 0 5px rgba(255,89,54,.10);
+      flex:0 0 auto;
+    }
+
+    .proof-strip{
+      margin-top:18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding:15px 17px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:rgba(255,255,255,.78);
+    }
+
+    .proof-strip strong{
+      display:block;
+      font-size:14px;
+    }
+
+    .proof-strip span{
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    .product-art{
+      isolation:isolate;
+    }
+
+    .bottle{
+      position:relative;
+      width:31px;
+      height:53px;
+      border-radius:6px 6px 10px 10px;
+      border:1px solid rgba(17,17,17,.12);
+      box-shadow:0 9px 18px rgba(17,17,17,.12);
+      background:linear-gradient(90deg,#fff,#f2f2f2 55%,#fff);
+    }
+
+    .bottle::before{
+      content:"";
+      position:absolute;
+      left:7px;
+      right:7px;
+      top:-8px;
+      height:9px;
+      border-radius:4px 4px 2px 2px;
+      background:#111;
+    }
+
+    .bottle::after{
+      content:attr(data-brand);
+      position:absolute;
+      left:-18px;
+      right:-18px;
+      bottom:13px;
+      text-align:center;
+      color:#111;
+      font-size:6px;
+      font-weight:900;
+      letter-spacing:.03em;
+    }
+
+    .bottle.green{
+      background:linear-gradient(90deg,#f8fff5,#cfe7c9 58%,#f9fff7);
+      border-color:rgba(54,111,60,.18);
+    }
+
+    .bottle.green::before{background:#24583b}
+
+    .bottle.serum{
+      background:linear-gradient(90deg,#e4fbfd,#8fdce7 57%,#e5fbfd);
+      border-color:rgba(52,145,163,.18);
+    }
+
+    .bottle.serum::before{background:#74c5d1}
+
+    .tube{
+      position:relative;
+      width:27px;
+      height:54px;
+      border-radius:4px 4px 9px 9px;
+      background:linear-gradient(90deg,#fff,#f2ebe2 58%,#fff);
+      border:1px solid rgba(17,17,17,.09);
+      box-shadow:0 9px 18px rgba(17,17,17,.10);
+    }
+
+    .tube::before{
+      content:"";
+      position:absolute;
+      left:3px;
+      right:3px;
+      bottom:-5px;
+      height:6px;
+      border-radius:2px;
+      background:#ddd0c2;
+    }
+
+    .tube::after{
+      content:"BOJ";
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:17px;
+      text-align:center;
+      color:#111;
+      font-size:7px;
+      font-weight:900;
+    }
+
+    .brand-strip{
+      margin-top:18px;
+      display:grid;
+      grid-template-columns:210px repeat(5,1fr);
+      border:1px solid var(--line);
+      border-radius:22px;
+      background:#fff;
+      overflow:hidden;
+    }
+
+    .brand-intro,
+    .brand-item{
+      min-height:78px;
+      padding:17px;
+      border-right:1px solid var(--line);
+    }
+
+    .brand-intro strong{
+      display:block;
+      color:var(--orange);
+      font-size:12px;
+      letter-spacing:.11em;
+    }
+
+    .brand-intro span{
+      display:block;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.4;
+      margin-top:5px;
+    }
+
+    .brand-item{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:13px;
+      font-weight:900;
+    }
+
+    .brand-item:last-child{border-right:0}
+
     @media(max-width:900px){
       .nav-links a:not(.nav-cta){display:none}
       .hero{
@@ -858,6 +1017,9 @@
       }
       .wishlist-stage{min-height:590px}
       .steps,.form-section{grid-template-columns:1fr}
+      .brand-strip{grid-template-columns:1fr 1fr}
+      .brand-intro{grid-column:1/-1}
+      .brand-item{border-top:1px solid var(--line)}
       .form-intro{min-height:auto}
     }
 
@@ -890,6 +1052,8 @@
       }
       .section{padding:82px 0}
       .story-band,.form-grid{grid-template-columns:1fr}
+      .brand-strip{grid-template-columns:1fr}
+      .brand-intro,.brand-item{grid-column:auto;border-right:0;border-bottom:1px solid var(--line)}
       .form-card,.form-intro{padding:24px;border-radius:26px}
     }
   </style>
@@ -914,16 +1078,15 @@
   <main>
     <section class="shell hero">
       <div>
-        <div class="eyebrow reveal"><strong>Launch giveaway</strong> · Worldwide entry</div>
+        <div class="eyebrow reveal"><span class="round-dot"></span><strong>Round #1 now live</strong> · Worldwide entry</div>
 
         <h1 class="reveal">
-          Win the products<br>
-          you’ve been<br>
-          <span class="hero-accent">waiting for.</span>
+          Your wishlist.<br>
+          <span class="hero-accent">Delivered.</span>
         </h1>
 
         <p class="hero-copy reveal">
-          Build an Olive Young wishlist worth up to $100, tell us why it matters, and enter for a chance to receive the products on your list.
+          Build an Olive Young wishlist worth up to $100, tell us why it matters, and enter for a chance to receive every eligible item on your list.
         </p>
 
         <div class="hero-actions reveal">
@@ -936,6 +1099,13 @@
           <span class="chip">🎁 Up to $100</span>
           <span class="chip">✨ One thoughtful entry</span>
           <span class="chip">🔒 Email kept private</span>
+        </div>
+        <div class="proof-strip reveal">
+          <div>
+            <strong>First giveaway now live.</strong>
+            <span>Winner photos will appear after Round #1.</span>
+          </div>
+          <span aria-hidden="true">→</span>
         </div>
       </div>
 
@@ -954,7 +1124,7 @@
 
           <div class="products">
             <article class="product">
-              <div class="product-art anua">ANUA</div>
+              <div class="product-art anua"><div class="bottle green" data-brand="ANUA"></div></div>
               <div class="product-meta">
                 <strong>Heartleaf Toner</strong>
                 <span>Calming skincare</span>
@@ -963,7 +1133,7 @@
             </article>
 
             <article class="product">
-              <div class="product-art torriden">TORRIDEN</div>
+              <div class="product-art torriden"><div class="bottle serum" data-brand="TORRIDEN"></div></div>
               <div class="product-meta">
                 <strong>Dive-In Serum</strong>
                 <span>Hydration boost</span>
@@ -972,7 +1142,7 @@
             </article>
 
             <article class="product">
-              <div class="product-art boj">BEAUTY OF JOSEON</div>
+              <div class="product-art boj"><div class="tube"></div></div>
               <div class="product-meta">
                 <strong>Relief Sun</strong>
                 <span>Daily sunscreen</span>
@@ -1038,6 +1208,18 @@
             “I just graduated and want to build a simple skincare routine before starting my first job.”
             <small>EXAMPLE STORY</small>
           </div>
+        </div>
+
+        <div class="brand-strip reveal">
+          <div class="brand-intro">
+            <strong>WISHLIST IDEAS</strong>
+            <span>Popular names to explore before you enter.</span>
+          </div>
+          <div class="brand-item">ANUA</div>
+          <div class="brand-item">ROUND LAB</div>
+          <div class="brand-item">SKIN1004</div>
+          <div class="brand-item">BEAUTY OF JOSEON</div>
+          <div class="brand-item">TORRIDEN</div>
         </div>
       </div>
     </section>
