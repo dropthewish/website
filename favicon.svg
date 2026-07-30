@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DropTheWish｜欲しかった韓国コスメを、あなたへ。</title>
+  <meta name="description" content="欲しいオリーブヤング商品と、その理由を教えてください。選ばれた方へ最大100ドル相当の商品をお届けする、応募無料のキャンペーンです。">
+  <meta name="theme-color" content="#f8f4ee">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="DropTheWish｜欲しかった韓国コスメを、あなたへ。">
+  <meta property="og:description" content="応募無料・購入不要。あなたが選んだオリーブヤング商品と、その理由を教えてください。">
+  <meta property="og:image" content="../og-image.jpg">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --paper:#f8f4ee;
+      --surface:#fffdf9;
+      --ink:#302b27;
+      --muted:#766f68;
+      --line:#ded6cd;
+      --coral:#d97863;
+      --coral-dark:#b85d4b;
+      --peach:#f1d8cb;
+      --sage:#dfe6dc;
+      --brown:#6c5143;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 9% 5%, rgba(241,216,203,.65), transparent 28%),
+        radial-gradient(circle at 94% 21%, rgba(223,230,220,.7), transparent 24%),
+        var(--paper);
+      font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      line-height:1.9;
+      letter-spacing:.025em;
+    }
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{cursor:pointer}
+    .shell{width:min(calc(100% - 40px),var(--max));margin:auto}
+    .nav{
+      position:sticky;top:0;z-index:40;
+      background:rgba(248,244,238,.88);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(108,81,67,.1)
+    }
+    .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+    .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.03em}
+    .brand-mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:var(--brown);color:#fff;font-size:14px}
+    .nav-right{display:flex;align-items:center;gap:20px;font-size:13px}
+    .nav-right>a:not(.lang){color:var(--muted)}
+    .lang{border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:rgba(255,253,249,.76)}
+    .hero{padding:94px 0 76px}
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:70px;align-items:center}
+    .kicker{font-size:13px;color:var(--coral-dark);font-weight:700;letter-spacing:.15em;margin-bottom:20px}
+    h1,h2,h3{margin-top:0}
+    h1{
+      margin-bottom:27px;
+      font-family:"Noto Serif JP",serif;
+      font-size:clamp(38px,5.6vw,70px);
+      line-height:1.42;
+      letter-spacing:-.045em;
+      font-weight:700;
+    }
+    .hero-copy{font-size:16px;color:var(--muted);max-width:610px;margin-bottom:30px}
+    .hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px}
+    .btn{
+      min-height:54px;padding:0 25px;border-radius:8px;border:1px solid transparent;
+      display:inline-flex;align-items:center;justify-content:center;font-weight:700;transition:.2s
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--coral);color:#fff;box-shadow:0 12px 28px rgba(184,93,75,.2)}
+    .btn-secondary{background:rgba(255,253,249,.65);border-color:var(--line);color:var(--brown)}
+    .hero-note{font-size:12px;color:var(--muted);margin-top:16px}
+    .process-card{
+      background:rgba(255,253,249,.88);border:1px solid var(--line);border-radius:18px;
+      padding:30px;box-shadow:0 18px 50px rgba(82,59,46,.08)
+    }
+    .process-label{display:flex;align-items:center;justify-content:space-between;padding-bottom:18px;border-bottom:1px solid var(--line)}
+    .live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:var(--coral-dark)}
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--coral)}
+    .process-list{margin-top:8px}
+    .process-item{display:grid;grid-template-columns:38px 1fr;gap:14px;padding:19px 0;border-bottom:1px solid rgba(222,214,205,.75)}
+    .process-item:last-child{border-bottom:0}
+    .process-no{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--paper);border:1px solid var(--line);font-size:12px;font-weight:700}
+    .process-item strong{display:block;font-size:14px}
+    .process-item span{display:block;font-size:12px;color:var(--muted);margin-top:3px}
+    .trust-strip{padding:0 0 88px}
+    .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);background:rgba(255,253,249,.7);border-radius:14px;overflow:hidden}
+    .trust-item{padding:22px;text-align:center;border-right:1px solid var(--line);font-size:13px;font-weight:600}
+    .trust-item:last-child{border-right:0}
+    section{padding:92px 0}
+    .section-soft{background:rgba(255,253,249,.62);border-top:1px solid rgba(108,81,67,.08);border-bottom:1px solid rgba(108,81,67,.08)}
+    .section-head{max-width:760px;margin-bottom:48px}
+    .section-head.center{text-align:center;margin-left:auto;margin-right:auto}
+    .section-head .small{font-size:12px;letter-spacing:.16em;color:var(--coral-dark);font-weight:700}
+    h2{font-family:"Noto Serif JP",serif;font-size:clamp(30px,4.2vw,50px);line-height:1.55;letter-spacing:-.035em;margin-bottom:18px}
+    .lead{color:var(--muted);font-size:15px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .about-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:34px}
+    .about-card h3{font-size:18px;margin-bottom:14px}
+    .about-card p{margin:0;color:var(--muted);font-size:14px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px}
+    .step-no{font-family:"Noto Serif JP",serif;font-size:31px;color:var(--coral);margin-bottom:24px}
+    .step h3{font-size:17px;margin-bottom:10px}
+    .step p{font-size:13px;color:var(--muted);margin:0}
+    .stories{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .story{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:28px}
+    .story:after{content:"";position:absolute;left:34px;bottom:-9px;width:16px;height:16px;background:var(--surface);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transform:rotate(45deg)}
+    .story-meta{font-size:11px;color:var(--coral-dark);font-weight:700;margin-bottom:13px}
+    .story p{font-family:"Noto Serif JP",serif;font-size:15px;line-height:2;margin:0}
+    .faq-wrap{max-width:850px;margin:auto}
+    details{border-top:1px solid var(--line);padding:0}
+    details:last-child{border-bottom:1px solid var(--line)}
+    summary{list-style:none;padding:23px 4px;cursor:pointer;font-weight:600;display:flex;justify-content:space-between;gap:20px}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"＋";color:var(--coral-dark);font-size:20px;font-weight:400}
+    details[open] summary:after{content:"−"}
+    details p{margin:0;padding:0 4px 24px;color:var(--muted);font-size:13px}
+    .form-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:42px;align-items:start}
+    .form-aside{position:sticky;top:110px}
+    .form-aside ul{padding:0;margin:26px 0 0;list-style:none}
+    .form-aside li{padding:13px 0;border-bottom:1px solid var(--line);font-size:13px;color:var(--muted)}
+    form{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:30px}
+    .field{margin-bottom:20px}
+    label{display:block;font-size:13px;font-weight:700;margin-bottom:8px}
+    .hint{font-size:11px;color:var(--muted);font-weight:400;margin-left:6px}
+    input,textarea,select{
+      width:100%;border:1px solid var(--line);background:#fff;border-radius:8px;padding:14px 15px;color:var(--ink);outline:none
+    }
+    input:focus,textarea:focus,select:focus{border-color:var(--coral);box-shadow:0 0 0 3px rgba(217,120,99,.1)}
+    textarea{resize:vertical;min-height:130px;line-height:1.75}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .consent{display:flex;align-items:flex-start;gap:10px;font-size:11px;color:var(--muted);margin:18px 0}
+    .consent input{width:auto;margin-top:6px}
+    .submit{width:100%;border:0}
+    .independent{font-size:10px;color:var(--muted);text-align:center;margin-top:14px}
+    footer{padding:38px 0 48px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,120px);opacity:0;transition:.3s;background:var(--brown);color:#fff;padding:13px 19px;border-radius:8px;z-index:80;font-size:13px}
+    .toast.show{transform:translate(-50%,0);opacity:1}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s,transform .65s}
+    .reveal.visible{opacity:1;transform:none}
+    @media(max-width:860px){
+      .nav-right>a:not(.lang){display:none}
+      .hero{padding-top:65px}
+      .hero-grid,.about-grid,.form-grid{grid-template-columns:1fr}
+      .hero-grid{gap:40px}
+      .trust-grid{grid-template-columns:1fr 1fr}
+      .trust-item:nth-child(2){border-right:0}
+      .trust-item:nth-child(-n+2){border-bottom:1px solid var(--line)}
+      .steps,.stories{grid-template-columns:1fr}
+      .form-aside{position:static}
+    }
+    @media(max-width:560px){
+      .shell{width:min(calc(100% - 28px),var(--max))}
+      .nav-inner{min-height:64px}
+      .hero{padding:54px 0 54px}
+      h1{font-size:38px;line-height:1.5}
+      section{padding:70px 0}
+      .trust-item{padding:16px 10px;font-size:11px}
+      .form-row{grid-template-columns:1fr}
+      form{padding:22px}
+      .process-card{padding:22px}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="./">
+        <span class="brand-mark">W</span>
+        <span>DropTheWish</span>
+      </a>
+      <div class="nav-right">
+        <a href="#about">キャンペーンについて</a>
+        <a href="#faq">よくあるご質問</a>
+        <a href="../" class="lang">EN&nbsp;&nbsp;|&nbsp;&nbsp;<strong>日本語</strong></a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero">
+      <div class="shell hero-grid">
+        <div class="reveal">
+          <div class="kicker">OLIVE YOUNG WISHLIST CAMPAIGN</div>
+          <h1>欲しかった<br>韓国コスメを、<br>あなたへ。</h1>
+          <p class="hero-copy">
+            あなたが選んだオリーブヤング商品と、<br>
+            その商品を欲しいと思った理由を教えてください。<br>
+            応募内容を確認し、選ばれた方へ商品をお届けします。
+          </p>
+          <div class="hero-actions">
+            <a href="#entry" class="btn btn-primary">無料で応募する</a>
+            <a href="#how" class="btn btn-secondary">応募の流れを見る</a>
+          </div>
+          <p class="hero-note">応募無料・購入不要・クレジットカード入力不要</p>
+        </div>
+
+        <aside class="process-card reveal" aria-label="応募から発送までの流れ">
+          <div class="process-label">
+            <strong>第1回 応募受付中</strong>
+            <span class="live"><span class="dot"></span>OPEN</span>
+          </div>
+          <div class="process-list">
+            <div class="process-item">
+              <div class="process-no">01</div>
+              <div><strong>応募内容を送信</strong><span>商品URLと、選んだ理由を入力します。</span></div>
+            </div>
+            <div class="process-item">
+              <div class="process-no">02</div>
+              <div><strong>運営チームが確認</strong><span>すべての応募内容を一つずつ確認します。</span></div>
+            </div>
+            <div class="process-item">
+              <div class="process-no">03</div>
+              <div><strong>選ばれた方へメール</strong><span>登録メールアドレスへ直接ご連絡します。</span></div>
+            </div>
+            <div class="process-item">
+              <div class="process-no">04</div>
+              <div><strong>商品を購入・発送</strong><span>内容を確認後、最大100ドル相当の商品を手配します。</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <div class="trust-strip">
+      <div class="shell trust-grid">
+        <div class="trust-item">✓ 応募は無料</div>
+        <div class="trust-item">✓ 商品購入は不要</div>
+        <div class="trust-item">✓ 個人情報は非公開</div>
+        <div class="trust-item">✓ 海外からも応募可能</div>
+      </div>
+    </div>
+
+    <section id="about" class="section-soft">
+      <div class="shell">
+        <div class="section-head center reveal">
+          <div class="small">ABOUT THE CAMPAIGN</div>
+          <h2>韓国で人気の商品を、<br>もっと身近に。</h2>
+          <p class="lead">DropTheWishは、欲しかった韓国コスメとの出会いを応援する独立したプレゼントプロジェクトです。</p>
+        </div>
+        <div class="about-grid">
+          <article class="about-card reveal">
+            <h3>DropTheWishとは？</h3>
+            <p>欲しいオリーブヤング商品と、その理由を応募していただき、内容を確認したうえで選ばれた方へ商品をお届けするキャンペーンです。商品の数や文章の上手さを競う企画ではありません。</p>
+          </article>
+          <article class="about-card reveal">
+            <h3>安心して応募いただくために</h3>
+            <p>応募に購入や支払いは必要ありません。クレジットカード情報も入力しません。メールアドレスは応募連絡のみに使用し、公開することはありません。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="small">HOW TO APPLY</div>
+          <h2>応募は、3つのステップ。</h2>
+          <p class="lead">会員登録は必要ありません。入力の目安は約2〜3分です。</p>
+        </div>
+        <div class="steps">
+          <article class="step reveal"><div class="step-no">一</div><h3>商品を選ぶ</h3><p>オリーブヤングで、本当に欲しい商品を選び、商品ページのURLをコピーします。</p></article>
+          <article class="step reveal"><div class="step-no">二</div><h3>理由を書く</h3><p>知ったきっかけや、試してみたいと思った理由を、ご自身の言葉で教えてください。</p></article>
+          <article class="step reveal"><div class="step-no">三</div><h3>応募を送信する</h3><p>連絡先と内容を確認して送信します。選ばれた方にのみメールでご連絡します。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-soft">
+      <div class="shell">
+        <div class="section-head center reveal">
+          <div class="small">STORY EXAMPLES</div>
+          <h2>こんな理由で応募できます。</h2>
+          <p class="lead">特別な文章を書く必要はありません。具体的で正直な理由を大切にしています。</p>
+        </div>
+        <div class="stories">
+          <article class="story reveal"><div class="story-meta">20代・女性</div><p>「SNSで見かけてからずっと気になっていました。日本では見つけられず、送料も高くて購入を迷っていた商品です。」</p></article>
+          <article class="story reveal"><div class="story-meta">30代・女性</div><p>「新しい仕事が始まるので、忙しい朝でも続けられるシンプルなスキンケアを揃えたいです。」</p></article>
+          <article class="story reveal"><div class="story-meta">40代・女性</div><p>「韓国コスメが好きな母と、いつも新商品について話しています。今回は母と一緒に使えるものを選びました。」</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="shell faq-wrap">
+        <div class="section-head center reveal">
+          <div class="small">FAQ</div>
+          <h2>応募前に確認したいこと。</h2>
+        </div>
+        <div class="reveal">
+          <details open><summary>どんなキャンペーンですか？</summary><p>欲しいオリーブヤング商品と、その理由を応募していただき、内容を確認したうえで選ばれた方へ最大100ドル相当の商品をお届けする独立企画です。</p></details>
+          <details><summary>応募は本当に無料ですか？</summary><p>はい。商品の購入、支払い、クレジットカード入力、有料会員登録は必要ありません。</p></details>
+          <details><summary>どのように選ばれますか？</summary><p>商品の数や合計金額ではなく、応募内容の具体性や、その商品を選んだ理由をもとに確認します。文章の上手さを競うものではありません。</p></details>
+          <details><summary>いつ連絡が届きますか？</summary><p>応募受付期間終了後に内容を確認し、選ばれた方へ登録メールアドレスから直接ご連絡します。</p></details>
+          <details><summary>100ドルを超えた場合はどうなりますか？</summary><p>サポート上限は最大100ドル相当です。合計が上限を超える場合は、商品の調整や超過分について個別にご相談します。</p></details>
+          <details><summary>オリーブヤング公式の企画ですか？</summary><p>いいえ。DropTheWishは独立した企画であり、オリーブヤングおよび掲載ブランドによる協賛・承認・運営を受けていません。</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="entry" class="section-soft">
+      <div class="shell form-grid">
+        <aside class="form-aside reveal">
+          <div class="small">ENTRY FORM</div>
+          <h2>欲しい商品と、<br>あなたの理由。</h2>
+          <p class="lead">商品URLを先に入力し、そのあとに選んだ理由を教えてください。</p>
+          <ul>
+            <li>商品URLは1行に1つ入力してください</li>
+            <li>選ばれた方へ最大100ドル相当をサポートします</li>
+            <li>メールアドレスは応募連絡のみに使用します</li>
+          </ul>
+        </aside>
+
+        <form class="reveal" action="./?submitted=true#entry" method="get">
+          <input type="hidden" name="submitted" value="true">
+          <input type="hidden" name="language" value="Japanese">
+          <div class="field">
+            <label for="product_urls">欲しい商品のURL <span class="hint">必須</span></label>
+            <textarea id="product_urls" name="product_urls" required placeholder="商品URLを1行に1つ入力してください&#10;https://global.oliveyoung.com/..."></textarea>
+          </div>
+          <div class="field">
+            <label for="story">この商品を選んだ理由 <span class="hint">必須</span></label>
+            <textarea id="story" name="story" required minlength="40" maxlength="1200" placeholder="知ったきっかけ、使ってみたい理由、あなたにとってどんな意味があるかを教えてください。"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">メールアドレス <span class="hint">必須</span></label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com">
+            </div>
+            <div class="field">
+              <label for="country">お住まいの国・地域 <span class="hint">必須</span></label>
+              <input id="country" name="country" required placeholder="例：日本">
+            </div>
+          </div>
+          <div class="field">
+            <label for="name">お名前・ニックネーム <span class="hint">任意</span></label>
+            <input id="name" name="name" placeholder="例：Mika">
+          </div>
+          <label class="consent">
+            <input type="checkbox" required>
+            <span>応募資格を満たしていることを確認し、DropTheWishから本応募について連絡を受けることに同意します。商品の購入は必要ありません。</span>
+          </label>
+          <button class="btn btn-primary submit" type="submit">無料で応募する</button>
+          <p class="independent">DropTheWishは独立した企画です。オリーブヤングおよび掲載ブランドとの提携・協賛関係はありません。</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>© <span id="year"></span> DropTheWish</div>
+      <div class="footer-links">
+        <a href="mailto:hello@dropthewish.com">お問い合わせ</a>
+        <a href="#">応募ルール</a>
+        <a href="#">プライバシーポリシー</a>
+        <a href="#">運営について</a>
+      </div>
+    </div>
+  </footer>
+  <div class="toast" id="toast">応募内容を受け付けました。</div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    },{threshold:.1});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+    const params = new URLSearchParams(location.search);
+    if(params.get("submitted")==="true"){
+      const toast=document.getElementById("toast");
+      toast.classList.add("show");
+      setTimeout(()=>toast.classList.remove("show"),4500);
+      history.replaceState({},"",location.pathname+"#entry");
+    }
+  </script>
+</body>
+</html>

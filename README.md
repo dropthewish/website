@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DropTheWish — Win your Olive Young wishlist</title>
+  <meta name="description" content="Tell us what you want from Olive Young and the story behind it. One selected wish receives up to $100 toward the wishlist." />
+  <meta name="theme-color" content="#fff8f2" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DropTheWish — Win your Olive Young wishlist" />
+  <meta property="og:description" content="Tell us what you want and why it matters. One selected Olive Young wish receives up to $100." />
+  <meta property="og:url" content="https://dropthewish.com/" />
+  <meta property="og:image" content="https://dropthewish.com/og-image.jpg" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <style>
+    :root {
+      --bg: #fff8f2;
+      --surface: #ffffff;
+      --ink: #111111;
+      --muted: #716c66;
+      --line: rgba(17, 17, 17, 0.10);
+      --accent: #ff5936;
+      --accent-soft: #ffd7c8;
+      --yellow: #f3f19d;
+      --mint: #dff2e2;
+      --blue: #dff3f5;
+      --cream: #f6eadb;
+      --shadow: 0 28px 80px rgba(46, 29, 18, 0.14);
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 11% 3%, rgba(255, 190, 154, 0.33), transparent 25%),
+        radial-gradient(circle at 91% 17%, rgba(243, 241, 157, 0.26), transparent 23%),
+        var(--bg);
+      font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+
+    .shell {
+      width: min(calc(100% - 36px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 248, 242, 0.79);
+      border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+    }
+
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: #111;
+      color: #fff;
+      transform: rotate(-7deg);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      font-size: 15px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      min-height: 50px;
+      padding: 0 22px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      font-weight: 850;
+      letter-spacing: -0.01em;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-dark {
+      background: #111;
+      color: #fff;
+      box-shadow: 0 14px 34px rgba(17, 17, 17, 0.22);
+    }
+
+    .btn-light { background: rgba(255,255,255,.78); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(46,29,18,.07); }
+    .hero-note { margin-top: 13px; line-height: 1.5; }
+
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+    }
+
+    .lang-btn {
+      min-width: 42px;
+      height: 34px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .lang-btn.active {
+      background: #111;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(17,17,17,.16);
+    }
+
+    html[lang="ja"] body {
+      letter-spacing: 0;
+    }
+
+    html[lang="ja"] h1,
+    html[lang="ja"] h2,
+    html[lang="ja"] h3 {
+      letter-spacing: -0.045em;
+    }
+
+    html[lang="ja"] h1 {
+      line-height: 0.98;
+    }
+
+    .hero {
+      min-height: 760px;
+      padding: 68px 0 56px;
+      display: grid;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.74);
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow strong { color: var(--ink); }
+
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 680px;
+      font-size: clamp(58px, 7.1vw, 102px);
+      line-height: 0.9;
+      letter-spacing: -0.076em;
+    }
+
+    .hero-accent {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-accent::after {
+      content: "";
+      position: absolute;
+      left: 2%;
+      right: -2%;
+      bottom: -0.06em;
+      height: 0.11em;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      transform: rotate(-1deg);
+      z-index: -1;
+    }
+
+    .hero-copy {
+      max-width: 610px;
+      margin: 30px 0 26px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.55;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .subnote {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .trust {
+      margin-top: 28px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 10px 13px;
+      background: rgba(255, 255, 255, 0.76);
+      color: #4f4a45;
+      font-size: 13px;
+    }
+
+    .wishlist-stage {
+      position: relative;
+      min-height: 600px;
+    }
+
+    .floating {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .floating.one {
+      width: 178px;
+      height: 178px;
+      background: #ffd3c4;
+      right: 0;
+      top: 30px;
+    }
+
+    .floating.two {
+      width: 116px;
+      height: 116px;
+      background: var(--yellow);
+      left: 0;
+      bottom: 70px;
+    }
+
+    .wishlist-card {
+      position: absolute;
+      left: 50%;
+      top: 34px;
+      transform: translateX(-50%);
+      width: 91%;
+      border: 1px solid rgba(17, 17, 17, 0.08);
+      border-radius: 36px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 27px;
+      box-shadow: var(--shadow);
+    }
+
+    .wish-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .wish-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .wish-total {
+      margin-top: 8px;
+      font-size: 47px;
+      line-height: 1;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .eligible {
+      border-radius: 999px;
+      background: var(--mint);
+      padding: 8px 11px;
+      font-size: 12px;
+      font-weight: 850;
+      white-space: nowrap;
+    }
+
+    .products {
+      display: grid;
+      gap: 13px;
+    }
+
+    .product {
+      display: grid;
+      grid-template-columns: 74px 1fr auto;
+      gap: 14px;
+      align-items: center;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+    }
+
+    .product-art {
+      width: 74px;
+      height: 74px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 10px;
+      font-weight: 900;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .anua { background: #edf1dd; }
+    .torriden { background: var(--blue); }
+    .boj { background: var(--cream); }
+
+    .product-meta strong {
+      display: block;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+
+    .product-meta span {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .price {
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .wish-bottom {
+      margin-top: 16px;
+      border-radius: 22px;
+      background: #111;
+      color: #fff;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .wish-bottom strong {
+      display: block;
+      font-size: 16px;
+    }
+
+    .wish-bottom span {
+      color: rgba(255, 255, 255, 0.64);
+      font-size: 12px;
+    }
+
+    .mini-status {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .status-open {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #2f7b42;
+      font-weight: 850;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4fd06d;
+    }
+
+    .proof-wrap { padding: 0 0 24px; }
+    .proof-strip { display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden; border:1px solid var(--line); border-radius:24px; background:rgba(255,255,255,.72); box-shadow:0 18px 50px rgba(46,29,18,.06); }
+    .proof-item { min-height:110px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border-right:1px solid var(--line); }
+    .proof-item:last-child { border-right:0; }
+    .proof-item span { color:var(--accent); font-size:11px; font-weight:900; letter-spacing:.13em; }
+    .proof-item strong { max-width:210px; font-size:14px; line-height:1.35; letter-spacing:-.015em; }
+
+    .section { padding: 106px 0; }
+
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 0;
+      font-size: clamp(40px, 5vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.06em;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+      margin-top: 18px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      min-height: 270px;
+      border-radius: 30px;
+      padding: 27px;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .step.one {
+      background: #111;
+      color: #fff;
+    }
+
+    .step.two { background: #fff; }
+
+    .step.three {
+      background: linear-gradient(145deg, #fff2ea, #ffe0d3);
+    }
+
+    .step-no {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      color: var(--muted);
+    }
+
+    .step.one .step-no {
+      color: rgba(255, 255, 255, 0.54);
+    }
+
+    .step h3 {
+      margin: 42px 0 12px;
+      font-size: 30px;
+      letter-spacing: -0.045em;
+    }
+
+    .step p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.56;
+      max-width: 300px;
+    }
+
+    .step.one p {
+      color: rgba(255, 255, 255, 0.66);
+    }
+
+    .step-visual {
+      position: absolute;
+      right: 20px;
+      bottom: 18px;
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      font-size: 30px;
+      font-weight: 900;
+      transform: rotate(-6deg);
+    }
+
+    .step.one .step-visual {
+      background: rgba(255, 255, 255, 0.10);
+    }
+
+    .step.two .step-visual {
+      background: var(--yellow);
+    }
+
+    .step.three .step-visual {
+      background: #fff;
+    }
+
+    .story-band {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .quote {
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.80);
+      padding: 22px;
+      color: #403c38;
+      line-height: 1.56;
+      font-size: 16px;
+    }
+
+    .quote small {
+      display: block;
+      margin-top: 13px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .form-section {
+      display: grid;
+      grid-template-columns: 0.68fr 1.32fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .form-intro {
+      min-height: 720px;
+      border-radius: 36px;
+      padding: 38px;
+      background: #111;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.16);
+    }
+
+    .form-intro p {
+      color: rgba(255, 255, 255, 0.66);
+      line-height: 1.6;
+      font-size: 17px;
+    }
+
+    .bullets {
+      display: grid;
+      gap: 13px;
+      margin-top: 30px;
+    }
+
+    .bullet {
+      display: flex;
+      gap: 12px;
+      color: rgba(255, 255, 255, 0.80);
+      font-size: 14px;
+    }
+
+    .check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.11);
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+    }
+
+    .form-card {
+      border: 1px solid var(--line);
+      border-radius: 36px;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .progress-step {
+      min-height: 44px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .progress-step.active {
+      background: #111;
+      color: #fff;
+      border-color: #111;
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .field { margin-bottom: 18px; }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .required { color: var(--accent); }
+
+    input, textarea {
+      width: 100%;
+      border: 1px solid rgba(17, 17, 17, 0.13);
+      background: #fff;
+      color: #111;
+      border-radius: 15px;
+      padding: 14px 15px;
+      outline: none;
+      transition: 0.2s ease;
+    }
+
+    textarea {
+      min-height: 160px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+    textarea.url-list { min-height:132px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; }
+
+    input:focus, textarea:focus {
+      border-color: rgba(255, 89, 54, 0.55);
+      box-shadow: 0 0 0 4px rgba(255, 89, 54, 0.10);
+    }
+
+    .hint {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .full {
+      width: 100%;
+      min-height: 56px;
+      border-radius: 17px;
+    }
+
+    .back {
+      width: 100%;
+      margin-top: 12px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .consent {
+      display: flex;
+      gap: 9px;
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .consent input {
+      width: 16px;
+      height: 16px;
+      margin-top: 1px;
+      flex: 0 0 auto;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.76);
+      padding: 0 20px;
+    }
+
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 21px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      font-weight: 850;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      color: var(--muted);
+      font-size: 22px;
+      font-weight: 400;
+    }
+
+    details[open] summary::after { content: "–"; }
+
+    details p {
+      max-width: 900px;
+      margin: 0 0 22px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .contact-card {
+      margin-top: 18px;
+      border-radius: 22px;
+      background: #111;
+      color: #fff;
+      padding: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .contact-card span {
+      color: rgba(255, 255, 255, 0.66);
+      font-size: 13px;
+    }
+
+    .contact-card a {
+      font-weight: 850;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 42px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 24px;
+      transform: translate(-50%, 24px);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 90;
+      border-radius: 999px;
+      padding: 13px 18px;
+      background: #111;
+      color: #fff;
+      font-weight: 850;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
+      transition: 0.25s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { gap: 10px; }
+      .lang-switch { flex: 0 0 auto; }
+
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 48px;
+      }
+
+      .wishlist-stage { min-height: 560px; }
+      .steps, .form-section { grid-template-columns: 1fr; }
+      .form-intro { min-height: auto; }
+    }
+
+    @media (max-width: 640px) {
+      .shell { width: min(calc(100% - 24px), var(--max)); }
+      .nav-inner { min-height: 64px; }
+      .nav-cta { min-height: 42px; padding: 0 14px; font-size: 12px; }
+      .lang-btn { min-width: 36px; padding: 0 8px; }
+      h1 { font-size: 58px; }
+      .hero-copy { font-size: 17px; }
+      .hero-actions .btn { width: 100%; }
+      .wishlist-stage { min-height: 520px; }
+      .wishlist-card { width: 96%; padding: 19px; }
+      .wish-total { font-size: 40px; }
+
+      .product {
+        grid-template-columns: 58px 1fr auto;
+        gap: 10px;
+      }
+
+      .product-art {
+        width: 58px;
+        height: 58px;
+      }
+
+      .section { padding: 82px 0; }
+      .proof-strip { grid-template-columns:1fr; }
+      .proof-item,.proof-item:nth-child(2) { border-right:0; border-bottom:1px solid var(--line); }
+      .proof-item:last-child { border-bottom:0; }
+      .story-band, .form-grid { grid-template-columns: 1fr; }
+      .form-card, .form-intro { padding: 24px; border-radius: 26px; }
+    }
+  
+    /* Japanese-localized presentation: softer, calmer, more trust-led */
+    html[lang="ja"] {
+      --bg: #fbf8f3;
+      --surface: #fffdfa;
+      --surface-2: #f7f1ea;
+      --ink: #27231f;
+      --muted: #746d65;
+      --line: #e7ddd3;
+      --accent: #d97062;
+      --accent-soft: #f6ded8;
+      --yellow: #f4e7a7;
+      --green: #dcecdf;
+    }
+
+    html[lang="ja"] body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(238, 205, 194, 0.28), transparent 34%),
+        radial-gradient(circle at 88% 12%, rgba(244, 230, 185, 0.26), transparent 34%),
+        #fbf8f3;
+      color: var(--ink);
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-feature-settings: "palt";
+    }
+
+    html[lang="ja"] .site-header {
+      background: rgba(251, 248, 243, 0.9);
+      border-color: rgba(231, 221, 211, .9);
+    }
+
+    html[lang="ja"] .brand-mark,
+    html[lang="ja"] .btn-dark,
+    html[lang="ja"] .nav-cta,
+    html[lang="ja"] .form-intro {
+      background: #37312c;
+    }
+
+    html[lang="ja"] .hero {
+      min-height: 780px;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 70px;
+    }
+
+    html[lang="ja"] .hero h1 {
+      max-width: 650px;
+      font-size: clamp(52px, 6.2vw, 86px);
+      line-height: 1.09;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+    }
+
+    html[lang="ja"] .hero-accent {
+      color: #d97062;
+      text-decoration-color: rgba(217,112,98,.23);
+      text-decoration-thickness: 12px;
+      text-underline-offset: -3px;
+    }
+
+    html[lang="ja"] .hero-copy {
+      max-width: 620px;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #665e56;
+    }
+
+    html[lang="ja"] .round-pill,
+    html[lang="ja"] .chip,
+    html[lang="ja"] .lang-switch {
+      background: rgba(255,253,250,.9);
+      border-color: #e7ddd3;
+    }
+
+    html[lang="ja"] .round-pill {
+      font-size: 12px;
+      letter-spacing: .01em;
+    }
+
+    html[lang="ja"] .btn {
+      border-radius: 16px;
+      min-height: 54px;
+      padding-inline: 24px;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    html[lang="ja"] .btn-light {
+      background: rgba(255,253,250,.9);
+      box-shadow: none;
+    }
+
+    html[lang="ja"] .wishlist-card,
+    html[lang="ja"] .form-card,
+    html[lang="ja"] .quote,
+    html[lang="ja"] details,
+    html[lang="ja"] .proof-strip {
+      background: rgba(255,253,250,.92);
+      border-color: #e7ddd3;
+      box-shadow: 0 20px 56px rgba(78,60,45,.08);
+    }
+
+    html[lang="ja"] .wishlist-card {
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    html[lang="ja"] .eligible {
+      background: #e8f1e8;
+      color: #44634b;
+    }
+
+    html[lang="ja"] .wish-item {
+      border-color: #e8dfd6;
+      border-radius: 20px;
+    }
+
+    html[lang="ja"] .wish-story {
+      background: #37312c;
+      border-radius: 20px;
+    }
+
+    html[lang="ja"] .proof-wrap {
+      padding-bottom: 48px;
+    }
+
+    html[lang="ja"] .proof-strip {
+      border-radius: 20px;
+    }
+
+    html[lang="ja"] .proof-item {
+      min-height: 128px;
+      padding: 25px 23px;
+    }
+
+    html[lang="ja"] .proof-item span {
+      color: #b8695f;
+    }
+
+    html[lang="ja"] .proof-item strong {
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    html[lang="ja"] .section {
+      padding-block: 118px;
+    }
+
+    html[lang="ja"] .section h2 {
+      max-width: 760px;
+      font-size: clamp(46px, 5.6vw, 72px);
+      line-height: 1.13;
+      font-weight: 800;
+    }
+
+    html[lang="ja"] .section-copy {
+      line-height: 1.9;
+    }
+
+    html[lang="ja"] .step {
+      min-height: 300px;
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    html[lang="ja"] .step.one {
+      background: #37312c;
+    }
+
+    html[lang="ja"] .step.two {
+      background: #fffdfa;
+    }
+
+    html[lang="ja"] .step.three {
+      background: #f7e8e1;
+    }
+
+    html[lang="ja"] .step-no {
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    html[lang="ja"] .step h3 {
+      font-size: 27px;
+      line-height: 1.4;
+    }
+
+    html[lang="ja"] .step p {
+      line-height: 1.85;
+    }
+
+    html[lang="ja"] .story-band {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    html[lang="ja"] .quote {
+      min-height: 176px;
+      border-radius: 22px;
+      padding: 26px;
+      line-height: 1.85;
+    }
+
+    html[lang="ja"] .form-section {
+      grid-template-columns: .62fr 1.38fr;
+      gap: 28px;
+    }
+
+    html[lang="ja"] .form-intro,
+    html[lang="ja"] .form-card {
+      border-radius: 28px;
+    }
+
+    html[lang="ja"] .form-intro h2 {
+      font-size: clamp(42px, 4.6vw, 64px);
+      line-height: 1.16;
+    }
+
+    html[lang="ja"] label {
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    html[lang="ja"] input,
+    html[lang="ja"] textarea {
+      border-radius: 14px;
+      border-color: #dfd4c9;
+      background: #fff;
+      font-size: 15px;
+      padding: 16px 17px;
+    }
+
+    html[lang="ja"] input:focus,
+    html[lang="ja"] textarea:focus {
+      border-color: #c8897f;
+      box-shadow: 0 0 0 4px rgba(200,137,127,.12);
+    }
+
+    html[lang="ja"] .progress-step {
+      border-radius: 12px;
+      background: #f5efe9;
+    }
+
+    html[lang="ja"] .progress-step.active {
+      background: #37312c;
+    }
+
+    html[lang="ja"] details {
+      border-radius: 16px;
+    }
+
+    html[lang="ja"] summary {
+      min-height: 72px;
+      padding: 20px 22px;
+      line-height: 1.55;
+    }
+
+    html[lang="ja"] details p {
+      line-height: 1.9;
+    }
+
+    html[lang="ja"] .contact-bar {
+      background: #37312c;
+      border-radius: 18px;
+    }
+
+    @media (max-width: 980px) {
+      html[lang="ja"] .hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        min-height: auto;
+      }
+
+      html[lang="ja"] .hero h1 {
+        max-width: 740px;
+      }
+
+      html[lang="ja"] .form-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      html[lang="ja"] .hero {
+        padding-top: 60px;
+      }
+
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(43px, 13vw, 60px);
+        line-height: 1.12;
+      }
+
+      html[lang="ja"] .hero-copy {
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      html[lang="ja"] .hero-actions {
+        align-items: stretch;
+      }
+
+      html[lang="ja"] .hero-actions .btn {
+        width: 100%;
+      }
+
+      html[lang="ja"] .section {
+        padding-block: 86px;
+      }
+
+      html[lang="ja"] .section h2 {
+        font-size: clamp(38px, 11vw, 54px);
+        line-height: 1.17;
+      }
+
+      html[lang="ja"] .story-band {
+        grid-template-columns: 1fr;
+      }
+
+      html[lang="ja"] .quote {
+        min-height: auto;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+  <header class="nav">
+    <div class="shell nav-inner">
+      <a class="brand" href="#" aria-label="DropTheWish home">
+        <span class="brand-mark">W</span>
+        <span>DropTheWish</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#how" id="navHow">How it works</a>
+        <a href="#faq" id="navFaq">FAQ</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+        </div>
+        <a class="btn btn-dark nav-cta" href="#drop" id="navCta">Enter giveaway</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="shell hero">
+      <div>
+        <div class="eyebrow reveal">
+          <span class="live-dot"></span>
+          <strong id="roundLive">Round #1 now live</strong><span id="worldwideEntry"> · Worldwide entry</span>
+        </div>
+
+        <h1 class="reveal">
+          <span id="heroLine1">Win your</span><br>
+          <span id="heroLine2">Olive Young</span><br>
+          <span class="hero-accent" id="heroLine3">wishlist.</span>
+        </h1>
+
+        <p class="hero-copy reveal" id="heroCopy">
+          Tell us what you have been wanting — and the story behind it. If your wish is selected, DropTheWish will cover up to $100.
+        </p>
+
+        <div class="hero-actions reveal">
+          <a class="btn btn-dark" href="#drop"><span id="heroCta">Enter giveaway</span> <span aria-hidden="true">↘</span></a>
+          <a class="btn btn-light" href="#how" id="heroSecondary">See how it works</a>
+        </div>
+        <div class="subnote hero-note reveal" id="heroNote">Free to enter · No purchase required · Selected entrants are contacted by email</div>
+
+        <div class="trust reveal">
+          <span class="chip" id="chipWorldwide">🌎 Worldwide</span>
+          <span class="chip" id="chipAmount">🎁 Up to $100</span>
+          <span class="chip" id="chipEntry">✨ One thoughtful entry</span>
+          <span class="chip" id="chipPrivacy">🔒 Email kept private</span>
+        </div>
+      </div>
+
+      <div class="wishlist-stage reveal" aria-label="Example Olive Young wishlist">
+        <div class="floating one"></div>
+        <div class="floating two"></div>
+
+        <div class="wishlist-card">
+          <div class="wish-head">
+            <div>
+              <div class="wish-kicker" id="sampleLabel">Example wishlist</div>
+              <div class="wish-total">$94.70</div>
+            </div>
+            <div class="eligible" id="eligibleLabel">Sample under $100 ✓</div>
+          </div>
+
+          <div class="products">
+            <article class="product">
+              <div class="product-art anua">ANUA</div>
+              <div class="product-meta">
+                <strong>Heartleaf Toner</strong>
+                <span>Calming skincare</span>
+              </div>
+              <div class="price">$24.00</div>
+            </article>
+
+            <article class="product">
+              <div class="product-art torriden">TOR<br>RIDEN</div>
+              <div class="product-meta">
+                <strong>Dive-In Serum</strong>
+                <span>Hydration boost</span>
+              </div>
+              <div class="price">$25.70</div>
+            </article>
+
+            <article class="product">
+              <div class="product-art boj">BEAUTY<br>OF JOSEON</div>
+              <div class="product-meta">
+                <strong>Relief Sun</strong>
+                <span>Daily sunscreen</span>
+              </div>
+              <div class="price">$45.00</div>
+            </article>
+          </div>
+
+          <div class="wish-bottom">
+            <div>
+              <strong id="wishCardTitle">Your wishlist. One real reason.</strong>
+              <span id="wishCardCopy">Tell us why this wishlist matters to you.</span>
+            </div>
+            <span aria-hidden="true">→</span>
+          </div>
+
+          <div class="mini-status">
+            <span class="status-open"><span class="status-dot"></span><span id="entriesOpen">Entries open</span></span>
+            <span id="selectionSoon">First selection announced soon</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof-wrap" aria-label="How selection and delivery work">
+      <div class="shell proof-strip reveal">
+        <div class="proof-item"><span>01</span><strong id="proof1">Every complete entry is reviewed</strong></div>
+        <div class="proof-item"><span>02</span><strong id="proof2">One thoughtful wish is selected</strong></div>
+        <div class="proof-item"><span>03</span><strong id="proof3">We contact the selected entrant by email</strong></div>
+        <div class="proof-item"><span>04</span><strong id="proof4">We arrange the purchase and delivery</strong></div>
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="kicker" id="howKicker">How it works</div>
+          <h2><span id="howTitle1">Easy to enter.</span><br><span id="howTitle2">Worth getting excited about.</span></h2>
+          <p class="section-copy" id="howCopy">No account, checkout, payment, or complicated points system.</p>
+        </div>
+
+        <div class="steps">
+          <article class="step one reveal">
+            <div class="step-no" id="stepNo1">STEP 01</div>
+            <h3 id="stepTitle1">Choose what you want</h3>
+            <p id="stepCopy1">Open Olive Young and choose the products you genuinely want.</p>
+            <div class="step-visual">♡</div>
+          </article>
+
+          <article class="step two reveal">
+            <div class="step-no" id="stepNo2">STEP 02</div>
+            <h3 id="stepTitle2">Tell us why</h3>
+            <p id="stepCopy2">Share the honest reason behind your wishlist. Specific matters more than perfect.</p>
+            <div class="step-visual">✦</div>
+          </article>
+
+          <article class="step three reveal">
+            <div class="step-no" id="stepNo3">STEP 03</div>
+            <h3 id="stepTitle3">Paste the links</h3>
+            <p id="stepCopy3">Add the exact Olive Young URLs so we know what belongs on your list.</p>
+            <div class="step-visual">↗</div>
+          </article>
+        </div>
+
+        <div class="story-band">
+          <div class="quote reveal">
+            <span id="storyExample1">“I have wanted to try Korean skincare for months, but international shipping has always made it too expensive.”</span>
+            <small class="example-label">EXAMPLE STORY</small>
+          </div>
+
+          <div class="quote reveal">
+            <span id="storyExample2">“I just graduated and want to build a simple skincare routine before starting my first job.”</span>
+            <small class="example-label">EXAMPLE STORY</small>
+          </div>
+          <div class="quote reveal">
+            <span id="storyExample3">“My sister introduced me to Korean skincare, and I want to surprise her with the products we always talk about.”</span>
+            <small class="example-label">EXAMPLE STORY</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="drop" class="section">
+      <div class="shell form-section">
+        <aside class="form-intro reveal">
+          <div>
+            <div class="kicker" style="color:#ff9b79;" id="formKicker">Drop your wish</div>
+            <h2><span id="formTitle1">Your wishlist.</span><br><span id="formTitle2">Your real reason.</span></h2>
+            <p id="formIntroCopy">Two quick steps. We only receive your entry after you press the final submit button.</p>
+
+            <div class="bullets">
+              <div class="bullet"><span class="check">✓</span><span id="bullet1">Add the Olive Young product links you want</span></div>
+              <div class="bullet"><span class="check">✓</span><span id="bullet2">DropTheWish covers up to $100 of the selected wishlist</span></div>
+              <div class="bullet"><span class="check">✓</span><span id="bullet3">Worldwide entries are welcome, subject to local rules</span></div>
+            </div>
+          </div>
+
+          <p style="font-size:12px;margin:28px 0 0;">
+            <span id="independentNote">DropTheWish is an independent giveaway project and is not affiliated with Olive Young or the brands referenced.</span>
+          </p>
+        </aside>
+
+        <form
+          class="form-card reveal"
+          name="wishlist-entry"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          action="./?submitted=true#drop"
+          id="wishForm"
+        >
+          <input type="hidden" name="form-name" value="wishlist-entry" />
+          <input type="hidden" name="language" id="formLanguage" value="English" />
+          <p hidden><label>Do not fill this out: <input name="bot-field" /></label></p>
+
+          <div class="progress">
+            <div class="progress-step active" id="progress1">1 · About you</div>
+            <div class="progress-step" id="progress2">2 · Your wishlist</div>
+          </div>
+
+          <div class="panel active" id="panel1">
+            <div class="field">
+              <label for="email"><span id="emailLabel">Email</span> <span class="required">*</span></label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com" />
+              <div class="hint" id="emailHint">We use this only to contact you about your entry.</div>
+            </div>
+
+            <div class="form-grid">
+              <div class="field">
+                <label for="country"><span id="countryLabel">Where do you live?</span> <span class="required">*</span></label>
+                <input id="country" name="country" type="text" required placeholder="e.g. Japan" />
+              </div>
+
+              <div class="field">
+                <label for="name" id="nameLabel">What should we call you?</label>
+                <input id="name" name="name" type="text" placeholder="How should we address you?" />
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-dark full" id="continueBtn">Continue to my wishlist</button>
+          </div>
+
+          <div class="panel" id="panel2">
+            <div class="field">
+              <label for="story"><span id="storyLabel">Why does this wishlist matter to you?</span> <span class="required">*</span></label>
+              <textarea id="story" name="story" required minlength="30" maxlength="800" placeholder="Example: I have wanted to try Korean skincare for months, but international shipping has always made it too expensive..."></textarea>
+              <div class="hint"><span id="storyCount">0</span>/800 <span id="storyHint">characters · Honest and specific is better than perfect.</span></div>
+            </div>
+
+            <div class="field">
+              <label for="product_urls"><span id="urlsLabel">Olive Young product links</span> <span class="required">*</span></label>
+              <textarea id="product_urls" name="product_urls" required class="url-list" placeholder="Paste one product URL per line&#10;https://global.oliveyoung.com/...&#10;https://global.oliveyoung.com/..."></textarea>
+              <div class="hint" id="urlsHint">Add as many products as you like. DropTheWish covers up to $100; if the selected wishlist costs more, the recipient is responsible for the remaining balance.</div>
+            </div>
+
+            <button type="submit" class="btn btn-dark full" id="submitBtn">Submit my wish</button>
+            <button type="button" class="back" id="backBtn">← Back</button>
+
+            <label class="consent">
+              <input type="checkbox" required name="consent" value="yes" />
+              <span id="consentText">I confirm that I am eligible to enter and agree that DropTheWish may contact me about this entry. No purchase is required.</span>
+            </label>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="faq" class="section">
+      <div class="shell">
+        <div class="section-head reveal">
+          <div class="kicker">FAQ</div>
+          <h2><span id="faqTitle1">The questions</span><br><span id="faqTitle2">people actually ask.</span></h2>
+        </div>
+
+        <div class="faq">
+          <details class="reveal">
+            <summary id="faqQ1">Is this real?</summary>
+            <p id="faqA1">Yes. DropTheWish is an independent giveaway project. We review submitted stories, contact the selected entrant directly by email, and arrange the eligible product purchase and delivery.</p>
+          </details>
+
+          <details class="reveal">
+            <summary id="faqQ2">Is this really free?</summary>
+            <p id="faqA2">Yes. No purchase, payment, credit card, or paid membership is required to submit an entry.</p>
+          </details>
+
+          <details class="reveal">
+            <summary id="faqQ3">How is the selected entry chosen?</summary>
+            <p id="faqA3">Entries are reviewed for authenticity, clarity, and the reason behind the wishlist. This is not a points contest, and adding more products does not improve the chance of selection.</p>
+          </details>
+
+          <details class="reveal">
+            <summary id="faqQ4">What happens if my wishlist costs more than $100?</summary>
+            <p id="faqA4">The selected entrant may receive up to $100 toward eligible Olive Young products from the submitted wishlist. If the selected wishlist exceeds $100, the recipient may pay the remaining balance. Availability and shipping restrictions may require substitutions, exclusions, or another practical arrangement.</p>
+          </details>
+
+          <details class="reveal">
+            <summary id="faqQ5">When will the first selection be announced?</summary>
+            <p id="faqA5">The first round is currently open. The selected entrant will be contacted directly by email after the review period.</p>
+          </details>
+
+          <details class="reveal">
+            <summary id="faqQ6">Can anyone enter?</summary>
+            <p id="faqA6">Adults who can legally participate in a promotional giveaway in their location may enter, subject to local laws and shipping availability.</p>
+          </details>
+
+          <details class="reveal">
+            <summary id="faqQ7">Is DropTheWish affiliated with Olive Young?</summary>
+            <p id="faqA7">No. DropTheWish is an independent project and is not sponsored, endorsed, or administered by Olive Young or any referenced brand.</p>
+          </details>
+        </div>
+
+        <div class="contact-card reveal">
+          <div>
+            <strong id="contactTitle">Still have a question?</strong><br>
+            <span id="contactCopy">Send us a note and we will get back to you.</span>
+          </div>
+          <a href="mailto:hello@dropthewish.com">hello@dropthewish.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-inner">
+      <div>© <span id="year"></span> DropTheWish · A Late Checkout project</div>
+      <div class="footer-links">
+        <a href="mailto:hello@dropthewish.com" id="footerContact">Contact</a>
+        <a href="#faq" id="footerRules">Rules</a>
+        <a href="#faq" id="footerPrivacy">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status">🎉 <span id="toastText">Your wish has been received.</span></div>
+
+  <script>
+
+    document.documentElement.lang = "en";
+    document.body.dataset.locale = "en";
+    const formLanguage = document.getElementById("formLanguage");
+    if (formLanguage) formLanguage.value = "English";
+
+    const panel1 = document.getElementById("panel1");
+    const panel2 = document.getElementById("panel2");
+    const progress1 = document.getElementById("progress1");
+    const progress2 = document.getElementById("progress2");
+    const continueBtn = document.getElementById("continueBtn");
+    const backBtn = document.getElementById("backBtn");
+    const email = document.getElementById("email");
+    const country = document.getElementById("country");
+
+    continueBtn.addEventListener("click", () => {
+      if (!email.checkValidity()) {
+        email.reportValidity();
+        return;
+      }
+
+      if (!country.checkValidity()) {
+        country.reportValidity();
+        return;
+      }
+
+      panel1.classList.remove("active");
+      panel2.classList.add("active");
+      progress1.classList.remove("active");
+      progress2.classList.add("active");
+      document.getElementById("story").focus();
+    });
+
+    backBtn.addEventListener("click", () => {
+      panel2.classList.remove("active");
+      panel1.classList.add("active");
+      progress2.classList.remove("active");
+      progress1.classList.add("active");
+      email.focus();
+    });
+
+    const story = document.getElementById("story");
+    const storyCount = document.getElementById("storyCount");
+
+    story.addEventListener("input", () => {
+      storyCount.textContent = story.value.length;
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => {
+      observer.observe(element);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (params.get("submitted") === "true") {
+      const toast = document.getElementById("toast");
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 5000);
+      history.replaceState({}, "", window.location.pathname + "#drop");
+    }
+  </script>
+</body>
+</html>
