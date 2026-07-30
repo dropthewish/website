@@ -44,7 +44,7 @@
         radial-gradient(circle at 11% 3%, rgba(255, 190, 154, 0.33), transparent 25%),
         radial-gradient(circle at 91% 17%, rgba(243, 241, 157, 0.26), transparent 23%),
         var(--bg);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -130,6 +130,49 @@
 
     .btn-light { background: rgba(255,255,255,.78); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(46,29,18,.07); }
     .hero-note { margin-top: 13px; line-height: 1.5; }
+
+
+    .lang-switch {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,.72);
+    }
+
+    .lang-btn {
+      min-width: 42px;
+      height: 34px;
+      padding: 0 10px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .lang-btn.active {
+      background: #111;
+      color: #fff;
+      box-shadow: 0 6px 16px rgba(17,17,17,.16);
+    }
+
+    html[lang="ja"] body {
+      letter-spacing: 0;
+    }
+
+    html[lang="ja"] h1,
+    html[lang="ja"] h2,
+    html[lang="ja"] h3 {
+      letter-spacing: -0.045em;
+    }
+
+    html[lang="ja"] h1 {
+      line-height: 0.98;
+    }
 
     .hero {
       min-height: 760px;
@@ -820,6 +863,8 @@
 
     @media (max-width: 900px) {
       .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { gap: 10px; }
+      .lang-switch { flex: 0 0 auto; }
 
       .hero {
         grid-template-columns: 1fr;
@@ -835,7 +880,8 @@
     @media (max-width: 640px) {
       .shell { width: min(calc(100% - 24px), var(--max)); }
       .nav-inner { min-height: 64px; }
-      .nav-cta { min-height: 42px; padding: 0 16px; }
+      .nav-cta { min-height: 42px; padding: 0 14px; font-size: 12px; }
+      .lang-btn { min-width: 36px; padding: 0 8px; }
       h1 { font-size: 58px; }
       .hero-copy { font-size: 17px; }
       .hero-actions .btn { width: 100%; }
@@ -872,9 +918,13 @@
       </a>
 
       <nav class="nav-links" aria-label="Main navigation">
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a class="btn btn-dark nav-cta" href="#drop">Enter giveaway</a>
+        <a href="#how" id="navHow">How it works</a>
+        <a href="#faq" id="navFaq">FAQ</a>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+        </div>
+        <a class="btn btn-dark nav-cta" href="#drop" id="navCta">Enter giveaway</a>
       </nav>
     </div>
   </header>
@@ -884,30 +934,30 @@
       <div>
         <div class="eyebrow reveal">
           <span class="live-dot"></span>
-          <strong>Round #1 now live</strong> · Worldwide entry
+          <strong id="roundLive">Round #1 now live</strong><span id="worldwideEntry"> · Worldwide entry</span>
         </div>
 
         <h1 class="reveal">
-          Win your<br>
-          Olive Young<br>
-          <span class="hero-accent">wishlist.</span>
+          <span id="heroLine1">Win your</span><br>
+          <span id="heroLine2">Olive Young</span><br>
+          <span class="hero-accent" id="heroLine3">wishlist.</span>
         </h1>
 
-        <p class="hero-copy reveal">
+        <p class="hero-copy reveal" id="heroCopy">
           Tell us what you have been wanting — and the story behind it. If your wish is selected, DropTheWish will cover up to $100.
         </p>
 
         <div class="hero-actions reveal">
-          <a class="btn btn-dark" href="#drop">Enter giveaway <span aria-hidden="true">↘</span></a>
-          <a class="btn btn-light" href="#how">See how it works</a>
+          <a class="btn btn-dark" href="#drop"><span id="heroCta">Enter giveaway</span> <span aria-hidden="true">↘</span></a>
+          <a class="btn btn-light" href="#how" id="heroSecondary">See how it works</a>
         </div>
-        <div class="subnote hero-note reveal">Free to enter · No purchase required · Selected entrants are contacted by email</div>
+        <div class="subnote hero-note reveal" id="heroNote">Free to enter · No purchase required · Selected entrants are contacted by email</div>
 
         <div class="trust reveal">
-          <span class="chip">🌎 Worldwide</span>
-          <span class="chip">🎁 Up to $100</span>
-          <span class="chip">✨ One thoughtful entry</span>
-          <span class="chip">🔒 Email kept private</span>
+          <span class="chip" id="chipWorldwide">🌎 Worldwide</span>
+          <span class="chip" id="chipAmount">🎁 Up to $100</span>
+          <span class="chip" id="chipEntry">✨ One thoughtful entry</span>
+          <span class="chip" id="chipPrivacy">🔒 Email kept private</span>
         </div>
       </div>
 
@@ -918,10 +968,10 @@
         <div class="wishlist-card">
           <div class="wish-head">
             <div>
-              <div class="wish-kicker">Example wishlist</div>
+              <div class="wish-kicker" id="sampleLabel">Example wishlist</div>
               <div class="wish-total">$94.70</div>
             </div>
-            <div class="eligible">Sample under $100 ✓</div>
+            <div class="eligible" id="eligibleLabel">Sample under $100 ✓</div>
           </div>
 
           <div class="products">
@@ -955,15 +1005,15 @@
 
           <div class="wish-bottom">
             <div>
-              <strong>Your wishlist. One real reason.</strong>
-              <span>Tell us why this wishlist matters to you.</span>
+              <strong id="wishCardTitle">Your wishlist. One real reason.</strong>
+              <span id="wishCardCopy">Tell us why this wishlist matters to you.</span>
             </div>
             <span aria-hidden="true">→</span>
           </div>
 
           <div class="mini-status">
-            <span class="status-open"><span class="status-dot"></span>Entries open</span>
-            <span>First selection announced soon</span>
+            <span class="status-open"><span class="status-dot"></span><span id="entriesOpen">Entries open</span></span>
+            <span id="selectionSoon">First selection announced soon</span>
           </div>
         </div>
       </div>
@@ -971,57 +1021,57 @@
 
     <section class="proof-wrap" aria-label="How selection and delivery work">
       <div class="shell proof-strip reveal">
-        <div class="proof-item"><span>01</span><strong>Every complete entry is reviewed</strong></div>
-        <div class="proof-item"><span>02</span><strong>One thoughtful wish is selected</strong></div>
-        <div class="proof-item"><span>03</span><strong>We contact the selected entrant by email</strong></div>
-        <div class="proof-item"><span>04</span><strong>We arrange the purchase and delivery</strong></div>
+        <div class="proof-item"><span>01</span><strong id="proof1">Every complete entry is reviewed</strong></div>
+        <div class="proof-item"><span>02</span><strong id="proof2">One thoughtful wish is selected</strong></div>
+        <div class="proof-item"><span>03</span><strong id="proof3">We contact the selected entrant by email</strong></div>
+        <div class="proof-item"><span>04</span><strong id="proof4">We arrange the purchase and delivery</strong></div>
       </div>
     </section>
 
     <section id="how" class="section">
       <div class="shell">
         <div class="section-head reveal">
-          <div class="kicker">How it works</div>
-          <h2>Easy to enter.<br>Worth getting excited about.</h2>
-          <p class="section-copy">No account, checkout, payment, or complicated points system.</p>
+          <div class="kicker" id="howKicker">How it works</div>
+          <h2><span id="howTitle1">Easy to enter.</span><br><span id="howTitle2">Worth getting excited about.</span></h2>
+          <p class="section-copy" id="howCopy">No account, checkout, payment, or complicated points system.</p>
         </div>
 
         <div class="steps">
           <article class="step one reveal">
-            <div class="step-no">STEP 01</div>
-            <h3>Choose what you want</h3>
-            <p>Open Olive Young and choose the products you genuinely want.</p>
+            <div class="step-no" id="stepNo1">STEP 01</div>
+            <h3 id="stepTitle1">Choose what you want</h3>
+            <p id="stepCopy1">Open Olive Young and choose the products you genuinely want.</p>
             <div class="step-visual">♡</div>
           </article>
 
           <article class="step two reveal">
-            <div class="step-no">STEP 02</div>
-            <h3>Tell us why</h3>
-            <p>Share the honest reason behind your wishlist. Specific matters more than perfect.</p>
+            <div class="step-no" id="stepNo2">STEP 02</div>
+            <h3 id="stepTitle2">Tell us why</h3>
+            <p id="stepCopy2">Share the honest reason behind your wishlist. Specific matters more than perfect.</p>
             <div class="step-visual">✦</div>
           </article>
 
           <article class="step three reveal">
-            <div class="step-no">STEP 03</div>
-            <h3>Paste the links</h3>
-            <p>Add the exact Olive Young URLs so we know what belongs on your list.</p>
+            <div class="step-no" id="stepNo3">STEP 03</div>
+            <h3 id="stepTitle3">Paste the links</h3>
+            <p id="stepCopy3">Add the exact Olive Young URLs so we know what belongs on your list.</p>
             <div class="step-visual">↗</div>
           </article>
         </div>
 
         <div class="story-band">
           <div class="quote reveal">
-            “I have wanted to try Korean skincare for months, but international shipping has always made it too expensive.”
-            <small>EXAMPLE STORY</small>
+            <span id="storyExample1">“I have wanted to try Korean skincare for months, but international shipping has always made it too expensive.”</span>
+            <small class="example-label">EXAMPLE STORY</small>
           </div>
 
           <div class="quote reveal">
-            “I just graduated and want to build a simple skincare routine before starting my first job.”
-            <small>EXAMPLE STORY</small>
+            <span id="storyExample2">“I just graduated and want to build a simple skincare routine before starting my first job.”</span>
+            <small class="example-label">EXAMPLE STORY</small>
           </div>
           <div class="quote reveal">
-            “My sister introduced me to Korean skincare, and I want to surprise her with the products we always talk about.”
-            <small>EXAMPLE STORY</small>
+            <span id="storyExample3">“My sister introduced me to Korean skincare, and I want to surprise her with the products we always talk about.”</span>
+            <small class="example-label">EXAMPLE STORY</small>
           </div>
         </div>
       </div>
@@ -1031,19 +1081,19 @@
       <div class="shell form-section">
         <aside class="form-intro reveal">
           <div>
-            <div class="kicker" style="color:#ff9b79;">Drop your wish</div>
-            <h2>Your wishlist.<br>Your real reason.</h2>
-            <p>Two quick steps. We only receive your entry after you press the final submit button.</p>
+            <div class="kicker" style="color:#ff9b79;" id="formKicker">Drop your wish</div>
+            <h2><span id="formTitle1">Your wishlist.</span><br><span id="formTitle2">Your real reason.</span></h2>
+            <p id="formIntroCopy">Two quick steps. We only receive your entry after you press the final submit button.</p>
 
             <div class="bullets">
-              <div class="bullet"><span class="check">✓</span><span>Add the Olive Young product links you want</span></div>
-              <div class="bullet"><span class="check">✓</span><span>DropTheWish covers up to $100 of the selected wishlist</span></div>
-              <div class="bullet"><span class="check">✓</span><span>Worldwide entries are welcome, subject to local rules</span></div>
+              <div class="bullet"><span class="check">✓</span><span id="bullet1">Add the Olive Young product links you want</span></div>
+              <div class="bullet"><span class="check">✓</span><span id="bullet2">DropTheWish covers up to $100 of the selected wishlist</span></div>
+              <div class="bullet"><span class="check">✓</span><span id="bullet3">Worldwide entries are welcome, subject to local rules</span></div>
             </div>
           </div>
 
           <p style="font-size:12px;margin:28px 0 0;">
-            DropTheWish is an independent giveaway project and is not affiliated with Olive Young or the brands referenced.
+            <span id="independentNote">DropTheWish is an independent giveaway project and is not affiliated with Olive Young or the brands referenced.</span>
           </p>
         </aside>
 
@@ -1057,6 +1107,7 @@
           id="wishForm"
         >
           <input type="hidden" name="form-name" value="wishlist-entry" />
+          <input type="hidden" name="language" id="formLanguage" value="English" />
           <p hidden><label>Do not fill this out: <input name="bot-field" /></label></p>
 
           <div class="progress">
@@ -1066,19 +1117,19 @@
 
           <div class="panel active" id="panel1">
             <div class="field">
-              <label for="email">Email <span class="required">*</span></label>
+              <label for="email"><span id="emailLabel">Email</span> <span class="required">*</span></label>
               <input id="email" name="email" type="email" required placeholder="you@email.com" />
-              <div class="hint">We use this only to contact you about your entry.</div>
+              <div class="hint" id="emailHint">We use this only to contact you about your entry.</div>
             </div>
 
             <div class="form-grid">
               <div class="field">
-                <label for="country">Where do you live? <span class="required">*</span></label>
+                <label for="country"><span id="countryLabel">Where do you live?</span> <span class="required">*</span></label>
                 <input id="country" name="country" type="text" required placeholder="e.g. Japan" />
               </div>
 
               <div class="field">
-                <label for="name">What should we call you?</label>
+                <label for="name" id="nameLabel">What should we call you?</label>
                 <input id="name" name="name" type="text" placeholder="How should we address you?" />
               </div>
             </div>
@@ -1088,23 +1139,23 @@
 
           <div class="panel" id="panel2">
             <div class="field">
-              <label for="story">Why does this wishlist matter to you? <span class="required">*</span></label>
+              <label for="story"><span id="storyLabel">Why does this wishlist matter to you?</span> <span class="required">*</span></label>
               <textarea id="story" name="story" required minlength="30" maxlength="800" placeholder="Example: I have wanted to try Korean skincare for months, but international shipping has always made it too expensive..."></textarea>
-              <div class="hint"><span id="storyCount">0</span>/800 characters · Honest and specific is better than perfect.</div>
+              <div class="hint"><span id="storyCount">0</span>/800 <span id="storyHint">characters · Honest and specific is better than perfect.</span></div>
             </div>
 
             <div class="field">
-              <label for="product_urls">Olive Young product links <span class="required">*</span></label>
+              <label for="product_urls"><span id="urlsLabel">Olive Young product links</span> <span class="required">*</span></label>
               <textarea id="product_urls" name="product_urls" required class="url-list" placeholder="Paste one product URL per line&#10;https://global.oliveyoung.com/...&#10;https://global.oliveyoung.com/..."></textarea>
-              <div class="hint">Add as many products as you like. DropTheWish covers up to $100; if the selected wishlist costs more, the recipient is responsible for the remaining balance.</div>
+              <div class="hint" id="urlsHint">Add as many products as you like. DropTheWish covers up to $100; if the selected wishlist costs more, the recipient is responsible for the remaining balance.</div>
             </div>
 
-            <button type="submit" class="btn btn-dark full">Submit my wish</button>
+            <button type="submit" class="btn btn-dark full" id="submitBtn">Submit my wish</button>
             <button type="button" class="back" id="backBtn">← Back</button>
 
             <label class="consent">
               <input type="checkbox" required name="consent" value="yes" />
-              <span>I confirm that I am eligible to enter and agree that DropTheWish may contact me about this entry. No purchase is required.</span>
+              <span id="consentText">I confirm that I am eligible to enter and agree that DropTheWish may contact me about this entry. No purchase is required.</span>
             </label>
           </div>
         </form>
@@ -1115,50 +1166,50 @@
       <div class="shell">
         <div class="section-head reveal">
           <div class="kicker">FAQ</div>
-          <h2>The questions<br>people actually ask.</h2>
+          <h2><span id="faqTitle1">The questions</span><br><span id="faqTitle2">people actually ask.</span></h2>
         </div>
 
         <div class="faq">
           <details class="reveal">
-            <summary>Is this real?</summary>
-            <p>Yes. DropTheWish is an independent giveaway project. We review submitted stories, contact the selected entrant directly by email, and arrange the eligible product purchase and delivery.</p>
+            <summary id="faqQ1">Is this real?</summary>
+            <p id="faqA1">Yes. DropTheWish is an independent giveaway project. We review submitted stories, contact the selected entrant directly by email, and arrange the eligible product purchase and delivery.</p>
           </details>
 
           <details class="reveal">
-            <summary>Is this really free?</summary>
-            <p>Yes. No purchase, payment, credit card, or paid membership is required to submit an entry.</p>
+            <summary id="faqQ2">Is this really free?</summary>
+            <p id="faqA2">Yes. No purchase, payment, credit card, or paid membership is required to submit an entry.</p>
           </details>
 
           <details class="reveal">
-            <summary>How is the selected entry chosen?</summary>
-            <p>Entries are reviewed for authenticity, clarity, and the reason behind the wishlist. This is not a points contest, and adding more products does not improve the chance of selection.</p>
+            <summary id="faqQ3">How is the selected entry chosen?</summary>
+            <p id="faqA3">Entries are reviewed for authenticity, clarity, and the reason behind the wishlist. This is not a points contest, and adding more products does not improve the chance of selection.</p>
           </details>
 
           <details class="reveal">
-            <summary>What happens if my wishlist costs more than $100?</summary>
-            <p>The selected entrant may receive up to $100 toward eligible Olive Young products from the submitted wishlist. If the selected wishlist exceeds $100, the recipient may pay the remaining balance. Availability and shipping restrictions may require substitutions, exclusions, or another practical arrangement.</p>
+            <summary id="faqQ4">What happens if my wishlist costs more than $100?</summary>
+            <p id="faqA4">The selected entrant may receive up to $100 toward eligible Olive Young products from the submitted wishlist. If the selected wishlist exceeds $100, the recipient may pay the remaining balance. Availability and shipping restrictions may require substitutions, exclusions, or another practical arrangement.</p>
           </details>
 
           <details class="reveal">
-            <summary>When will the first selection be announced?</summary>
-            <p>The first round is currently open. The selected entrant will be contacted directly by email after the review period.</p>
+            <summary id="faqQ5">When will the first selection be announced?</summary>
+            <p id="faqA5">The first round is currently open. The selected entrant will be contacted directly by email after the review period.</p>
           </details>
 
           <details class="reveal">
-            <summary>Can anyone enter?</summary>
-            <p>Adults who can legally participate in a promotional giveaway in their location may enter, subject to local laws and shipping availability.</p>
+            <summary id="faqQ6">Can anyone enter?</summary>
+            <p id="faqA6">Adults who can legally participate in a promotional giveaway in their location may enter, subject to local laws and shipping availability.</p>
           </details>
 
           <details class="reveal">
-            <summary>Is DropTheWish affiliated with Olive Young?</summary>
-            <p>No. DropTheWish is an independent project and is not sponsored, endorsed, or administered by Olive Young or any referenced brand.</p>
+            <summary id="faqQ7">Is DropTheWish affiliated with Olive Young?</summary>
+            <p id="faqA7">No. DropTheWish is an independent project and is not sponsored, endorsed, or administered by Olive Young or any referenced brand.</p>
           </details>
         </div>
 
         <div class="contact-card reveal">
           <div>
-            <strong>Still have a question?</strong><br>
-            <span>Send us a note and we will get back to you.</span>
+            <strong id="contactTitle">Still have a question?</strong><br>
+            <span id="contactCopy">Send us a note and we will get back to you.</span>
           </div>
           <a href="mailto:hello@dropthewish.com">hello@dropthewish.com</a>
         </div>
@@ -1170,16 +1221,166 @@
     <div class="shell footer-inner">
       <div>© <span id="year"></span> DropTheWish · A Late Checkout project</div>
       <div class="footer-links">
-        <a href="mailto:hello@dropthewish.com">Contact</a>
-        <a href="#faq">Rules</a>
-        <a href="#faq">Privacy</a>
+        <a href="mailto:hello@dropthewish.com" id="footerContact">Contact</a>
+        <a href="#faq" id="footerRules">Rules</a>
+        <a href="#faq" id="footerPrivacy">Privacy</a>
       </div>
     </div>
   </footer>
 
-  <div class="toast" id="toast" role="status">🎉 Your wish has been received.</div>
+  <div class="toast" id="toast" role="status">🎉 <span id="toastText">Your wish has been received.</span></div>
 
   <script>
+
+    const translations = {
+      en: {
+        title: "DropTheWish — Win your Olive Young wishlist",
+        description: "Tell us what you want from Olive Young and the story behind it. One selected wish receives up to $100 toward the wishlist.",
+        navHow: "How it works", navFaq: "FAQ", navCta: "Enter giveaway",
+        roundLive: "Round #1 now live", worldwideEntry: " · Worldwide entry",
+        heroLine1: "Win your", heroLine2: "Olive Young", heroLine3: "wishlist.",
+        heroCopy: "Tell us what you have been wanting — and the story behind it. If your wish is selected, DropTheWish will cover up to $100.",
+        heroCta: "Enter giveaway", heroSecondary: "See how it works",
+        heroNote: "Free to enter · No purchase required · Selected entrants are contacted by email",
+        chipWorldwide: "🌎 Worldwide", chipAmount: "🎁 Up to $100", chipEntry: "✨ One thoughtful entry", chipPrivacy: "🔒 Email kept private",
+        sampleLabel: "Example wishlist", eligibleLabel: "Sample under $100 ✓",
+        wishCardTitle: "Your wishlist. One real reason.", wishCardCopy: "Tell us why this wishlist matters to you.",
+        entriesOpen: "Entries open", selectionSoon: "First selection announced soon",
+        proof1: "Every complete entry is reviewed", proof2: "One thoughtful wish is selected",
+        proof3: "We contact the selected entrant by email", proof4: "We arrange the purchase and delivery",
+        howKicker: "How it works", howTitle1: "Easy to enter.", howTitle2: "Worth getting excited about.",
+        howCopy: "No account, checkout, payment, or complicated points system.",
+        stepNo1: "STEP 01", stepTitle1: "Choose what you want", stepCopy1: "Open Olive Young and choose the products you genuinely want.",
+        stepNo2: "STEP 02", stepTitle2: "Tell us why", stepCopy2: "Share the honest reason behind your wishlist. Specific matters more than perfect.",
+        stepNo3: "STEP 03", stepTitle3: "Paste the links", stepCopy3: "Add the exact Olive Young URLs so we know what belongs on your list.",
+        storyExample1: "“I have wanted to try Korean skincare for months, but international shipping has always made it too expensive.”",
+        storyExample2: "“I just graduated and want to build a simple skincare routine before starting my first job.”",
+        storyExample3: "“My sister introduced me to Korean skincare, and I want to surprise her with the products we always talk about.”",
+        exampleLabel: "EXAMPLE STORY",
+        formKicker: "Drop your wish", formTitle1: "Your wishlist.", formTitle2: "Your real reason.",
+        formIntroCopy: "Two quick steps. We only receive your entry after you press the final submit button.",
+        bullet1: "Add the Olive Young product links you want", bullet2: "DropTheWish covers up to $100 of the selected wishlist",
+        bullet3: "Worldwide entries are welcome, subject to local rules",
+        independentNote: "DropTheWish is an independent giveaway project and is not affiliated with Olive Young or the brands referenced.",
+        progress1: "1 · About you", progress2: "2 · Your wishlist",
+        emailLabel: "Email", emailHint: "We use this only to contact you about your entry.",
+        countryLabel: "Where do you live?", nameLabel: "What should we call you?",
+        continueBtn: "Continue to my wishlist", storyLabel: "Why does this wishlist matter to you?",
+        storyHint: "characters · Honest and specific is better than perfect.",
+        urlsLabel: "Olive Young product links",
+        urlsHint: "Add as many products as you like. DropTheWish covers up to $100; if the selected wishlist costs more, the recipient is responsible for the remaining balance.",
+        submitBtn: "Submit my wish", backBtn: "← Back",
+        consentText: "I confirm that I am eligible to enter and agree that DropTheWish may contact me about this entry. No purchase is required.",
+        faqTitle1: "The questions", faqTitle2: "people actually ask.",
+        faqQ1: "Is this real?", faqA1: "Yes. DropTheWish is an independent giveaway project. We review submitted stories, contact the selected entrant directly by email, and arrange the eligible product purchase and delivery.",
+        faqQ2: "Is this really free?", faqA2: "Yes. No purchase, payment, credit card, or paid membership is required to submit an entry.",
+        faqQ3: "How is the selected entry chosen?", faqA3: "Entries are reviewed for authenticity, clarity, and the reason behind the wishlist. This is not a points contest, and adding more products does not improve the chance of selection.",
+        faqQ4: "What happens if my wishlist costs more than $100?", faqA4: "The selected entrant may receive up to $100 toward eligible Olive Young products from the submitted wishlist. If the selected wishlist exceeds $100, the recipient may pay the remaining balance. Availability and shipping restrictions may require substitutions, exclusions, or another practical arrangement.",
+        faqQ5: "When will the first selection be announced?", faqA5: "The first round is currently open. The selected entrant will be contacted directly by email after the review period.",
+        faqQ6: "Can anyone enter?", faqA6: "Adults who can legally participate in a promotional giveaway in their location may enter, subject to local laws and shipping availability.",
+        faqQ7: "Is DropTheWish affiliated with Olive Young?", faqA7: "No. DropTheWish is an independent project and is not sponsored, endorsed, or administered by Olive Young or any referenced brand.",
+        contactTitle: "Still have a question?", contactCopy: "Send us a note and we will get back to you.",
+        footerContact: "Contact", footerRules: "Rules", footerPrivacy: "Privacy",
+        toastText: "Your wish has been received.",
+        emailPlaceholder: "you@email.com", countryPlaceholder: "e.g. Japan", namePlaceholder: "How should we address you?",
+        storyPlaceholder: "Example: I have wanted to try Korean skincare for months, but international shipping has always made it too expensive...",
+        urlsPlaceholder: "Paste one product URL per line\nhttps://global.oliveyoung.com/...\nhttps://global.oliveyoung.com/..."
+      },
+      ja: {
+        title: "DropTheWish — オリーブヤングの欲しいものを叶えよう",
+        description: "オリーブヤングで欲しい商品と、その理由を教えてください。選ばれた方のウィッシュリストを最大100ドル分サポートします。",
+        navHow: "参加方法", navFaq: "よくある質問", navCta: "応募する",
+        roundLive: "第1回 応募受付中", worldwideEntry: " · 世界中から応募可能",
+        heroLine1: "欲しかった", heroLine2: "オリーブヤングの", heroLine3: "商品を、あなたに。",
+        heroCopy: "欲しい商品と、その商品を選んだ理由を教えてください。あなたのWishが選ばれたら、DropTheWishが最大100ドル分をサポートします。",
+        heroCta: "応募する", heroSecondary: "参加方法を見る",
+        heroNote: "応募無料 · 購入不要 · 選ばれた方にはメールでご連絡します",
+        chipWorldwide: "🌎 世界中から応募可能", chipAmount: "🎁 最大100ドル", chipEntry: "✨ 心を込めた応募は1回", chipPrivacy: "🔒 メールアドレスは非公開",
+        sampleLabel: "ウィッシュリスト例", eligibleLabel: "100ドル以内の例 ✓",
+        wishCardTitle: "欲しいものと、ひとつの本当の理由。", wishCardCopy: "このウィッシュリストがあなたにとって大切な理由を教えてください。",
+        entriesOpen: "応募受付中", selectionSoon: "第1回の選出結果は近日発表",
+        proof1: "すべての有効な応募に目を通します", proof2: "心に残ったWishを1件選びます",
+        proof3: "選ばれた方へメールでご連絡します", proof4: "購入と配送の手続きを行います",
+        howKicker: "参加方法", howTitle1: "応募はかんたん。", howTitle2: "待つ時間まで、楽しみに。",
+        howCopy: "アカウント登録、決済、購入、複雑なポイント制度はありません。",
+        stepNo1: "STEP 01", stepTitle1: "欲しい商品を選ぶ", stepCopy1: "オリーブヤングを開き、本当に欲しい商品を自由に選んでください。",
+        stepNo2: "STEP 02", stepTitle2: "理由を教える", stepCopy2: "なぜ欲しいのか、素直な理由を教えてください。上手な文章より、具体的な気持ちを大切にします。",
+        stepNo3: "STEP 03", stepTitle3: "商品リンクを貼る", stepCopy3: "希望の商品が分かるように、オリーブヤングの商品URLを貼ってください。",
+        storyExample1: "「韓国スキンケアをずっと試してみたかったのですが、海外送料が高くて何度も諦めていました。」",
+        storyExample2: "「卒業したばかりです。初めての仕事を始める前に、シンプルなスキンケアルーティンを作りたいです。」",
+        storyExample3: "「姉が韓国スキンケアを教えてくれました。いつも一緒に話していた商品を、今度は私からプレゼントしたいです。」",
+        exampleLabel: "応募理由の例",
+        formKicker: "あなたのWishを送る", formTitle1: "欲しいもの。", formTitle2: "そして、本当の理由。",
+        formIntroCopy: "入力は2ステップだけです。最後の送信ボタンを押すまで、応募内容は送信されません。",
+        bullet1: "欲しいオリーブヤング商品のリンクを追加", bullet2: "選ばれたWishを最大100ドル分サポート",
+        bullet3: "各地域のルールと配送条件の範囲で、世界中から応募可能",
+        independentNote: "DropTheWishは独立したプレゼント企画です。オリーブヤングおよび掲載ブランドとの提携・協賛関係はありません。",
+        progress1: "1 · あなたについて", progress2: "2 · ウィッシュリスト",
+        emailLabel: "メールアドレス", emailHint: "応募に関するご連絡にのみ使用します。",
+        countryLabel: "お住まいの国・地域", nameLabel: "お名前またはニックネーム",
+        continueBtn: "ウィッシュリスト入力へ", storyLabel: "このウィッシュリストが大切な理由は？",
+        storyHint: "文字 · きれいな文章より、正直で具体的な気持ちを教えてください。",
+        urlsLabel: "オリーブヤングの商品リンク",
+        urlsHint: "商品数に制限はありません。DropTheWishのサポート上限は100ドルです。合計が100ドルを超える場合、超過分は選ばれた方のご負担となります。",
+        submitBtn: "Wishを送信する", backBtn: "← 戻る",
+        consentText: "応募資格を満たしていることを確認し、DropTheWishから本応募について連絡を受けることに同意します。購入は不要です。",
+        faqTitle1: "みんなが本当に", faqTitle2: "気になること。",
+        faqQ1: "本当に商品をもらえるのですか？", faqA1: "はい。DropTheWishは独立したプレゼント企画です。応募されたストーリーを確認し、選ばれた方へ直接メールで連絡したうえで、対象商品の購入と配送を手配します。",
+        faqQ2: "応募は本当に無料ですか？", faqA2: "はい。応募に購入、支払い、クレジットカード、有料会員登録は必要ありません。",
+        faqQ3: "どのように選ばれますか？", faqA3: "応募内容の誠実さ、分かりやすさ、ウィッシュリストに込められた理由を見て選びます。ポイント競争ではなく、商品数を増やしても選ばれやすくなるわけではありません。",
+        faqQ4: "合計金額が100ドルを超えた場合は？", faqA4: "選ばれた方には、対象となるオリーブヤング商品を最大100ドル分サポートします。合計が100ドルを超える場合は、超過分をご負担いただけます。在庫や配送条件により、代替、除外、または別の対応をご相談する場合があります。",
+        faqQ5: "第1回の結果はいつ発表されますか？", faqA5: "現在、第1回の応募を受け付けています。審査期間後、選ばれた方にメールで直接ご連絡します。",
+        faqQ6: "誰でも応募できますか？", faqA6: "お住まいの地域でプロモーション企画への参加が法的に認められている成人の方が、現地法および配送可否の範囲で応募できます。",
+        faqQ7: "オリーブヤング公式の企画ですか？", faqA7: "いいえ。DropTheWishは独立した企画であり、オリーブヤングおよび掲載ブランドによる協賛、承認、運営を受けていません。",
+        contactTitle: "ほかに質問がありますか？", contactCopy: "メールをお送りください。確認後、ご返信します。",
+        footerContact: "お問い合わせ", footerRules: "応募ルール", footerPrivacy: "プライバシー",
+        toastText: "Wishを受け付けました。",
+        emailPlaceholder: "you@email.com", countryPlaceholder: "例：日本", namePlaceholder: "お呼びする名前を入力してください",
+        storyPlaceholder: "例：韓国スキンケアをずっと試してみたかったのですが、海外送料が高くて何度も諦めていました…",
+        urlsPlaceholder: "商品URLを1行に1つずつ貼り付けてください\nhttps://global.oliveyoung.com/...\nhttps://global.oliveyoung.com/..."
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang] || translations.en;
+      document.documentElement.lang = lang;
+      document.title = t.title;
+      const descriptionMeta = document.querySelector('meta[name="description"]');
+      if (descriptionMeta) descriptionMeta.setAttribute("content", t.description);
+
+      Object.entries(t).forEach(([key, value]) => {
+        const el = document.getElementById(key);
+        if (el && !key.endsWith("Placeholder")) el.textContent = value;
+      });
+
+      document.querySelectorAll(".example-label").forEach(el => {
+        el.textContent = t.exampleLabel;
+      });
+
+      document.getElementById("email").placeholder = t.emailPlaceholder;
+      document.getElementById("country").placeholder = t.countryPlaceholder;
+      document.getElementById("name").placeholder = t.namePlaceholder;
+      document.getElementById("story").placeholder = t.storyPlaceholder;
+      document.getElementById("product_urls").placeholder = t.urlsPlaceholder;
+      document.getElementById("formLanguage").value = lang === "ja" ? "Japanese" : "English";
+
+      document.querySelectorAll(".lang-btn").forEach(btn => {
+        const active = btn.dataset.lang === lang;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", String(active));
+      });
+
+      localStorage.setItem("dtw-language", lang);
+    }
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => setLanguage(btn.dataset.lang));
+    });
+
+    const savedLanguage = localStorage.getItem("dtw-language");
+    const browserLanguage = navigator.language && navigator.language.toLowerCase().startsWith("ja") ? "ja" : "en";
+    setLanguage(savedLanguage || browserLanguage);
+
     const panel1 = document.getElementById("panel1");
     const panel2 = document.getElementById("panel2");
     const progress1 = document.getElementById("progress1");
