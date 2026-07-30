@@ -14,7 +14,7 @@
   <meta property="og:image" content="https://dropthewish.com/og-image.jpg" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
   <style>
     :root {
@@ -143,6 +143,11 @@
     }
 
     .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      cursor: pointer;
       min-width: 42px;
       height: 34px;
       padding: 0 10px;
@@ -906,328 +911,6 @@
       .story-band, .form-grid { grid-template-columns: 1fr; }
       .form-card, .form-intro { padding: 24px; border-radius: 26px; }
     }
-  
-    /* Japanese-localized presentation: softer, calmer, more trust-led */
-    html[lang="ja"] {
-      --bg: #fbf8f3;
-      --surface: #fffdfa;
-      --surface-2: #f7f1ea;
-      --ink: #27231f;
-      --muted: #746d65;
-      --line: #e7ddd3;
-      --accent: #d97062;
-      --accent-soft: #f6ded8;
-      --yellow: #f4e7a7;
-      --green: #dcecdf;
-    }
-
-    html[lang="ja"] body {
-      background:
-        radial-gradient(circle at 12% 8%, rgba(238, 205, 194, 0.28), transparent 34%),
-        radial-gradient(circle at 88% 12%, rgba(244, 230, 185, 0.26), transparent 34%),
-        #fbf8f3;
-      color: var(--ink);
-      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
-      font-feature-settings: "palt";
-    }
-
-    html[lang="ja"] .site-header {
-      background: rgba(251, 248, 243, 0.9);
-      border-color: rgba(231, 221, 211, .9);
-    }
-
-    html[lang="ja"] .brand-mark,
-    html[lang="ja"] .btn-dark,
-    html[lang="ja"] .nav-cta,
-    html[lang="ja"] .form-intro {
-      background: #37312c;
-    }
-
-    html[lang="ja"] .hero {
-      min-height: 780px;
-      grid-template-columns: 0.94fr 1.06fr;
-      gap: 70px;
-    }
-
-    html[lang="ja"] .hero h1 {
-      max-width: 650px;
-      font-size: clamp(52px, 6.2vw, 86px);
-      line-height: 1.09;
-      letter-spacing: -0.055em;
-      font-weight: 800;
-    }
-
-    html[lang="ja"] .hero-accent {
-      color: #d97062;
-      text-decoration-color: rgba(217,112,98,.23);
-      text-decoration-thickness: 12px;
-      text-underline-offset: -3px;
-    }
-
-    html[lang="ja"] .hero-copy {
-      max-width: 620px;
-      font-size: 18px;
-      line-height: 1.9;
-      color: #665e56;
-    }
-
-    html[lang="ja"] .round-pill,
-    html[lang="ja"] .chip,
-    html[lang="ja"] .lang-switch {
-      background: rgba(255,253,250,.9);
-      border-color: #e7ddd3;
-    }
-
-    html[lang="ja"] .round-pill {
-      font-size: 12px;
-      letter-spacing: .01em;
-    }
-
-    html[lang="ja"] .btn {
-      border-radius: 16px;
-      min-height: 54px;
-      padding-inline: 24px;
-      font-weight: 800;
-      letter-spacing: .01em;
-    }
-
-    html[lang="ja"] .btn-light {
-      background: rgba(255,253,250,.9);
-      box-shadow: none;
-    }
-
-    html[lang="ja"] .wishlist-card,
-    html[lang="ja"] .form-card,
-    html[lang="ja"] .quote,
-    html[lang="ja"] details,
-    html[lang="ja"] .proof-strip {
-      background: rgba(255,253,250,.92);
-      border-color: #e7ddd3;
-      box-shadow: 0 20px 56px rgba(78,60,45,.08);
-    }
-
-    html[lang="ja"] .wishlist-card {
-      border-radius: 34px;
-      padding: 30px;
-    }
-
-    html[lang="ja"] .eligible {
-      background: #e8f1e8;
-      color: #44634b;
-    }
-
-    html[lang="ja"] .wish-item {
-      border-color: #e8dfd6;
-      border-radius: 20px;
-    }
-
-    html[lang="ja"] .wish-story {
-      background: #37312c;
-      border-radius: 20px;
-    }
-
-    html[lang="ja"] .proof-wrap {
-      padding-bottom: 48px;
-    }
-
-    html[lang="ja"] .proof-strip {
-      border-radius: 20px;
-    }
-
-    html[lang="ja"] .proof-item {
-      min-height: 128px;
-      padding: 25px 23px;
-    }
-
-    html[lang="ja"] .proof-item span {
-      color: #b8695f;
-    }
-
-    html[lang="ja"] .proof-item strong {
-      font-size: 14px;
-      line-height: 1.65;
-      font-weight: 700;
-    }
-
-    html[lang="ja"] .section {
-      padding-block: 118px;
-    }
-
-    html[lang="ja"] .section h2 {
-      max-width: 760px;
-      font-size: clamp(46px, 5.6vw, 72px);
-      line-height: 1.13;
-      font-weight: 800;
-    }
-
-    html[lang="ja"] .section-copy {
-      line-height: 1.9;
-    }
-
-    html[lang="ja"] .step {
-      min-height: 300px;
-      border-radius: 24px;
-      padding: 28px;
-    }
-
-    html[lang="ja"] .step.one {
-      background: #37312c;
-    }
-
-    html[lang="ja"] .step.two {
-      background: #fffdfa;
-    }
-
-    html[lang="ja"] .step.three {
-      background: #f7e8e1;
-    }
-
-    html[lang="ja"] .step-no {
-      font-size: 12px;
-      letter-spacing: .1em;
-    }
-
-    html[lang="ja"] .step h3 {
-      font-size: 27px;
-      line-height: 1.4;
-    }
-
-    html[lang="ja"] .step p {
-      line-height: 1.85;
-    }
-
-    html[lang="ja"] .story-band {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    html[lang="ja"] .quote {
-      min-height: 176px;
-      border-radius: 22px;
-      padding: 26px;
-      line-height: 1.85;
-    }
-
-    html[lang="ja"] .form-section {
-      grid-template-columns: .62fr 1.38fr;
-      gap: 28px;
-    }
-
-    html[lang="ja"] .form-intro,
-    html[lang="ja"] .form-card {
-      border-radius: 28px;
-    }
-
-    html[lang="ja"] .form-intro h2 {
-      font-size: clamp(42px, 4.6vw, 64px);
-      line-height: 1.16;
-    }
-
-    html[lang="ja"] label {
-      font-weight: 800;
-      margin-bottom: 10px;
-    }
-
-    html[lang="ja"] input,
-    html[lang="ja"] textarea {
-      border-radius: 14px;
-      border-color: #dfd4c9;
-      background: #fff;
-      font-size: 15px;
-      padding: 16px 17px;
-    }
-
-    html[lang="ja"] input:focus,
-    html[lang="ja"] textarea:focus {
-      border-color: #c8897f;
-      box-shadow: 0 0 0 4px rgba(200,137,127,.12);
-    }
-
-    html[lang="ja"] .progress-step {
-      border-radius: 12px;
-      background: #f5efe9;
-    }
-
-    html[lang="ja"] .progress-step.active {
-      background: #37312c;
-    }
-
-    html[lang="ja"] details {
-      border-radius: 16px;
-    }
-
-    html[lang="ja"] summary {
-      min-height: 72px;
-      padding: 20px 22px;
-      line-height: 1.55;
-    }
-
-    html[lang="ja"] details p {
-      line-height: 1.9;
-    }
-
-    html[lang="ja"] .contact-bar {
-      background: #37312c;
-      border-radius: 18px;
-    }
-
-    @media (max-width: 980px) {
-      html[lang="ja"] .hero {
-        grid-template-columns: 1fr;
-        gap: 42px;
-        min-height: auto;
-      }
-
-      html[lang="ja"] .hero h1 {
-        max-width: 740px;
-      }
-
-      html[lang="ja"] .form-section {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 720px) {
-      html[lang="ja"] .hero {
-        padding-top: 60px;
-      }
-
-      html[lang="ja"] .hero h1 {
-        font-size: clamp(43px, 13vw, 60px);
-        line-height: 1.12;
-      }
-
-      html[lang="ja"] .hero-copy {
-        font-size: 16px;
-        line-height: 1.85;
-      }
-
-      html[lang="ja"] .hero-actions {
-        align-items: stretch;
-      }
-
-      html[lang="ja"] .hero-actions .btn {
-        width: 100%;
-      }
-
-      html[lang="ja"] .section {
-        padding-block: 86px;
-      }
-
-      html[lang="ja"] .section h2 {
-        font-size: clamp(38px, 11vw, 54px);
-        line-height: 1.17;
-      }
-
-      html[lang="ja"] .story-band {
-        grid-template-columns: 1fr;
-      }
-
-      html[lang="ja"] .quote {
-        min-height: auto;
-      }
-    }
-
   </style>
 </head>
 
@@ -1243,8 +926,8 @@
         <a href="#how" id="navHow">How it works</a>
         <a href="#faq" id="navFaq">FAQ</a>
         <div class="lang-switch" role="group" aria-label="Language">
-          <button type="button" class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
-          <button type="button" class="lang-btn" data-lang="ja" aria-pressed="false">日本語</button>
+          <a class="lang-btn active" href="./" aria-current="page">EN</a>
+          <a class="lang-btn" href="./jp/" lang="ja" hreflang="ja">日本語</a>
         </div>
         <a class="btn btn-dark nav-cta" href="#drop" id="navCta">Enter giveaway</a>
       </nav>
@@ -1425,7 +1108,7 @@
           method="POST"
           data-netlify="true"
           netlify-honeypot="bot-field"
-          action="./?submitted=true#drop"
+          action="/?submitted=true#drop"
           id="wishForm"
         >
           <input type="hidden" name="form-name" value="wishlist-entry" />
@@ -1554,10 +1237,7 @@
 
   <script>
 
-    document.documentElement.lang = "en";
-    document.body.dataset.locale = "en";
-    const formLanguage = document.getElementById("formLanguage");
-    if (formLanguage) formLanguage.value = "English";
+    // English landing page. Japanese visitors use ./jp/.
 
     const panel1 = document.getElementById("panel1");
     const panel2 = document.getElementById("panel2");
