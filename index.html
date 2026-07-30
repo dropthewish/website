@@ -906,6 +906,328 @@
       .story-band, .form-grid { grid-template-columns: 1fr; }
       .form-card, .form-intro { padding: 24px; border-radius: 26px; }
     }
+  
+    /* Japanese-localized presentation: softer, calmer, more trust-led */
+    html[lang="ja"] {
+      --bg: #fbf8f3;
+      --surface: #fffdfa;
+      --surface-2: #f7f1ea;
+      --ink: #27231f;
+      --muted: #746d65;
+      --line: #e7ddd3;
+      --accent: #d97062;
+      --accent-soft: #f6ded8;
+      --yellow: #f4e7a7;
+      --green: #dcecdf;
+    }
+
+    html[lang="ja"] body {
+      background:
+        radial-gradient(circle at 12% 8%, rgba(238, 205, 194, 0.28), transparent 34%),
+        radial-gradient(circle at 88% 12%, rgba(244, 230, 185, 0.26), transparent 34%),
+        #fbf8f3;
+      color: var(--ink);
+      font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+      font-feature-settings: "palt";
+    }
+
+    html[lang="ja"] .site-header {
+      background: rgba(251, 248, 243, 0.9);
+      border-color: rgba(231, 221, 211, .9);
+    }
+
+    html[lang="ja"] .brand-mark,
+    html[lang="ja"] .btn-dark,
+    html[lang="ja"] .nav-cta,
+    html[lang="ja"] .form-intro {
+      background: #37312c;
+    }
+
+    html[lang="ja"] .hero {
+      min-height: 780px;
+      grid-template-columns: 0.94fr 1.06fr;
+      gap: 70px;
+    }
+
+    html[lang="ja"] .hero h1 {
+      max-width: 650px;
+      font-size: clamp(52px, 6.2vw, 86px);
+      line-height: 1.09;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+    }
+
+    html[lang="ja"] .hero-accent {
+      color: #d97062;
+      text-decoration-color: rgba(217,112,98,.23);
+      text-decoration-thickness: 12px;
+      text-underline-offset: -3px;
+    }
+
+    html[lang="ja"] .hero-copy {
+      max-width: 620px;
+      font-size: 18px;
+      line-height: 1.9;
+      color: #665e56;
+    }
+
+    html[lang="ja"] .round-pill,
+    html[lang="ja"] .chip,
+    html[lang="ja"] .lang-switch {
+      background: rgba(255,253,250,.9);
+      border-color: #e7ddd3;
+    }
+
+    html[lang="ja"] .round-pill {
+      font-size: 12px;
+      letter-spacing: .01em;
+    }
+
+    html[lang="ja"] .btn {
+      border-radius: 16px;
+      min-height: 54px;
+      padding-inline: 24px;
+      font-weight: 800;
+      letter-spacing: .01em;
+    }
+
+    html[lang="ja"] .btn-light {
+      background: rgba(255,253,250,.9);
+      box-shadow: none;
+    }
+
+    html[lang="ja"] .wishlist-card,
+    html[lang="ja"] .form-card,
+    html[lang="ja"] .quote,
+    html[lang="ja"] details,
+    html[lang="ja"] .proof-strip {
+      background: rgba(255,253,250,.92);
+      border-color: #e7ddd3;
+      box-shadow: 0 20px 56px rgba(78,60,45,.08);
+    }
+
+    html[lang="ja"] .wishlist-card {
+      border-radius: 34px;
+      padding: 30px;
+    }
+
+    html[lang="ja"] .eligible {
+      background: #e8f1e8;
+      color: #44634b;
+    }
+
+    html[lang="ja"] .wish-item {
+      border-color: #e8dfd6;
+      border-radius: 20px;
+    }
+
+    html[lang="ja"] .wish-story {
+      background: #37312c;
+      border-radius: 20px;
+    }
+
+    html[lang="ja"] .proof-wrap {
+      padding-bottom: 48px;
+    }
+
+    html[lang="ja"] .proof-strip {
+      border-radius: 20px;
+    }
+
+    html[lang="ja"] .proof-item {
+      min-height: 128px;
+      padding: 25px 23px;
+    }
+
+    html[lang="ja"] .proof-item span {
+      color: #b8695f;
+    }
+
+    html[lang="ja"] .proof-item strong {
+      font-size: 14px;
+      line-height: 1.65;
+      font-weight: 700;
+    }
+
+    html[lang="ja"] .section {
+      padding-block: 118px;
+    }
+
+    html[lang="ja"] .section h2 {
+      max-width: 760px;
+      font-size: clamp(46px, 5.6vw, 72px);
+      line-height: 1.13;
+      font-weight: 800;
+    }
+
+    html[lang="ja"] .section-copy {
+      line-height: 1.9;
+    }
+
+    html[lang="ja"] .step {
+      min-height: 300px;
+      border-radius: 24px;
+      padding: 28px;
+    }
+
+    html[lang="ja"] .step.one {
+      background: #37312c;
+    }
+
+    html[lang="ja"] .step.two {
+      background: #fffdfa;
+    }
+
+    html[lang="ja"] .step.three {
+      background: #f7e8e1;
+    }
+
+    html[lang="ja"] .step-no {
+      font-size: 12px;
+      letter-spacing: .1em;
+    }
+
+    html[lang="ja"] .step h3 {
+      font-size: 27px;
+      line-height: 1.4;
+    }
+
+    html[lang="ja"] .step p {
+      line-height: 1.85;
+    }
+
+    html[lang="ja"] .story-band {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    html[lang="ja"] .quote {
+      min-height: 176px;
+      border-radius: 22px;
+      padding: 26px;
+      line-height: 1.85;
+    }
+
+    html[lang="ja"] .form-section {
+      grid-template-columns: .62fr 1.38fr;
+      gap: 28px;
+    }
+
+    html[lang="ja"] .form-intro,
+    html[lang="ja"] .form-card {
+      border-radius: 28px;
+    }
+
+    html[lang="ja"] .form-intro h2 {
+      font-size: clamp(42px, 4.6vw, 64px);
+      line-height: 1.16;
+    }
+
+    html[lang="ja"] label {
+      font-weight: 800;
+      margin-bottom: 10px;
+    }
+
+    html[lang="ja"] input,
+    html[lang="ja"] textarea {
+      border-radius: 14px;
+      border-color: #dfd4c9;
+      background: #fff;
+      font-size: 15px;
+      padding: 16px 17px;
+    }
+
+    html[lang="ja"] input:focus,
+    html[lang="ja"] textarea:focus {
+      border-color: #c8897f;
+      box-shadow: 0 0 0 4px rgba(200,137,127,.12);
+    }
+
+    html[lang="ja"] .progress-step {
+      border-radius: 12px;
+      background: #f5efe9;
+    }
+
+    html[lang="ja"] .progress-step.active {
+      background: #37312c;
+    }
+
+    html[lang="ja"] details {
+      border-radius: 16px;
+    }
+
+    html[lang="ja"] summary {
+      min-height: 72px;
+      padding: 20px 22px;
+      line-height: 1.55;
+    }
+
+    html[lang="ja"] details p {
+      line-height: 1.9;
+    }
+
+    html[lang="ja"] .contact-bar {
+      background: #37312c;
+      border-radius: 18px;
+    }
+
+    @media (max-width: 980px) {
+      html[lang="ja"] .hero {
+        grid-template-columns: 1fr;
+        gap: 42px;
+        min-height: auto;
+      }
+
+      html[lang="ja"] .hero h1 {
+        max-width: 740px;
+      }
+
+      html[lang="ja"] .form-section {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      html[lang="ja"] .hero {
+        padding-top: 60px;
+      }
+
+      html[lang="ja"] .hero h1 {
+        font-size: clamp(43px, 13vw, 60px);
+        line-height: 1.12;
+      }
+
+      html[lang="ja"] .hero-copy {
+        font-size: 16px;
+        line-height: 1.85;
+      }
+
+      html[lang="ja"] .hero-actions {
+        align-items: stretch;
+      }
+
+      html[lang="ja"] .hero-actions .btn {
+        width: 100%;
+      }
+
+      html[lang="ja"] .section {
+        padding-block: 86px;
+      }
+
+      html[lang="ja"] .section h2 {
+        font-size: clamp(38px, 11vw, 54px);
+        line-height: 1.17;
+      }
+
+      html[lang="ja"] .story-band {
+        grid-template-columns: 1fr;
+      }
+
+      html[lang="ja"] .quote {
+        min-height: auto;
+      }
+    }
+
   </style>
 </head>
 
@@ -1250,9 +1572,9 @@
         proof3: "We contact the selected entrant by email", proof4: "We arrange the purchase and delivery",
         howKicker: "How it works", howTitle1: "Easy to enter.", howTitle2: "Worth getting excited about.",
         howCopy: "No account, checkout, payment, or complicated points system.",
-        stepNo1: "STEP 01", stepTitle1: "Choose what you want", stepCopy1: "Open Olive Young and choose the products you genuinely want.",
-        stepNo2: "STEP 02", stepTitle2: "Tell us why", stepCopy2: "Share the honest reason behind your wishlist. Specific matters more than perfect.",
-        stepNo3: "STEP 03", stepTitle3: "Paste the links", stepCopy3: "Add the exact Olive Young URLs so we know what belongs on your list.",
+        stepNo1: "① 商品を選ぶ", stepTitle1: "Choose what you want", stepCopy1: "Open Olive Young and choose the products you genuinely want.",
+        stepNo2: "② 理由を書く", stepTitle2: "Tell us why", stepCopy2: "Share the honest reason behind your wishlist. Specific matters more than perfect.",
+        stepNo3: "③ URLを貼る", stepTitle3: "Paste the links", stepCopy3: "Add the exact Olive Young URLs so we know what belongs on your list.",
         storyExample1: "“I have wanted to try Korean skincare for months, but international shipping has always made it too expensive.”",
         storyExample2: "“I just graduated and want to build a simple skincare routine before starting my first job.”",
         storyExample3: "“My sister introduced me to Korean skincare, and I want to surprise her with the products we always talk about.”",
@@ -1287,56 +1609,56 @@
         urlsPlaceholder: "Paste one product URL per line\nhttps://global.oliveyoung.com/...\nhttps://global.oliveyoung.com/..."
       },
       ja: {
-        title: "DropTheWish — オリーブヤングの欲しいものを叶えよう",
-        description: "オリーブヤングで欲しい商品と、その理由を教えてください。選ばれた方のウィッシュリストを最大100ドル分サポートします。",
-        navHow: "参加方法", navFaq: "よくある質問", navCta: "応募する",
-        roundLive: "第1回 応募受付中", worldwideEntry: " · 世界中から応募可能",
-        heroLine1: "欲しかった", heroLine2: "オリーブヤングの", heroLine3: "商品を、あなたに。",
-        heroCopy: "欲しい商品と、その商品を選んだ理由を教えてください。あなたのWishが選ばれたら、DropTheWishが最大100ドル分をサポートします。",
-        heroCta: "応募する", heroSecondary: "参加方法を見る",
-        heroNote: "応募無料 · 購入不要 · 選ばれた方にはメールでご連絡します",
-        chipWorldwide: "🌎 世界中から応募可能", chipAmount: "🎁 最大100ドル", chipEntry: "✨ 心を込めた応募は1回", chipPrivacy: "🔒 メールアドレスは非公開",
-        sampleLabel: "ウィッシュリスト例", eligibleLabel: "100ドル以内の例 ✓",
-        wishCardTitle: "欲しいものと、ひとつの本当の理由。", wishCardCopy: "このウィッシュリストがあなたにとって大切な理由を教えてください。",
-        entriesOpen: "応募受付中", selectionSoon: "第1回の選出結果は近日発表",
-        proof1: "すべての有効な応募に目を通します", proof2: "心に残ったWishを1件選びます",
-        proof3: "選ばれた方へメールでご連絡します", proof4: "購入と配送の手続きを行います",
-        howKicker: "参加方法", howTitle1: "応募はかんたん。", howTitle2: "待つ時間まで、楽しみに。",
-        howCopy: "アカウント登録、決済、購入、複雑なポイント制度はありません。",
-        stepNo1: "STEP 01", stepTitle1: "欲しい商品を選ぶ", stepCopy1: "オリーブヤングを開き、本当に欲しい商品を自由に選んでください。",
-        stepNo2: "STEP 02", stepTitle2: "理由を教える", stepCopy2: "なぜ欲しいのか、素直な理由を教えてください。上手な文章より、具体的な気持ちを大切にします。",
-        stepNo3: "STEP 03", stepTitle3: "商品リンクを貼る", stepCopy3: "希望の商品が分かるように、オリーブヤングの商品URLを貼ってください。",
-        storyExample1: "「韓国スキンケアをずっと試してみたかったのですが、海外送料が高くて何度も諦めていました。」",
-        storyExample2: "「卒業したばかりです。初めての仕事を始める前に、シンプルなスキンケアルーティンを作りたいです。」",
-        storyExample3: "「姉が韓国スキンケアを教えてくれました。いつも一緒に話していた商品を、今度は私からプレゼントしたいです。」",
-        exampleLabel: "応募理由の例",
-        formKicker: "あなたのWishを送る", formTitle1: "欲しいもの。", formTitle2: "そして、本当の理由。",
-        formIntroCopy: "入力は2ステップだけです。最後の送信ボタンを押すまで、応募内容は送信されません。",
-        bullet1: "欲しいオリーブヤング商品のリンクを追加", bullet2: "選ばれたWishを最大100ドル分サポート",
-        bullet3: "各地域のルールと配送条件の範囲で、世界中から応募可能",
+        title: "DropTheWish — オリーブヤングの商品をプレゼント",
+        description: "欲しいオリーブヤング商品と、その商品を選んだ理由を教えてください。選ばれた1名様に最大100ドル分の商品をプレゼントします。応募は無料です。",
+        navHow: "参加方法", navFaq: "よくある質問", navCta: "無料で応募",
+        roundLive: "第1回プレゼント企画", worldwideEntry: " · 応募受付中",
+        heroLine1: "ずっと気になっていた", heroLine2: "オリーブヤングの商品を", heroLine3: "あなたのもとへ。",
+        heroCopy: "欲しい商品と、その商品にまつわる理由を教えてください。すべての応募に目を通し、選ばれた1名様に最大100ドル分の商品をお届けします。",
+        heroCta: "無料で応募する", heroSecondary: "応募の流れを見る",
+        heroNote: "応募は無料です · 商品購入は不要です · 選ばれた方にのみメールでご連絡します",
+        chipWorldwide: "🌎 海外からも応募可能", chipAmount: "🎁 商品代 最大100ドル分", chipEntry: "✨ お一人様1回まで", chipPrivacy: "🔒 個人情報は公開しません",
+        sampleLabel: "ウィッシュリスト例", eligibleLabel: "合計100ドル以内 ✓",
+        wishCardTitle: "欲しいものには、理由がある。", wishCardCopy: "あなたがその商品を選んだ理由を、ぜひ教えてください。",
+        entriesOpen: "応募受付中", selectionSoon: "選ばれた方にメールでご連絡",
+        proof1: "応募いただいた内容は、運営チームが一つずつ確認します", proof2: "商品の数ではなく、理由やエピソードをもとに1名様を選びます",
+        proof3: "選ばれた方にのみ、登録メールアドレスへご連絡します", proof4: "商品内容を確認したうえで、購入・配送を手配します",
+        howKicker: "参加方法", howTitle1: "応募は、3ステップ。", howTitle2: "あなたの理由を聞かせてください。",
+        howCopy: "会員登録や商品購入、クレジットカードの入力は必要ありません。",
+        stepNo1: "① 商品を選ぶ", stepTitle1: "欲しい商品を選ぶ", stepCopy1: "オリーブヤングを開き、本当に欲しい商品を自由に選んでください。",
+        stepNo2: "② 理由を書く", stepTitle2: "理由を聞かせる", stepCopy2: "その商品を知ったきっかけや、使ってみたいと思った理由を教えてください。文章の上手さは選考に関係ありません。",
+        stepNo3: "③ URLを貼る", stepTitle3: "商品リンクを貼る", stepCopy3: "欲しい商品が分かるように、オリーブヤングの商品ページURLを1行に1つずつ貼ってください。",
+        storyExample1: "「SNSで見かけてからずっと気になっていました。日本では見つけられず、送料も高くて購入を迷っていた商品です。」",
+        storyExample2: "「春から新しい仕事が始まります。忙しい朝でも続けられる、シンプルなスキンケアを揃えたいです。」",
+        storyExample3: "「韓国コスメが好きな母と、いつも新商品について話しています。今回は母と一緒に使えるものを選びました。」",
+        exampleLabel: "応募エピソード例",
+        formKicker: "プレゼント企画に応募", formTitle1: "欲しい商品と、", formTitle2: "あなたのエピソード。",
+        formIntroCopy: "入力は約2〜3分です。最後に「応募を送信する」を押すまで、内容は送信されません。",
+        bullet1: "欲しい商品ページのURLを入力", bullet2: "選ばれた1名様に商品代を最大100ドル分プレゼント",
+        bullet3: "配送可能地域および現地ルールの範囲で海外からも応募可能",
         independentNote: "DropTheWishは独立したプレゼント企画です。オリーブヤングおよび掲載ブランドとの提携・協賛関係はありません。",
-        progress1: "1 · あなたについて", progress2: "2 · ウィッシュリスト",
+        progress1: "1 · 基本情報", progress2: "2 · 商品とエピソード",
         emailLabel: "メールアドレス", emailHint: "応募に関するご連絡にのみ使用します。",
-        countryLabel: "お住まいの国・地域", nameLabel: "お名前またはニックネーム",
-        continueBtn: "ウィッシュリスト入力へ", storyLabel: "このウィッシュリストが大切な理由は？",
-        storyHint: "文字 · きれいな文章より、正直で具体的な気持ちを教えてください。",
-        urlsLabel: "オリーブヤングの商品リンク",
+        countryLabel: "お住まいの国・地域", nameLabel: "お呼びするお名前・ニックネーム",
+        continueBtn: "商品とエピソードを入力する", storyLabel: "なぜ、この商品が欲しいですか？",
+        storyHint: "文字 · 文章の上手さではなく、具体的な理由を大切にしています。",
+        urlsLabel: "欲しい商品のURL",
         urlsHint: "商品数に制限はありません。DropTheWishのサポート上限は100ドルです。合計が100ドルを超える場合、超過分は選ばれた方のご負担となります。",
-        submitBtn: "Wishを送信する", backBtn: "← 戻る",
+        submitBtn: "応募を送信する", backBtn: "← 戻る",
         consentText: "応募資格を満たしていることを確認し、DropTheWishから本応募について連絡を受けることに同意します。購入は不要です。",
-        faqTitle1: "みんなが本当に", faqTitle2: "気になること。",
-        faqQ1: "本当に商品をもらえるのですか？", faqA1: "はい。DropTheWishは独立したプレゼント企画です。応募されたストーリーを確認し、選ばれた方へ直接メールで連絡したうえで、対象商品の購入と配送を手配します。",
+        faqTitle1: "応募前に確認したい", faqTitle2: "よくあるご質問。",
+        faqQ1: "本当に無料で商品が届くのですか？", faqA1: "はい。応募は無料です。すべての応募内容を確認し、選ばれた方へメールでご連絡したうえで、対象商品の購入と配送を手配します。",
         faqQ2: "応募は本当に無料ですか？", faqA2: "はい。応募に購入、支払い、クレジットカード、有料会員登録は必要ありません。",
-        faqQ3: "どのように選ばれますか？", faqA3: "応募内容の誠実さ、分かりやすさ、ウィッシュリストに込められた理由を見て選びます。ポイント競争ではなく、商品数を増やしても選ばれやすくなるわけではありません。",
+        faqQ3: "選ばれる基準は何ですか？", faqA3: "商品の数や合計金額ではなく、応募内容の具体性や、その商品を選んだ理由をもとに選びます。抽選形式やポイント競争ではありません。",
         faqQ4: "合計金額が100ドルを超えた場合は？", faqA4: "選ばれた方には、対象となるオリーブヤング商品を最大100ドル分サポートします。合計が100ドルを超える場合は、超過分をご負担いただけます。在庫や配送条件により、代替、除外、または別の対応をご相談する場合があります。",
         faqQ5: "第1回の結果はいつ発表されますか？", faqA5: "現在、第1回の応募を受け付けています。審査期間後、選ばれた方にメールで直接ご連絡します。",
         faqQ6: "誰でも応募できますか？", faqA6: "お住まいの地域でプロモーション企画への参加が法的に認められている成人の方が、現地法および配送可否の範囲で応募できます。",
-        faqQ7: "オリーブヤング公式の企画ですか？", faqA7: "いいえ。DropTheWishは独立した企画であり、オリーブヤングおよび掲載ブランドによる協賛、承認、運営を受けていません。",
-        contactTitle: "ほかに質問がありますか？", contactCopy: "メールをお送りください。確認後、ご返信します。",
+        faqQ7: "オリーブヤング公式キャンペーンですか？", faqA7: "いいえ。DropTheWishは独立した企画であり、オリーブヤングおよび掲載ブランドによる協賛、承認、運営を受けていません。",
+        contactTitle: "ご不明な点がありますか？", contactCopy: "メールでお問い合わせください。内容を確認のうえご返信します。",
         footerContact: "お問い合わせ", footerRules: "応募ルール", footerPrivacy: "プライバシー",
         toastText: "Wishを受け付けました。",
-        emailPlaceholder: "you@email.com", countryPlaceholder: "例：日本", namePlaceholder: "お呼びする名前を入力してください",
-        storyPlaceholder: "例：韓国スキンケアをずっと試してみたかったのですが、海外送料が高くて何度も諦めていました…",
+        emailPlaceholder: "you@email.com", countryPlaceholder: "例：日本", namePlaceholder: "例：Mika",
+        storyPlaceholder: "例：SNSで見かけてからずっと気になっていました。日本では見つけられず、送料も高くて購入を迷っていた商品です。",
         urlsPlaceholder: "商品URLを1行に1つずつ貼り付けてください\nhttps://global.oliveyoung.com/...\nhttps://global.oliveyoung.com/..."
       }
     };
@@ -1362,7 +1684,9 @@
       document.getElementById("name").placeholder = t.namePlaceholder;
       document.getElementById("story").placeholder = t.storyPlaceholder;
       document.getElementById("product_urls").placeholder = t.urlsPlaceholder;
-      document.getElementById("formLanguage").value = lang === "ja" ? "Japanese" : "English";
+      document.getElementById("formLanguage").value = lang === "ja" ? "Japanese-localized" : "English";
+      document.body.dataset.locale = lang;
+      document.querySelector(".lang-switch")?.setAttribute("aria-label", lang === "ja" ? "言語を選択" : "Language");
 
       document.querySelectorAll(".lang-btn").forEach(btn => {
         const active = btn.dataset.lang === lang;
