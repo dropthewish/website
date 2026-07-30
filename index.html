@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>DropTheWish — Win your Olive Young wishlist</title>
-  <meta name="description" content="Build your Olive Young wishlist, tell us why it matters, and enter for a chance to win up to $100 in products." />
+  <meta name="description" content="Tell us what you want from Olive Young and the story behind it. One selected wish receives up to $100 toward the wishlist." />
   <meta name="theme-color" content="#fff8f2" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="DropTheWish — Win your Olive Young wishlist" />
-  <meta property="og:description" content="Build your wishlist. Tell us why. Enter for a chance to win up to $100 in Olive Young products." />
+  <meta property="og:description" content="Tell us what you want and why it matters. One selected Olive Young wish receives up to $100." />
   <meta property="og:url" content="https://dropthewish.com/" />
   <meta property="og:image" content="https://dropthewish.com/og-image.jpg" />
 
@@ -127,6 +127,9 @@
       color: #fff;
       box-shadow: 0 14px 34px rgba(17, 17, 17, 0.22);
     }
+
+    .btn-light { background: rgba(255,255,255,.78); color: var(--ink); border: 1px solid var(--line); box-shadow: 0 10px 26px rgba(46,29,18,.07); }
+    .hero-note { margin-top: 13px; line-height: 1.5; }
 
     .hero {
       min-height: 760px;
@@ -393,6 +396,13 @@
       background: #4fd06d;
     }
 
+    .proof-wrap { padding: 0 0 24px; }
+    .proof-strip { display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden; border:1px solid var(--line); border-radius:24px; background:rgba(255,255,255,.72); box-shadow:0 18px 50px rgba(46,29,18,.06); }
+    .proof-item { min-height:110px; padding:22px; display:flex; flex-direction:column; justify-content:space-between; gap:14px; border-right:1px solid var(--line); }
+    .proof-item:last-child { border-right:0; }
+    .proof-item span { color:var(--accent); font-size:11px; font-weight:900; letter-spacing:.13em; }
+    .proof-item strong { max-width:210px; font-size:14px; line-height:1.35; letter-spacing:-.015em; }
+
     .section { padding: 106px 0; }
 
     .section-head {
@@ -505,7 +515,7 @@
     .story-band {
       margin-top: 18px;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
 
@@ -529,7 +539,7 @@
 
     .form-section {
       display: grid;
-      grid-template-columns: 0.86fr 1.14fr;
+      grid-template-columns: 0.68fr 1.32fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -638,6 +648,7 @@
       resize: vertical;
       line-height: 1.5;
     }
+    textarea.url-list { min-height:132px; font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; }
 
     input:focus, textarea:focus {
       border-color: rgba(255, 89, 54, 0.55);
@@ -843,6 +854,9 @@
       }
 
       .section { padding: 82px 0; }
+      .proof-strip { grid-template-columns:1fr; }
+      .proof-item,.proof-item:nth-child(2) { border-right:0; border-bottom:1px solid var(--line); }
+      .proof-item:last-child { border-bottom:0; }
       .story-band, .form-grid { grid-template-columns: 1fr; }
       .form-card, .form-intro { padding: 24px; border-radius: 26px; }
     }
@@ -880,13 +894,14 @@
         </h1>
 
         <p class="hero-copy reveal">
-          Build the Olive Young wishlist you actually want, tell us why it matters, and enter for a chance to receive up to $100 toward your wishlist.
+          Tell us what you have been wanting — and the story behind it. If your wish is selected, DropTheWish will cover up to $100.
         </p>
 
         <div class="hero-actions reveal">
           <a class="btn btn-dark" href="#drop">Enter giveaway <span aria-hidden="true">↘</span></a>
-          <span class="subnote">Free to enter · No purchase required</span>
+          <a class="btn btn-light" href="#how">See how it works</a>
         </div>
+        <div class="subnote hero-note reveal">Free to enter · No purchase required · Selected entrants are contacted by email</div>
 
         <div class="trust reveal">
           <span class="chip">🌎 Worldwide</span>
@@ -906,7 +921,7 @@
               <div class="wish-kicker">Example wishlist</div>
               <div class="wish-total">$94.70</div>
             </div>
-            <div class="eligible">Eligible ✓</div>
+            <div class="eligible">Sample under $100 ✓</div>
           </div>
 
           <div class="products">
@@ -954,6 +969,15 @@
       </div>
     </section>
 
+    <section class="proof-wrap" aria-label="How selection and delivery work">
+      <div class="shell proof-strip reveal">
+        <div class="proof-item"><span>01</span><strong>Every complete entry is reviewed</strong></div>
+        <div class="proof-item"><span>02</span><strong>One thoughtful wish is selected</strong></div>
+        <div class="proof-item"><span>03</span><strong>We contact the selected entrant by email</strong></div>
+        <div class="proof-item"><span>04</span><strong>We arrange the purchase and delivery</strong></div>
+      </div>
+    </section>
+
     <section id="how" class="section">
       <div class="shell">
         <div class="section-head reveal">
@@ -972,16 +996,16 @@
 
           <article class="step two reveal">
             <div class="step-no">STEP 02</div>
-            <h3>Paste the links</h3>
-            <p>Add the exact URLs so we know which products belong on your list.</p>
-            <div class="step-visual">↗</div>
+            <h3>Tell us why</h3>
+            <p>Share the honest reason behind your wishlist. Specific matters more than perfect.</p>
+            <div class="step-visual">✦</div>
           </article>
 
           <article class="step three reveal">
             <div class="step-no">STEP 03</div>
-            <h3>Tell us why</h3>
-            <p>Specific, honest stories are easier to remember than perfect answers.</p>
-            <div class="step-visual">✦</div>
+            <h3>Paste the links</h3>
+            <p>Add the exact Olive Young URLs so we know what belongs on your list.</p>
+            <div class="step-visual">↗</div>
           </article>
         </div>
 
@@ -995,6 +1019,10 @@
             “I just graduated and want to build a simple skincare routine before starting my first job.”
             <small>EXAMPLE STORY</small>
           </div>
+          <div class="quote reveal">
+            “My sister introduced me to Korean skincare, and I want to surprise her with the products we always talk about.”
+            <small>EXAMPLE STORY</small>
+          </div>
         </div>
       </div>
     </section>
@@ -1004,8 +1032,8 @@
         <aside class="form-intro reveal">
           <div>
             <div class="kicker" style="color:#ff9b79;">Drop your wish</div>
-            <h2>Start small.<br>Finish with the reason.</h2>
-            <p>The form is split into two quick steps. Your entry is sent only after the final button.</p>
+            <h2>Your wishlist.<br>Your real reason.</h2>
+            <p>Two quick steps. We only receive your entry after you press the final submit button.</p>
 
             <div class="bullets">
               <div class="bullet"><span class="check">✓</span><span>Add the Olive Young product links you want</span></div>
@@ -1045,12 +1073,12 @@
 
             <div class="form-grid">
               <div class="field">
-                <label for="country">Country <span class="required">*</span></label>
+                <label for="country">Where do you live? <span class="required">*</span></label>
                 <input id="country" name="country" type="text" required placeholder="e.g. Japan" />
               </div>
 
               <div class="field">
-                <label for="name">First name or nickname</label>
+                <label for="name">What should we call you?</label>
                 <input id="name" name="name" type="text" placeholder="How should we address you?" />
               </div>
             </div>
@@ -1060,32 +1088,15 @@
 
           <div class="panel" id="panel2">
             <div class="field">
-              <label for="product_url_1">Olive Young product URL <span class="required">*</span></label>
-              <input id="product_url_1" name="product_url_1" type="url" required placeholder="https://global.oliveyoung.com/..." />
-            </div>
-
-            <div class="field">
-              <label for="product_url_2">Additional product URL 2</label>
-              <input id="product_url_2" name="product_url_2" type="url" placeholder="Optional" />
-            </div>
-
-            <div class="field">
-              <label for="product_url_3">Additional product URL 3</label>
-              <input id="product_url_3" name="product_url_3" type="url" placeholder="Optional" />
-              <div class="hint">You may include more than three products by listing additional URLs in your story. DropTheWish covers up to $100; any remaining balance is the recipient’s responsibility.</div>
-            </div>
-
-            <div class="field">
               <label for="story">Why does this wishlist matter to you? <span class="required">*</span></label>
-              <textarea
-                id="story"
-                name="story"
-                required
-                minlength="30"
-                maxlength="800"
-                placeholder="Example: I have wanted to try Korean skincare for months, but international shipping has always made it too expensive..."
-              ></textarea>
+              <textarea id="story" name="story" required minlength="30" maxlength="800" placeholder="Example: I have wanted to try Korean skincare for months, but international shipping has always made it too expensive..."></textarea>
               <div class="hint"><span id="storyCount">0</span>/800 characters · Honest and specific is better than perfect.</div>
+            </div>
+
+            <div class="field">
+              <label for="product_urls">Olive Young product links <span class="required">*</span></label>
+              <textarea id="product_urls" name="product_urls" required class="url-list" placeholder="Paste one product URL per line&#10;https://global.oliveyoung.com/...&#10;https://global.oliveyoung.com/..."></textarea>
+              <div class="hint">Add as many products as you like. DropTheWish covers up to $100; if the selected wishlist costs more, the recipient is responsible for the remaining balance.</div>
             </div>
 
             <button type="submit" class="btn btn-dark full">Submit my wish</button>
@@ -1109,18 +1120,23 @@
 
         <div class="faq">
           <details class="reveal">
-            <summary>Is this really free?</summary>
-            <p>Yes. No purchase or payment is required to submit an entry.</p>
+            <summary>Is this real?</summary>
+            <p>Yes. DropTheWish is an independent giveaway project. We review submitted stories, contact the selected entrant directly by email, and arrange the eligible product purchase and delivery.</p>
           </details>
 
           <details class="reveal">
-            <summary>What happens if my wishlist costs more than $100?</summary>
-            <p>The selected entrant may receive up to $100 toward eligible Olive Young products from the submitted wishlist. If the selected wishlist exceeds $100, the recipient may pay the remaining balance. Availability and shipping restrictions may require substitutions, exclusions, or another practical arrangement.</p>
+            <summary>Is this really free?</summary>
+            <p>Yes. No purchase, payment, credit card, or paid membership is required to submit an entry.</p>
           </details>
 
           <details class="reveal">
             <summary>How is the selected entry chosen?</summary>
             <p>Entries are reviewed for authenticity, clarity, and the reason behind the wishlist. This is not a points contest, and adding more products does not improve the chance of selection.</p>
+          </details>
+
+          <details class="reveal">
+            <summary>What happens if my wishlist costs more than $100?</summary>
+            <p>The selected entrant may receive up to $100 toward eligible Olive Young products from the submitted wishlist. If the selected wishlist exceeds $100, the recipient may pay the remaining balance. Availability and shipping restrictions may require substitutions, exclusions, or another practical arrangement.</p>
           </details>
 
           <details class="reveal">
@@ -1188,7 +1204,7 @@
       panel2.classList.add("active");
       progress1.classList.remove("active");
       progress2.classList.add("active");
-      document.getElementById("product_url_1").focus();
+      document.getElementById("story").focus();
     });
 
     backBtn.addEventListener("click", () => {
