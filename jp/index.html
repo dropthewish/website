@@ -3,488 +3,312 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="欲しいオリーブヤング商品と、その理由を教えてください。選ばれた方に最大100ドル分の商品をお届けします。" />
-  <title>DropTheWish — 欲しい韓国コスメ、100ドル分まで贈ります。</title>
+  <title>DropTheWish — 欲しいオリーブヤング商品を、最大100ドル分まで。</title>
+  <meta name="description" content="オリーブヤングで欲しい商品と、その理由を教えてください。選ばれた方に最大100ドル分の商品をお届けします。" />
+  <meta name="theme-color" content="#fff8f2" />
   <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
   <style>
     :root{
       --bg:#fff8f2;
-      --surface:#ffffff;
-      --ink:#111111;
-      --muted:#756d68;
+      --surface:#fff;
+      --ink:#111;
+      --muted:#716c66;
       --line:rgba(17,17,17,.10);
-      --accent:#ff5b3d;
-      --accent-soft:#ffd8cc;
-      --yellow:#f5ef74;
-      --mint:#def4df;
-      --shadow:0 24px 70px rgba(72,40,25,.12);
-      --max:1180px;
+      --accent:#ff5936;
+      --accent-soft:#ffd7c8;
+      --yellow:#f3f19d;
+      --mint:#dff2e2;
+      --blue:#dff3f5;
+      --cream:#f6eadb;
+      --shadow:0 28px 80px rgba(46,29,18,.14);
+      --max:1180px
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0;
+      margin:0;color:var(--ink);
       background:
-        radial-gradient(circle at 18% 14%, rgba(255,178,145,.28), transparent 28%),
-        radial-gradient(circle at 84% 18%, rgba(245,239,116,.22), transparent 23%),
+        radial-gradient(circle at 11% 3%,rgba(255,190,154,.33),transparent 25%),
+        radial-gradient(circle at 91% 17%,rgba(243,241,157,.26),transparent 23%),
         var(--bg);
-      color:var(--ink);
       font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-      -webkit-font-smoothing:antialiased;
+      -webkit-font-smoothing:antialiased
     }
     a{color:inherit;text-decoration:none}
     button,input,textarea{font:inherit}
     button{cursor:pointer}
-    .shell{width:min(calc(100% - 40px),var(--max));margin:0 auto}
-
-    header{
-      position:sticky;top:0;z-index:50;
-      backdrop-filter:blur(16px);
-      background:rgba(255,248,242,.80);
-      border-bottom:1px solid rgba(17,17,17,.05);
-    }
+    .shell{width:min(calc(100% - 36px),var(--max));margin:0 auto}
     .nav{
-      min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:18px;
+      position:sticky;top:0;z-index:50;backdrop-filter:blur(18px);
+      background:rgba(255,248,242,.79);border-bottom:1px solid rgba(17,17,17,.06)
     }
-    .brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.03em}
-    .brand-mark{
-      width:31px;height:31px;border-radius:10px;background:#111;color:#fff;display:grid;place-items:center;
-      transform:rotate(-7deg);box-shadow:0 8px 18px rgba(0,0,0,.16);font-size:14px;
-    }
-    .nav-right{display:flex;align-items:center;gap:20px;color:var(--muted);font-size:13px}
-    .lang{
-      display:flex;align-items:center;gap:5px;border:1px solid var(--line);background:rgba(255,255,255,.74);
-      padding:4px;border-radius:999px;
-    }
-    .lang a{padding:7px 10px;border-radius:999px;font-weight:800}
-    .lang .active{background:#111;color:#fff}
-    .nav-cta{
-      padding:12px 18px;border-radius:999px;background:#111;color:#fff;font-weight:900;box-shadow:0 12px 28px rgba(17,17,17,.18);
-    }
-
-    .hero{
-      min-height:720px;padding:72px 0 44px;
-      display:grid;grid-template-columns:.95fr 1.05fr;gap:64px;align-items:center;
-    }
-    .eyebrow{
-      display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border:1px solid var(--line);
-      border-radius:999px;background:rgba(255,255,255,.72);font-size:12px;font-weight:800;margin-bottom:24px;
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-    h1{
-      margin:0;font-size:clamp(54px,6vw,92px);line-height:.98;letter-spacing:-.055em;font-weight:950;
-    }
-    .accent{color:var(--accent);position:relative;display:inline-block}
-    .accent:after{
-      content:"";position:absolute;left:2%;right:2%;bottom:-3px;height:10px;border-radius:99px;background:rgba(255,91,61,.18);z-index:-1;
-    }
-    .hero-copy{
-      margin:28px 0 0;max-width:620px;font-size:18px;line-height:1.9;color:var(--muted);
-    }
-    .hero-actions{display:flex;align-items:center;gap:12px;margin-top:30px;flex-wrap:wrap}
-    .btn{
-      min-height:52px;padding:0 22px;border:0;border-radius:999px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:8px;
-      transition:.2s ease;
-    }
+    .nav-inner{min-height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:10px;font-size:20px;font-weight:900;letter-spacing:-.04em}
+    .brand-mark{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;background:#111;color:#fff;transform:rotate(-7deg);box-shadow:0 8px 18px rgba(0,0,0,.18);font-size:15px}
+    .nav-links{display:flex;align-items:center;gap:24px;font-size:14px;color:var(--muted)}
+    .btn{border:0;border-radius:999px;min-height:50px;padding:0 22px;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:850;transition:.2s ease}
     .btn:hover{transform:translateY(-2px)}
-    .btn-dark{background:#111;color:#fff;box-shadow:0 14px 34px rgba(17,17,17,.18)}
-    .btn-light{background:rgba(255,255,255,.76);border:1px solid var(--line)}
-    .trust-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
-    .pill{
-      background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:999px;padding:8px 11px;font-size:12px;color:#504943;
-    }
+    .btn-dark{background:#111;color:#fff;box-shadow:0 14px 34px rgba(17,17,17,.22)}
+    .btn-light{background:rgba(255,255,255,.78);border:1px solid var(--line);box-shadow:0 10px 26px rgba(46,29,18,.07)}
+    .lang-switch{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72)}
+    .lang-switch a{min-width:42px;height:34px;padding:0 10px;border-radius:999px;display:grid;place-items:center;font-size:12px;font-weight:900;color:var(--muted)}
+    .lang-switch .active{background:#111;color:#fff;box-shadow:0 6px 16px rgba(17,17,17,.16)}
 
-    .wishlist-card{
-      position:relative;background:rgba(255,255,255,.94);border:1px solid var(--line);border-radius:30px;padding:24px;
-      box-shadow:var(--shadow);overflow:hidden;
-    }
-    .wishlist-card:before{
-      content:"";position:absolute;width:160px;height:160px;border-radius:50%;background:var(--accent-soft);right:-55px;top:-58px;z-index:0;
-    }
-    .card-inner{position:relative;z-index:1}
-    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;margin-bottom:18px}
-    .mini-label{font-size:12px;font-weight:900;color:var(--accent);letter-spacing:.12em}
-    .total{font-size:44px;font-weight:950;letter-spacing:-.05em;margin-top:5px}
-    .eligible{background:var(--mint);padding:8px 11px;border-radius:999px;font-size:12px;font-weight:900}
-    .products{display:grid;gap:10px}
-    .product{
-      display:grid;grid-template-columns:64px 1fr auto;gap:14px;align-items:center;border:1px solid var(--line);
-      border-radius:18px;padding:12px;background:#fff;
-    }
-    .product-art{
-      height:64px;border-radius:16px;display:grid;place-items:center;font-size:10px;font-weight:950;line-height:1.05;text-align:center;
-    }
-    .p1{background:#edf2dd}.p2{background:#ddf5f6}.p3{background:#f7ead8}
-    .product strong{display:block;font-size:14px}
-    .product span{display:block;color:var(--muted);font-size:12px;margin-top:4px}
-    .price{font-weight:900;font-size:13px}
-    .reason-bar{
-      margin-top:14px;background:#111;color:#fff;border-radius:18px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:16px;
-    }
-    .reason-bar strong{display:block}
-    .reason-bar span{font-size:12px;color:#cfcfcf;display:block;margin-top:3px}
-    .status{
-      display:flex;justify-content:space-between;gap:18px;margin-top:12px;font-size:11px;color:var(--muted);
-    }
-    .status strong{color:#2d8b46}
+    .hero{min-height:760px;padding:68px 0 56px;display:grid;grid-template-columns:.94fr 1.06fr;gap:52px;align-items:center}
+    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.74);color:var(--muted);font-size:13px;margin-bottom:22px}
+    .eyebrow strong{color:var(--ink)}
+    .live-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    h1{margin:0;max-width:680px;font-size:clamp(56px,6.7vw,94px);line-height:1.02;letter-spacing:-.065em;font-weight:900}
+    .hero-accent{color:var(--accent);position:relative;display:inline-block}
+    .hero-accent:after{content:"";position:absolute;left:2%;right:-2%;bottom:-.04em;height:.11em;border-radius:999px;background:var(--accent-soft);transform:rotate(-1deg);z-index:-1}
+    .hero-copy{max-width:610px;margin:30px 0 26px;color:var(--muted);font-size:18px;line-height:1.85}
+    .hero-actions{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+    .subnote{margin-top:13px;color:var(--muted);font-size:12px;line-height:1.6}
+    .trust{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+    .chip{border:1px solid var(--line);border-radius:999px;padding:10px 13px;background:rgba(255,255,255,.76);color:#4f4a45;font-size:13px}
 
-    section{padding:88px 0}
-    .section-kicker{color:var(--accent);font-weight:900;font-size:12px;letter-spacing:.14em;margin-bottom:14px}
-    .section-title{
-      font-size:clamp(38px,4vw,62px);line-height:1.12;letter-spacing:-.045em;margin:0;font-weight:950;
-    }
-    .section-copy{color:var(--muted);font-size:16px;line-height:1.8;margin-top:15px}
+    .wishlist-stage{position:relative;min-height:600px}
+    .floating{position:absolute;border-radius:50%;pointer-events:none}
+    .floating.one{width:178px;height:178px;background:#ffd3c4;right:0;top:30px}
+    .floating.two{width:116px;height:116px;background:var(--yellow);left:0;bottom:70px}
+    .wishlist-card{position:absolute;left:50%;top:34px;transform:translateX(-50%);width:91%;border:1px solid rgba(17,17,17,.08);border-radius:36px;background:rgba(255,255,255,.92);padding:27px;box-shadow:var(--shadow)}
+    .wish-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px}
+    .wish-kicker{color:var(--accent);font-size:12px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .wish-total{margin-top:8px;font-size:47px;line-height:1;font-weight:900;letter-spacing:-.06em}
+    .eligible{border-radius:999px;background:var(--mint);padding:8px 11px;font-size:12px;font-weight:850;white-space:nowrap}
+    .products{display:grid;gap:13px}
+    .product{display:grid;grid-template-columns:74px 1fr auto;gap:14px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:22px;background:#fff}
+    .product-art{width:74px;height:74px;border-radius:18px;display:grid;place-items:center;font-size:10px;font-weight:900;text-align:center;line-height:1.1}
+    .anua{background:#edf1dd}.torriden{background:var(--blue)}.boj{background:var(--cream)}
+    .product-meta strong{display:block;font-size:15px}.product-meta span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.price{font-size:14px;font-weight:900}
+    .wish-bottom{margin-top:16px;border-radius:22px;background:#111;color:#fff;padding:18px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+    .wish-bottom strong{display:block;font-size:16px}.wish-bottom span{color:rgba(255,255,255,.64);font-size:12px}
+    .mini-status{margin-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px}
+    .status-open{display:inline-flex;align-items:center;gap:8px;color:#2f7b42;font-weight:850}.status-dot{width:8px;height:8px;border-radius:50%;background:#4fd06d}
 
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
-    .step{
-      min-height:235px;border:1px solid var(--line);border-radius:28px;padding:25px;background:rgba(255,255,255,.82);position:relative;overflow:hidden;
-    }
-    .step:nth-child(1){background:#111;color:#fff}
-    .step:nth-child(3){background:#ffe4da}
-    .step-no{font-size:11px;font-weight:900;letter-spacing:.12em;opacity:.66}
-    .step h3{font-size:25px;letter-spacing:-.04em;margin:42px 0 10px}
-    .step p{margin:0;font-size:14px;line-height:1.75;color:var(--muted)}
-    .step:nth-child(1) p{color:#c8c8c8}
-    .icon-chip{
-      position:absolute;right:22px;bottom:20px;width:70px;height:70px;border-radius:22px;display:grid;place-items:center;font-size:28px;background:#fff;transform:rotate(-5deg);
-    }
-    .step:nth-child(1) .icon-chip{background:#262626}
-    .step:nth-child(2) .icon-chip{background:var(--yellow)}
+    .proof-wrap{padding:0 0 24px}
+    .proof-strip{display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;border:1px solid var(--line);border-radius:24px;background:rgba(255,255,255,.72);box-shadow:0 18px 50px rgba(46,29,18,.06)}
+    .proof-item{min-height:110px;padding:22px;display:flex;flex-direction:column;justify-content:space-between;gap:14px;border-right:1px solid var(--line)}
+    .proof-item:last-child{border-right:0}.proof-item span{color:var(--accent);font-size:11px;font-weight:900;letter-spacing:.13em}.proof-item strong{max-width:210px;font-size:14px;line-height:1.5}
 
-    .stories{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-    .story{
-      background:#fff;border:1px solid var(--line);border-radius:22px;padding:20px 22px;font-size:15px;line-height:1.75;
-    }
-    .story small{display:block;margin-top:12px;font-size:11px;color:var(--muted);font-weight:900;letter-spacing:.08em}
+    .section{padding:106px 0}
+    .section-head{max-width:760px;margin-bottom:42px}
+    .kicker{color:var(--accent);font-size:13px;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    h2{margin:10px 0 0;font-size:clamp(40px,5vw,70px);line-height:1.08;letter-spacing:-.055em}
+    .section-copy{color:var(--muted);font-size:17px;line-height:1.8;margin-top:18px}
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{min-height:270px;border-radius:30px;padding:27px;position:relative;overflow:hidden;border:1px solid var(--line)}
+    .step.one{background:#111;color:#fff}.step.two{background:#fff}.step.three{background:linear-gradient(145deg,#fff2ea,#ffe0d3)}
+    .step-no{font-size:12px;font-weight:900;letter-spacing:.13em;color:var(--muted)}.step.one .step-no{color:rgba(255,255,255,.54)}
+    .step h3{margin:42px 0 12px;font-size:30px;letter-spacing:-.045em}.step p{margin:0;color:var(--muted);line-height:1.7;max-width:300px}.step.one p{color:rgba(255,255,255,.66)}
+    .step-visual{position:absolute;right:20px;bottom:18px;width:82px;height:82px;border-radius:22px;display:grid;place-items:center;font-size:30px;font-weight:900;transform:rotate(-6deg)}
+    .step.one .step-visual{background:rgba(255,255,255,.10)}.step.two .step-visual{background:var(--yellow)}.step.three .step-visual{background:#fff}
+    .story-band{margin-top:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .quote{border:1px solid var(--line);border-radius:22px;background:rgba(255,255,255,.80);padding:22px;color:#403c38;line-height:1.75;font-size:15px}
+    .quote small{display:block;margin-top:13px;color:var(--muted);font-size:12px;font-weight:900}
 
-    .form-wrap{
-      display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:stretch;
-    }
-    .form-note{
-      border-radius:30px;background:#111;color:#fff;padding:36px;display:flex;flex-direction:column;justify-content:space-between;min-height:590px;
-    }
-    .form-note .section-kicker{color:#ff8b75}
-    .form-note h2{font-size:54px;line-height:1.05;letter-spacing:-.05em;margin:12px 0 18px}
-    .form-note p{color:#d7d7d7;line-height:1.8}
-    .checks{display:grid;gap:10px;margin-top:26px}
-    .check{display:flex;gap:10px;align-items:flex-start;font-size:13px}
-    .check-bullet{width:22px;height:22px;border-radius:50%;background:#2b2b2b;display:grid;place-items:center;flex:none}
-    .independent{font-size:11px;color:#bfbfbf;line-height:1.6;margin-top:28px}
-    .form-card{
-      border:1px solid var(--line);border-radius:30px;background:rgba(255,255,255,.93);padding:28px;box-shadow:var(--shadow);
-    }
-    .form-card h3{margin:0 0 6px;font-size:25px}
-    .form-card .sub{margin:0 0 24px;color:var(--muted);font-size:13px}
-    .field{margin-bottom:18px}
-    label{display:block;font-size:12px;font-weight:900;margin-bottom:8px}
-    .req{color:var(--accent)}
-    input,textarea{
-      width:100%;border:1px solid var(--line);border-radius:15px;background:#fff;padding:14px 15px;outline:none;transition:.2s;
-    }
-    input:focus,textarea:focus{border-color:#999;box-shadow:0 0 0 3px rgba(17,17,17,.04)}
-    textarea{min-height:120px;resize:vertical}
-    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .consent{display:flex;gap:9px;align-items:flex-start;font-size:11px;color:var(--muted);line-height:1.6;margin:8px 0 18px}
-    .consent input{width:auto;margin-top:3px}
-    .submit{width:100%;border:0;border-radius:15px;background:var(--accent);color:#fff;padding:16px;font-weight:950}
-    .submit:hover{filter:brightness(.96)}
-    .form-disclaimer{text-align:center;font-size:10px;color:var(--muted);margin-top:12px}
+    .form-section{display:grid;grid-template-columns:.68fr 1.32fr;gap:24px;align-items:stretch}
+    .form-intro{min-height:720px;border-radius:36px;padding:38px;background:#111;color:#fff;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 28px 80px rgba(0,0,0,.16)}
+    .form-intro p{color:rgba(255,255,255,.66);line-height:1.8;font-size:16px}
+    .bullets{display:grid;gap:13px;margin-top:30px}.bullet{display:flex;gap:12px;color:rgba(255,255,255,.80);font-size:14px;line-height:1.6}.check{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.11);display:grid;place-items:center;flex:0 0 auto}
+    .form-card{border:1px solid var(--line);border-radius:36px;background:rgba(255,255,255,.92);padding:34px;box-shadow:var(--shadow)}
+    .progress{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:24px}.progress-step{min-height:44px;border-radius:14px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;font-weight:850}.progress-step.active{background:#111;color:#fff;border-color:#111}
+    .panel{display:none}.panel.active{display:block}.field{margin-bottom:18px}
+    label{display:block;margin-bottom:8px;font-size:13px;font-weight:850}.required{color:var(--accent)}
+    input,textarea{width:100%;border:1px solid rgba(17,17,17,.13);background:#fff;color:#111;border-radius:15px;padding:14px 15px;outline:none;transition:.2s ease}
+    textarea{min-height:160px;resize:vertical;line-height:1.6}.url-list{min-height:132px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:13px}
+    input:focus,textarea:focus{border-color:rgba(255,89,54,.55);box-shadow:0 0 0 4px rgba(255,89,54,.10)}
+    .hint{margin-top:7px;color:var(--muted);font-size:12px;line-height:1.6}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .full{width:100%;min-height:56px;border-radius:17px}.back{width:100%;margin-top:12px;border:0;background:transparent;color:var(--muted);font-weight:800}
+    .consent{display:flex;gap:9px;margin-top:14px;color:var(--muted);font-size:11px;line-height:1.55}.consent input{width:16px;height:16px;margin-top:1px;flex:0 0 auto}
 
-    .faq-shell{max-width:950px}
-    .faq-list{margin-top:34px;border-top:1px solid var(--line)}
-    details{border-bottom:1px solid var(--line);padding:0}
-    summary{
-      list-style:none;cursor:pointer;padding:23px 2px;font-weight:900;display:flex;justify-content:space-between;gap:20px;
-    }
-    summary::-webkit-details-marker{display:none}
-    summary:after{content:"＋";color:var(--accent);font-size:22px;font-weight:400}
-    details[open] summary:after{content:"−"}
-    details p{color:var(--muted);line-height:1.8;font-size:14px;margin:0;padding:0 2px 22px;max-width:820px}
+    .faq{display:grid;gap:12px}
+    details{border:1px solid var(--line);border-radius:20px;background:rgba(255,255,255,.76);padding:0 20px}
+    summary{cursor:pointer;list-style:none;padding:21px 0;display:flex;align-items:center;justify-content:space-between;gap:20px;font-weight:850}
+    summary::-webkit-details-marker{display:none}summary:after{content:"+";color:var(--muted);font-size:22px;font-weight:400}details[open] summary:after{content:"–"}
+    details p{max-width:900px;margin:0 0 22px;color:var(--muted);line-height:1.8}
+    .contact-card{margin-top:18px;border-radius:22px;background:#111;color:#fff;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    .contact-card span{color:rgba(255,255,255,.66);font-size:13px}.contact-card a{font-weight:850;text-decoration:underline;text-underline-offset:4px}
+    footer{border-top:1px solid var(--line);padding:34px 0 42px;color:var(--muted);font-size:13px}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}.footer-links{display:flex;gap:18px;flex-wrap:wrap}
 
-    footer{border-top:1px solid var(--line);padding:28px 0 36px;color:var(--muted);font-size:12px}
-    .footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-    .footer-links{display:flex;gap:18px;flex-wrap:wrap}
-    .toast{
-      position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;
-      background:#111;color:#fff;border-radius:999px;padding:12px 18px;font-size:13px;transition:.25s;z-index:100;
-    }
-    .toast.show{opacity:1;transform:translate(-50%,0)}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}.reveal.visible{opacity:1;transform:none}
 
     @media(max-width:900px){
-      .hero,.form-wrap{grid-template-columns:1fr}
-      .hero{padding-top:50px}
-      .wishlist-card{max-width:650px}
-      .steps{grid-template-columns:1fr}
-      .stories{grid-template-columns:1fr}
-      .form-note{min-height:auto}
-      .nav-right>a:not(.nav-cta), .nav-cta{display:none}
+      .nav-links>a:not(.nav-cta){display:none}
+      .hero{grid-template-columns:1fr;min-height:auto;padding-top:48px}
+      .wishlist-stage{min-height:560px}
+      .steps,.form-section{grid-template-columns:1fr}
+      .form-intro{min-height:auto}
     }
-    @media(max-width:620px){
+    @media(max-width:640px){
       .shell{width:min(calc(100% - 24px),var(--max))}
-      header{position:static}
-      .nav{min-height:62px}
-      .hero{min-height:auto;padding:42px 0 28px;gap:34px}
-      h1{font-size:52px}
+      .nav-inner{min-height:64px}
+      .nav-cta{min-height:42px;padding:0 14px;font-size:12px}
+      h1{font-size:52px;line-height:1.08}
       .hero-copy{font-size:16px}
-      .hero-actions{flex-direction:column;align-items:stretch}
-      .btn{width:100%}
-      section{padding:64px 0}
-      .product{grid-template-columns:54px 1fr auto}
-      .product-art{height:54px}
-      .two{grid-template-columns:1fr}
-      .form-note h2{font-size:44px}
-      .status{flex-direction:column;gap:4px}
+      .hero-actions .btn{width:100%}
+      .wishlist-stage{min-height:520px}
+      .wishlist-card{width:96%;padding:19px}
+      .wish-total{font-size:40px}
+      .product{grid-template-columns:58px 1fr auto;gap:10px}.product-art{width:58px;height:58px}
+      .proof-strip,.story-band,.form-grid{grid-template-columns:1fr}
+      .proof-item{border-right:0;border-bottom:1px solid var(--line)}.proof-item:last-child{border-bottom:0}
+      .section{padding:82px 0}
+      .form-card,.form-intro{padding:24px;border-radius:26px}
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="shell nav">
-      <a class="brand" href="../" aria-label="DropTheWish home">
-        <span class="brand-mark">W</span><span>DropTheWish</span>
-      </a>
-      <div class="nav-right">
-        <a href="#how">応募の流れ</a>
-        <a href="#faq">FAQ</a>
-        <div class="lang" aria-label="Language">
-          <a href="../">EN</a>
-          <a class="active" href="./" aria-current="page">日本語</a>
-        </div>
-        <a class="nav-cta" href="#entry">無料で応募する</a>
+<header class="nav">
+  <div class="shell nav-inner">
+    <a class="brand" href="../" aria-label="DropTheWish home"><span class="brand-mark">W</span><span>DropTheWish</span></a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="#how">応募の流れ</a>
+      <a href="#faq">FAQ</a>
+      <div class="lang-switch" aria-label="Language"><a href="../">EN</a><a class="active" href="./">日本語</a></div>
+      <a class="btn btn-dark nav-cta" href="#drop">無料で応募する</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="shell hero">
+    <div>
+      <div class="eyebrow reveal"><span class="live-dot"></span><strong>Round #1 now live</strong><span>・海外から応募OK</span></div>
+      <h1 class="reveal">欲しい<br>オリーブヤング商品、<br><span class="hero-accent">100ドル分まで。</span></h1>
+      <p class="hero-copy reveal">気になっていた商品と、その理由を教えてください。<br>選ばれた方に、DropTheWishが最大100ドル分の商品をお届けします。</p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-dark" href="#drop">無料で応募する <span>↘</span></a>
+        <a class="btn btn-light" href="#how">応募の流れを見る</a>
+      </div>
+      <div class="subnote reveal">応募無料 · 購入不要 · 選ばれた方にはメールでご連絡します</div>
+      <div class="trust reveal">
+        <span class="chip">🌎 海外から応募OK</span>
+        <span class="chip">🎁 最大100ドル</span>
+        <span class="chip">✨ 理由も一緒に</span>
+        <span class="chip">🔒 メール非公開</span>
       </div>
     </div>
-  </header>
 
-  <main>
-    <section class="shell hero">
-      <div>
-        <div class="eyebrow"><span class="dot"></span><strong>ROUND #1 OPEN</strong><span>・海外から応募OK</span></div>
-        <h1>
-          欲しい韓国コスメ、<br>
-          <span class="accent">100ドル分まで</span><br>
-          贈ります。
-        </h1>
-        <p class="hero-copy">
-          オリーブヤングで欲しい商品と、その理由を教えてください。<br>
-          選ばれた方に、DropTheWishが最大100ドル分の商品をお届けします。
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-dark" href="#entry">無料で応募する <span>↘</span></a>
-          <a class="btn btn-light" href="#how">応募の流れを見る</a>
+    <div class="wishlist-stage reveal" aria-label="Example Olive Young wishlist">
+      <div class="floating one"></div><div class="floating two"></div>
+      <div class="wishlist-card">
+        <div class="wish-head">
+          <div><div class="wish-kicker">EXAMPLE WISHLIST</div><div class="wish-total">$94.70</div></div>
+          <div class="eligible">100ドル以内 ✓</div>
         </div>
-        <div class="trust-pills">
-          <span class="pill">🌏 海外から応募OK</span>
-          <span class="pill">🎁 最大100ドル</span>
-          <span class="pill">✨ 理由も一緒に</span>
-          <span class="pill">🔒 メール非公開</span>
+        <div class="products">
+          <article class="product"><div class="product-art anua">ANUA</div><div class="product-meta"><strong>Heartleaf Toner</strong><span>Calming skincare</span></div><div class="price">$24.00</div></article>
+          <article class="product"><div class="product-art torriden">TOR<br>RIDEN</div><div class="product-meta"><strong>Dive-In Serum</strong><span>Hydration boost</span></div><div class="price">$25.70</div></article>
+          <article class="product"><div class="product-art boj">BEAUTY<br>OF JOSEON</div><div class="product-meta"><strong>Relief Sun</strong><span>Daily sunscreen</span></div><div class="price">$45.00</div></article>
         </div>
-      </div>
-
-      <div class="wishlist-card" aria-label="Wishlist example">
-        <div class="card-inner">
-          <div class="card-top">
-            <div>
-              <div class="mini-label">EXAMPLE WISHLIST</div>
-              <div class="total">$94.70</div>
-            </div>
-            <div class="eligible">100ドル以内 ✓</div>
-          </div>
-
-          <div class="products">
-            <div class="product">
-              <div class="product-art p1">ANUA</div>
-              <div><strong>Heartleaf Toner</strong><span>Calming skincare</span></div>
-              <div class="price">$24.00</div>
-            </div>
-            <div class="product">
-              <div class="product-art p2">TOR<br>RIDEN</div>
-              <div><strong>Dive-In Serum</strong><span>Hydration boost</span></div>
-              <div class="price">$25.70</div>
-            </div>
-            <div class="product">
-              <div class="product-art p3">BEAUTY<br>OF JOSEON</div>
-              <div><strong>Relief Sun</strong><span>Daily sunscreen</span></div>
-              <div class="price">$45.00</div>
-            </div>
-          </div>
-
-          <div class="reason-bar">
-            <div><strong>欲しいもの。ひとつの理由。</strong><span>なぜ欲しいのか、あなたの言葉で。</span></div>
-            <div>→</div>
-          </div>
-          <div class="status"><strong>● 応募受付中</strong><span>選ばれた方にはメールでご連絡します</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="how">
-      <div class="shell">
-        <div class="section-kicker">HOW IT WORKS</div>
-        <h2 class="section-title">3ステップで応募完了。<br>難しいことはありません。</h2>
-        <p class="section-copy">会員登録・購入・クレジットカード入力は不要です。</p>
-
-        <div class="steps">
-          <article class="step">
-            <div class="step-no">STEP 01</div>
-            <h3>欲しいものを選ぶ</h3>
-            <p>オリーブヤングで、本当に欲しい商品を選んでください。</p>
-            <div class="icon-chip">♡</div>
-          </article>
-          <article class="step">
-            <div class="step-no">STEP 02</div>
-            <h3>理由を書く</h3>
-            <p>完璧な文章より、あなたらしい理由のほうが伝わります。</p>
-            <div class="icon-chip">✦</div>
-          </article>
-          <article class="step">
-            <div class="step-no">STEP 03</div>
-            <h3>商品URLを送る</h3>
-            <p>欲しい商品のURLを入力して、応募を完了してください。</p>
-            <div class="icon-chip">↗</div>
-          </article>
-        </div>
-
-        <div class="stories">
-          <div class="story">
-            「ずっと試してみたかったけど、日本から買うと送料が高くて諦めていました。」
-            <small>EXAMPLE STORY</small>
-          </div>
-          <div class="story">
-            「姉にすすめられて、初めて韓国スキンケアをちゃんと揃えてみたいです。」
-            <small>EXAMPLE STORY</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="entry">
-      <div class="shell form-wrap">
-        <aside class="form-note">
-          <div>
-            <div class="section-kicker">DROP YOUR WISH</div>
-            <h2>欲しいもの。<br>あなたの理由。</h2>
-            <p>商品URLと理由を送るだけ。選ばれた方には、登録メールアドレスへ直接ご連絡します。</p>
-            <div class="checks">
-              <div class="check"><span class="check-bullet">✓</span><span>欲しいオリーブヤング商品のURLを入力</span></div>
-              <div class="check"><span class="check-bullet">✓</span><span>最大100ドル分をDropTheWishがサポート</span></div>
-              <div class="check"><span class="check-bullet">✓</span><span>海外から応募可能（地域のルール・配送条件によります）</span></div>
-            </div>
-          </div>
-          <div class="independent">
-            DropTheWishは独立したプレゼント企画です。Olive Youngおよび掲載ブランドとの提携・協賛関係はありません。
-          </div>
-        </aside>
-
-        <form class="form-card" id="wishForm">
-          <h3>応募フォーム</h3>
-          <p class="sub">1〜2分で完了します。</p>
-
-          <div class="field">
-            <label for="urls">欲しい商品のURL <span class="req">必須</span></label>
-            <textarea id="urls" name="product_urls" required placeholder="商品URLを1行に1つ入力してください&#10;https://global.oliveyoung.com/..."></textarea>
-          </div>
-
-          <div class="field">
-            <label for="reason">なぜ欲しいですか？ <span class="req">必須</span></label>
-            <textarea id="reason" name="reason" required maxlength="600" placeholder="知ったきっかけ、試してみたい理由、あなたにとってどんな意味があるのかを教えてください。"></textarea>
-          </div>
-
-          <div class="two">
-            <div class="field">
-              <label for="email">メールアドレス <span class="req">必須</span></label>
-              <input id="email" name="email" type="email" required placeholder="you@email.com" />
-            </div>
-            <div class="field">
-              <label for="country">お住まいの国・地域 <span class="req">必須</span></label>
-              <input id="country" name="country" required placeholder="例：日本" />
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="name">お名前・ニックネーム <span style="color:var(--muted);font-weight:500">任意</span></label>
-            <input id="name" name="name" placeholder="例：Mika" />
-          </div>
-
-          <input type="hidden" name="language" value="ja" />
-          <input type="hidden" name="utm_source" id="utmSource" />
-          <input type="hidden" name="referrer" id="referrer" />
-
-          <label class="consent">
-            <input type="checkbox" required />
-            <span>応募条件を満たしていることを確認し、DropTheWishから本応募に関する連絡を受けることに同意します。商品購入・決済は必要ありません。</span>
-          </label>
-
-          <button class="submit" type="submit">無料で応募する</button>
-          <div class="form-disclaimer">※現在このフォームはMVPテスト用です。データ保存先は次の工程で接続します。</div>
-        </form>
-      </div>
-    </section>
-
-    <section id="faq">
-      <div class="shell faq-shell">
-        <div class="section-kicker">FAQ</div>
-        <h2 class="section-title">応募前に、<br>気になること。</h2>
-
-        <div class="faq-list">
-          <details open>
-            <summary>本当に無料ですか？</summary>
-            <p>はい。応募に購入・支払い・クレジットカード登録は必要ありません。</p>
-          </details>
-          <details>
-            <summary>どのように選ばれますか？</summary>
-            <p>応募内容をひとつずつ確認し、理由の具体性や誠実さなどを含めて総合的に選びます。文章の上手さだけで決めるものではありません。</p>
-          </details>
-          <details>
-            <summary>100ドルを超えた場合はどうなりますか？</summary>
-            <p>DropTheWishがサポートする上限は100ドル相当です。超過する場合は、対象商品の調整や差額負担など、実際の購入時に可能な方法をご案内します。</p>
-          </details>
-          <details>
-            <summary>いつ連絡が届きますか？</summary>
-            <p>選ばれた方には、応募時に登録したメールアドレスへ直接ご連絡します。</p>
-          </details>
-          <details>
-            <summary>海外からも応募できますか？</summary>
-            <p>はい。世界各地から応募できます。ただし地域ごとの法律、商品在庫、配送条件などにより対応できない場合があります。</p>
-          </details>
-          <details>
-            <summary>オリーブヤング公式の企画ですか？</summary>
-            <p>いいえ。DropTheWishは独立した企画で、Olive Youngおよび掲載ブランドが主催・協賛・運営するものではありません。</p>
-          </details>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="shell footer-inner">
-      <div>© 2026 DropTheWish · A Late Checkout project</div>
-      <div class="footer-links">
-        <a href="mailto:hello@dropthewish.com">お問い合わせ</a>
-        <a href="#faq">応募ルール</a>
-        <a href="#faq">プライバシー</a>
+        <div class="wish-bottom"><div><strong>欲しいもの。ひとつの理由。</strong><span>なぜ欲しいのか、あなたの言葉で。</span></div><span>→</span></div>
+        <div class="mini-status"><span class="status-open"><span class="status-dot"></span>応募受付中</span><span>選ばれた方にメールでご連絡</span></div>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <div class="toast" id="toast">応募フォームのUIは正常に動作しています。</div>
+  <section class="proof-wrap">
+    <div class="shell proof-strip reveal">
+      <div class="proof-item"><span>01</span><strong>応募内容はすべて確認します</strong></div>
+      <div class="proof-item"><span>02</span><strong>理由やエピソードをもとに選びます</strong></div>
+      <div class="proof-item"><span>03</span><strong>選ばれた方へメールでご連絡</strong></div>
+      <div class="proof-item"><span>04</span><strong>商品を購入し、配送を手配します</strong></div>
+    </div>
+  </section>
 
-  <script>
-    const params = new URLSearchParams(location.search);
-    document.getElementById('utmSource').value = params.get('utm_source') || '';
-    document.getElementById('referrer').value = document.referrer || '';
+  <section id="how" class="section">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="kicker">HOW IT WORKS</div>
+        <h2>応募はシンプル。<br>ちょっとワクワク。</h2>
+        <p class="section-copy">会員登録、購入、クレジットカード入力は必要ありません。</p>
+      </div>
+      <div class="steps">
+        <article class="step one reveal"><div class="step-no">STEP 01</div><h3>欲しいものを選ぶ</h3><p>オリーブヤングで、本当に欲しい商品を選んでください。</p><div class="step-visual">♡</div></article>
+        <article class="step two reveal"><div class="step-no">STEP 02</div><h3>理由を書く</h3><p>完璧な文章より、あなたらしい理由のほうが伝わります。</p><div class="step-visual">✦</div></article>
+        <article class="step three reveal"><div class="step-no">STEP 03</div><h3>URLを貼る</h3><p>欲しい商品ページのURLを貼って、応募を完了します。</p><div class="step-visual">↗</div></article>
+      </div>
+      <div class="story-band">
+        <div class="quote reveal">「ずっと試してみたかったけど、日本から買うと送料が高くて諦めていました。」<small>応募エピソード例</small></div>
+        <div class="quote reveal">「新しい仕事が始まる前に、シンプルなスキンケアを揃えたいです。」<small>応募エピソード例</small></div>
+        <div class="quote reveal">「韓国コスメ好きの姉と、いつも話している商品を一緒に使ってみたいです。」<small>応募エピソード例</small></div>
+      </div>
+    </div>
+  </section>
 
-    const form = document.getElementById('wishForm');
-    const toast = document.getElementById('toast');
+  <section id="drop" class="section">
+    <div class="shell form-section">
+      <aside class="form-intro reveal">
+        <div>
+          <div class="kicker" style="color:#ff9b79">DROP YOUR WISH</div>
+          <h2>欲しいもの。<br>あなたの理由。</h2>
+          <p>2ステップで応募できます。最後の送信ボタンを押すまで、内容は送信されません。</p>
+          <div class="bullets">
+            <div class="bullet"><span class="check">✓</span><span>欲しいオリーブヤング商品のURLを入力</span></div>
+            <div class="bullet"><span class="check">✓</span><span>選ばれた方に最大100ドル分をサポート</span></div>
+            <div class="bullet"><span class="check">✓</span><span>海外から応募可能（地域ルール・配送条件によります）</span></div>
+          </div>
+        </div>
+        <p style="font-size:12px;margin:28px 0 0">DropTheWishは独立したプレゼント企画です。Olive Youngおよび掲載ブランドとの提携・協賛関係はありません。</p>
+      </aside>
 
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        form.reportValidity();
-        return;
-      }
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 2600);
-    });
-  </script>
+      <form class="form-card reveal" id="wishForm">
+        <div class="progress"><div class="progress-step active" id="progress1">1 · あなたについて</div><div class="progress-step" id="progress2">2 · ウィッシュリスト</div></div>
+
+        <div class="panel active" id="panel1">
+          <div class="field"><label for="email">メールアドレス <span class="required">*</span></label><input id="email" type="email" required placeholder="you@email.com"><div class="hint">応募に関するご連絡にのみ使用します。</div></div>
+          <div class="form-grid">
+            <div class="field"><label for="country">お住まいの国・地域 <span class="required">*</span></label><input id="country" required placeholder="例：日本"></div>
+            <div class="field"><label for="name">お名前・ニックネーム</label><input id="name" placeholder="例：Mika"></div>
+          </div>
+          <button type="button" class="btn btn-dark full" id="continueBtn">ウィッシュリストを入力する</button>
+        </div>
+
+        <div class="panel" id="panel2">
+          <div class="field"><label for="story">なぜ、この商品が欲しいですか？ <span class="required">*</span></label><textarea id="story" required minlength="30" maxlength="800" placeholder="例：SNSで見かけてからずっと気になっていました。日本では見つけにくく、送料も高くて購入を迷っていた商品です。"></textarea><div class="hint"><span id="storyCount">0</span>/800文字 · 文章の上手さより、具体的な理由を大切にしています。</div></div>
+          <div class="field"><label for="product_urls">欲しい商品のURL <span class="required">*</span></label><textarea id="product_urls" class="url-list" required placeholder="商品URLを1行に1つずつ貼り付けてください&#10;https://global.oliveyoung.com/..."></textarea><div class="hint">商品数に制限はありません。DropTheWishのサポート上限は100ドルです。合計が100ドルを超える場合、超過分は選ばれた方のご負担となります。</div></div>
+          <button type="submit" class="btn btn-dark full">応募を送信する</button>
+          <button type="button" class="back" id="backBtn">← 戻る</button>
+          <label class="consent"><input type="checkbox" required><span>応募資格を満たしていることを確認し、DropTheWishから本応募について連絡を受けることに同意します。購入は不要です。</span></label>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="faq" class="section">
+    <div class="shell">
+      <div class="section-head reveal"><div class="kicker">FAQ</div><h2>応募前に、<br>気になること。</h2></div>
+      <div class="faq">
+        <details class="reveal" open><summary>本当に無料ですか？</summary><p>はい。応募に購入、支払い、クレジットカード、有料会員登録は必要ありません。</p></details>
+        <details class="reveal"><summary>どのように選ばれますか？</summary><p>商品の数や合計金額ではなく、応募内容の具体性や、その商品を選んだ理由をもとに選びます。文章の上手さだけで決めるものではありません。</p></details>
+        <details class="reveal"><summary>100ドルを超えた場合はどうなりますか？</summary><p>DropTheWishがサポートする上限は100ドルです。合計が100ドルを超える場合、超過分は選ばれた方のご負担となります。在庫や配送条件により別の対応をご相談する場合があります。</p></details>
+        <details class="reveal"><summary>いつ連絡が届きますか？</summary><p>選ばれた方には、応募時に登録したメールアドレスへ直接ご連絡します。</p></details>
+        <details class="reveal"><summary>海外からも応募できますか？</summary><p>はい。地域ごとの法律や配送可否の範囲で、海外からも応募できます。</p></details>
+        <details class="reveal"><summary>オリーブヤング公式の企画ですか？</summary><p>いいえ。DropTheWishは独立した企画であり、Olive Youngおよび掲載ブランドによる協賛、承認、運営を受けていません。</p></details>
+      </div>
+      <div class="contact-card reveal"><div><strong>まだ気になることがありますか？</strong><br><span>メールでお問い合わせください。</span></div><a href="mailto:hello@dropthewish.com">hello@dropthewish.com</a></div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="shell footer-inner"><div>© 2026 DropTheWish · A Late Checkout project</div><div class="footer-links"><a href="mailto:hello@dropthewish.com">お問い合わせ</a><a href="#faq">応募ルール</a><a href="#faq">プライバシー</a></div></div></footer>
+
+<script>
+  const panel1=document.getElementById("panel1"),panel2=document.getElementById("panel2");
+  const p1=document.getElementById("progress1"),p2=document.getElementById("progress2");
+  const email=document.getElementById("email"),country=document.getElementById("country");
+  document.getElementById("continueBtn").addEventListener("click",()=>{
+    if(!email.checkValidity()){email.reportValidity();return}
+    if(!country.checkValidity()){country.reportValidity();return}
+    panel1.classList.remove("active");panel2.classList.add("active");p1.classList.remove("active");p2.classList.add("active");document.getElementById("story").focus()
+  });
+  document.getElementById("backBtn").addEventListener("click",()=>{panel2.classList.remove("active");panel1.classList.add("active");p2.classList.remove("active");p1.classList.add("active")});
+  const story=document.getElementById("story"),count=document.getElementById("storyCount");
+  story.addEventListener("input",()=>count.textContent=story.value.length);
+  document.getElementById("wishForm").addEventListener("submit",e=>{e.preventDefault();alert("フォームUIのテストは正常です。次にデータ保存を接続します。")});
+  const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add("visible")}),{threshold:.12});
+  document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+</script>
 </body>
 </html>
